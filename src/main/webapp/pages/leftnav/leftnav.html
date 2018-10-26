@@ -1,20 +1,7 @@
 <wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="leftnav">
-
     <wm-nav name="leftnavigation" type="pills" layout="stacked" margin="15px unset unset unset">
         <wm-nav-item name="nav_item8" accessroles="user,admin">
             <wm-anchor name="anchor8" iconclass="" caption="Task" on-click="Actions.goToPage_Task.invoke()" iconurl="resources/images/imagelists/task1.png" iconwidth="32"></wm-anchor>
-            <wm-nav type="pills" autoclose="outsideClick" name="nav2">
-                <wm-nav-item name="nav_item15">
-                    <wm-anchor caption="Link 1" name="anchor16"></wm-anchor>
-                </wm-nav-item>
-                <wm-nav-item name="nav_item16">
-                    <wm-anchor caption="Link 2" name="anchor17"></wm-anchor>
-                </wm-nav-item>
-                <wm-nav-item name="nav_item17">
-                    <wm-anchor caption="Link 3" name="anchor18"></wm-anchor>
-                </wm-nav-item>
-            </wm-nav>
-            <wm-anchor margin="unset 0.5em" name="anchor15"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item11">
             <wm-anchor name="anchor11" iconclass="" caption="Contacts" iconurl="resources/images/imagelists/contact1.png" iconwidth="32" on-click="Actions.goToPage_Contact.invoke()"></wm-anchor>
