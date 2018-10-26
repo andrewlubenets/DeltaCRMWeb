@@ -39,11 +39,11 @@ public class Projects implements Serializable {
     private Integer stageid;
     private Integer opportunityid;
     private LocalDateTime dateCreation;
+    private Stages stages;
+    private Categories categories;
     private Pipelines pipelines;
     private Opportunities opportunities;
     private Users users;
-    private Stages stages;
-    private Categories categories;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -129,6 +129,36 @@ public class Projects implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_4`"))
+    @Fetch(FetchMode.JOIN)
+    public Stages getStages() {
+        return this.stages;
+    }
+
+    public void setStages(Stages stages) {
+        if(stages != null) {
+            this.stageid = stages.getId();
+        }
+
+        this.stages = stages;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public Categories getCategories() {
+        return this.categories;
+    }
+
+    public void setCategories(Categories categories) {
+        if(categories != null) {
+            this.categoryid = categories.getId();
+        }
+
+        this.categories = categories;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`pipelineid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_3`"))
     @Fetch(FetchMode.JOIN)
     public Pipelines getPipelines() {
@@ -171,36 +201,6 @@ public class Projects implements Serializable {
         }
 
         this.users = users;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_4`"))
-    @Fetch(FetchMode.JOIN)
-    public Stages getStages() {
-        return this.stages;
-    }
-
-    public void setStages(Stages stages) {
-        if(stages != null) {
-            this.stageid = stages.getId();
-        }
-
-        this.stages = stages;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public Categories getCategories() {
-        return this.categories;
-    }
-
-    public void setCategories(Categories categories) {
-        if(categories != null) {
-            this.categoryid = categories.getId();
-        }
-
-        this.categories = categories;
     }
 
     @Override

@@ -1,8 +1,8 @@
-Application.$controller("OpportunitiesPageController", ["$scope", function ($scope) {
+Application.$controller("OpportunitiesPageController", ["$scope", function($scope) {
     "use strict";
 
     /* perform any action on widgets/variables within this block */
-    $scope.onPageReady = function () {
+    $scope.onPageReady = function() {
         /*
          * variables can be accessed through '$scope.Variables' property here
          * e.g. to get dataSet in a staticVariable named 'loggedInUser' use following script
@@ -14,45 +14,60 @@ Application.$controller("OpportunitiesPageController", ["$scope", function ($sco
          */
     };
 
+
+
+
+
+    $scope.OpportunitiesLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
+        console.log($scope.Variables.findStages.dataSet.content.length);
+        var names = $scope.Variables.findStages.dataSet.content[0].name;
+        for (var i = 1; i < $scope.Variables.findStages.dataSet.content.length; i++) {
+            names += "," + $scope.Variables.findStages.dataSet.content[i].name;
+        }
+        console.log(names);
+        $data.pipesize = $scope.Variables.findStages.dataSet.content.length;
+        $data.pipenames = names;
+    };
+
 }]);
 
 
 Application.$controller("OpportunitiesTable1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
 ]);
 
 Application.$controller("OpportunitiesLiveForm1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
 ]);
 
 Application.$controller("dialog1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
 ]);
 
 Application.$controller("FilesOpportunitiesTable1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	}
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
 ]);
 
 Application.$controller("FilesOpportunitiesLiveForm1Controller", ["$scope",
-	function($scope) {
-		"use strict";
-		$scope.ctrlScope = $scope;
-	
-        $scope.fileupload1Success = function ($event, $isolateScope) { 
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+        $scope.fileupload1Success = function($event, $isolateScope) {
 
         };
- 
+
     }
 ]);

@@ -41,8 +41,8 @@ public class Tasks implements Serializable {
     private String status;
     private String relatedto;
     private String description;
-    private Users users;
     private Categories categories;
+    private Users users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -146,21 +146,6 @@ public class Tasks implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`assignedto_userid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`tasks_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.assignedtoUserid = users.getId();
-        }
-
-        this.users = users;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`tasks_ibfk_2`"))
     @Fetch(FetchMode.JOIN)
     public Categories getCategories() {
@@ -173,6 +158,21 @@ public class Tasks implements Serializable {
         }
 
         this.categories = categories;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`assignedto_userid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`tasks_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.assignedtoUserid = users.getId();
+        }
+
+        this.users = users;
     }
 
     @Override

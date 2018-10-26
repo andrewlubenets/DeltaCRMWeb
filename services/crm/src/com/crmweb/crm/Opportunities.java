@@ -45,10 +45,12 @@ public class Opportunities implements Serializable {
     private LocalDateTime dateCreation;
     private Integer forecastCommitDeals;
     private Integer forecastUpside;
+    private Integer pipesize;
+    private String pipenames;
+    private Stages stages;
     private Categories categories;
     private Pipelines pipelines;
     private Users users;
-    private Stages stages;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -70,7 +72,7 @@ public class Opportunities implements Serializable {
         this.name = name;
     }
 
-    @Column(name = "`description`", nullable = true, length = 255)
+    @Column(name = "`description`", nullable = true, length = 5000)
     public String getDescription() {
         return this.description;
     }
@@ -187,6 +189,39 @@ public class Opportunities implements Serializable {
         this.forecastUpside = forecastUpside;
     }
 
+    @Column(name = "`pipesize`", nullable = true, scale = 0, precision = 10)
+    public Integer getPipesize() {
+        return this.pipesize;
+    }
+
+    public void setPipesize(Integer pipesize) {
+        this.pipesize = pipesize;
+    }
+
+    @Column(name = "`pipenames`", nullable = true, length = 255)
+    public String getPipenames() {
+        return this.pipenames;
+    }
+
+    public void setPipenames(String pipenames) {
+        this.pipenames = pipenames;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_4`"))
+    @Fetch(FetchMode.JOIN)
+    public Stages getStages() {
+        return this.stages;
+    }
+
+    public void setStages(Stages stages) {
+        if(stages != null) {
+            this.stageid = stages.getId();
+        }
+
+        this.stages = stages;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_1`"))
     @Fetch(FetchMode.JOIN)
@@ -230,21 +265,6 @@ public class Opportunities implements Serializable {
         }
 
         this.users = users;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_4`"))
-    @Fetch(FetchMode.JOIN)
-    public Stages getStages() {
-        return this.stages;
-    }
-
-    public void setStages(Stages stages) {
-        if(stages != null) {
-            this.stageid = stages.getId();
-        }
-
-        this.stages = stages;
     }
 
     @Override
