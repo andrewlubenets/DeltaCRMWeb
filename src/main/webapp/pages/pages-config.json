@@ -1,6 +1,30 @@
 [ {
+  "name" : "ActivitySets",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Categories",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Common",
   "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "Contact",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "LeadSources",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "LeadStatuses",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Leads",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "Login",
@@ -8,6 +32,46 @@
   "params" : [ ]
 }, {
   "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Opportunities",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "OpportunitiesStates",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Organizations",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Pipelines",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Projects",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Reports",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Stages",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Task",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "UserOptions",
+  "type" : "POPOVER",
+  "params" : [ ]
+}, {
+  "name" : "Users",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -25,6 +89,10 @@
 }, {
   "name" : "rightnav",
   "type" : "RIGHTNAV",
+  "params" : [ ]
+}, {
+  "name" : "test",
+  "type" : "PAGE",
   "params" : [ ]
 }, {
   "name" : "topnav",

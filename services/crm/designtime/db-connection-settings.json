@@ -1,0 +1,85 @@
+{
+  "username" : "root",
+  "password" : "7b6a43524a2e23176a66667f4b45747b47367b6a3120",
+  "url" : "jdbc:mysql://104.236.75.169:3306/crm?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "crm",
+  "packageName" : "com.crmweb.crm",
+  "dbType" : "MySQL",
+  "host" : "104.236.75.169",
+  "dbName" : "crm",
+  "port" : "3306",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "activity_sets",
+    "schema" : null
+  }, {
+    "table" : "categories",
+    "schema" : null
+  }, {
+    "table" : "contacts",
+    "schema" : null
+  }, {
+    "table" : "files_opportunities",
+    "schema" : null
+  }, {
+    "table" : "files_projects",
+    "schema" : null
+  }, {
+    "table" : "lead_sources",
+    "schema" : null
+  }, {
+    "table" : "lead_statuses",
+    "schema" : null
+  }, {
+    "table" : "leads",
+    "schema" : null
+  }, {
+    "table" : "opportunities",
+    "schema" : null
+  }, {
+    "table" : "opportunity_states",
+    "schema" : null
+  }, {
+    "table" : "organizations",
+    "schema" : null
+  }, {
+    "table" : "pipelines",
+    "schema" : null
+  }, {
+    "table" : "projects",
+    "schema" : null
+  }, {
+    "table" : "stages",
+    "schema" : null
+  }, {
+    "table" : "task_opportunities",
+    "schema" : null
+  }, {
+    "table" : "task_projects",
+    "schema" : null
+  }, {
+    "table" : "tasks",
+    "schema" : null
+  }, {
+    "table" : "users",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : true
+}

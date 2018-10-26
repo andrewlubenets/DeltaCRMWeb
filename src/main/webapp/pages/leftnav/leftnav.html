@@ -1,16 +1,59 @@
 <wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="leftnav">
-    <wm-nav name="leftnavigation" type="pills" layout="stacked">
+
+    <wm-nav name="leftnavigation" type="pills" layout="stacked" margin="15px unset unset unset">
+        <wm-nav-item name="nav_item8" accessroles="user,admin">
+            <wm-anchor name="anchor8" iconclass="" caption="Task" on-click="Actions.goToPage_Task.invoke()" iconurl="resources/images/imagelists/task1.png" iconwidth="32"></wm-anchor>
+            <wm-nav type="pills" autoclose="outsideClick" name="nav2">
+                <wm-nav-item name="nav_item15">
+                    <wm-anchor caption="Link 1" name="anchor16"></wm-anchor>
+                </wm-nav-item>
+                <wm-nav-item name="nav_item16">
+                    <wm-anchor caption="Link 2" name="anchor17"></wm-anchor>
+                </wm-nav-item>
+                <wm-nav-item name="nav_item17">
+                    <wm-anchor caption="Link 3" name="anchor18"></wm-anchor>
+                </wm-nav-item>
+            </wm-nav>
+            <wm-anchor margin="unset 0.5em" name="anchor15"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item11">
+            <wm-anchor name="anchor11" iconclass="" caption="Contacts" iconurl="resources/images/imagelists/contact1.png" iconwidth="32" on-click="Actions.goToPage_Contact.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item14_1">
+            <wm-anchor name="anchor14_1" iconclass="" caption="Organizations" iconurl="resources/images/imagelists/org.png" iconwidth="32" on-click="Actions.goToPage_Organizations.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item10">
+            <wm-anchor name="anchor10" iconclass="" caption="Leads" iconurl="resources/images/imagelists/leads2.png" iconwidth="32" on-click="Actions.goToPage_Leads.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item9">
+            <wm-anchor name="anchor9" iconclass="" caption="Opportunities" iconurl="resources/images/imagelists/opo2.png" iconwidth="32" on-click="Actions.goToPage_Opportunities.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item12">
+            <wm-anchor name="anchor12" iconclass="" caption="Projects" iconurl="resources/images/imagelists/project1.png" iconwidth="32" on-click="Actions.goToPage_Projects.invoke()"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item14">
+            <wm-anchor name="anchor14" iconclass="" caption="Reports" iconurl="resources/images/imagelists/report1.png" iconwidth="32"></wm-anchor>
+        </wm-nav-item>
         <wm-nav-item name="list_dashboard">
-            <wm-anchor caption="Dashboard" name="dashboardLink" iconclass="wi wi-bar-graph"></wm-anchor>
+            <wm-anchor caption="Users" name="dashboardLink" iconclass="" on-click="Actions.goToPage_Users.invoke()" accessroles="admin" iconurl="resources/images/imagelists/users.png" iconwidth="32"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_order">
-            <wm-anchor caption="Pending Orders" name="orderLink" iconclass="wi wi-file"></wm-anchor>
+            <wm-anchor caption="Categories" name="orderLink" iconclass="" on-click="Actions.goToPage_Categories.invoke()" accessroles="admin" iconurl="resources/images/imagelists/categories.png" iconwidth="32"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_inventory">
-            <wm-anchor caption="Inventory" name="inventoryLink" iconclass="wi wi-tag"></wm-anchor>
+            <wm-anchor caption="Opportunity States" name="inventoryLink" iconclass="" on-click="Actions.goToPage_OpportunitiesStates.invoke()" accessroles="admin" iconurl="resources/images/imagelists/opostates.png" iconwidth="32"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="list_support">
-            <wm-anchor caption="Support Calls" name="supportLink" iconclass="wi wi-envelope"></wm-anchor>
+            <wm-anchor caption="Lead Statuses" name="supportLink" iconclass="" on-click="Actions.goToPage_LeadStatuses.invoke()" accessroles="admin" iconurl="resources/images/imagelists/leadsstatus.png" iconwidth="32"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item5">
+            <wm-anchor name="anchor5" iconclass="" caption="Lead Sources" on-click="Actions.goToPage_LeadSources.invoke()" accessroles="admin" iconurl="resources/images/imagelists/leadsources.png" iconwidth="32"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item6">
+            <wm-anchor name="anchor6" iconclass="" caption="Pipelines" on-click="Actions.goToPage_Pipelines.invoke()" accessroles="admin" iconurl="resources/images/imagelists/pipelines1.png" iconwidth="32"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item7">
+            <wm-anchor name="anchor7" iconclass="" caption="Activity Sets" on-click="Actions.goToPage_ActivitySets.invoke()" accessroles="admin" iconurl="resources/images/imagelists/activitysets1.png" iconwidth="32"></wm-anchor>
         </wm-nav-item>
     </wm-nav>
 </wm-partial>

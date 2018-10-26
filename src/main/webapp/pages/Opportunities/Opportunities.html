@@ -1,0 +1,167 @@
+<wm-page data-ng-controller="OpportunitiesPageController" pagetitle="Opportunities" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid3_1">
+                <wm-gridrow name="gridrow9">
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn22_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn18_1">
+                        <wm-composite name="composite2">
+                            <wm-checkbox caption="Commit Deals?" class="col-md-push-3 col-md-9" name="dealscbx" checkedvalue="1" uncheckedvalue="0" datavalue="0" on-change="Variables.CrmOpportunitiesData.listRecords()"></wm-checkbox>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn24_1">
+                        <wm-composite name="composite4">
+                            <wm-checkbox caption="Upside?" class="col-md-push-3 col-md-9" name="upsidecbx" checkedvalue="1" uncheckedvalue="0" datavalue="0"></wm-checkbox>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn19_1">
+                        <wm-composite name="composite1">
+                            <wm-label class="col-md-3 control-label" name="label1" caption="Product Category"></wm-label>
+                            <wm-container class="col-md-9" name="container1">
+                                <wm-select name="select1" dataset="DeltaApp,Hardware-Software" datafield="All Fields"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+            <wm-livetable formlayout="dialog" name="OpportunitiesLiveTable1">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="OpportunitiesTable1" title="Opportunities List" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500"
+                    on-select="Variables.findStages.invoke()">
+                    <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="valueCurrency" caption="Currency" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="valueBidamount" caption="Value" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="forecastclosedate" caption="Forecast Close Date" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
+                        <table border="1">
+                            <tbody>
+                                <tr>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td bgcolor="orange">&nbsp;&nbsp;</td>
+                                    <td>&nbsp;&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </wm-table-column>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="customRow" display-name="Tasks" show="true" class="btn-transparent" iconclass="" title="Tasks" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="customRow1" display-name="Files" show="true" class="btn-transparent" iconclass="" title="Files" action="Widgets.dialog1.open()" disabled="false"></wm-table-row-action>
+                </wm-table>
+                <wm-liveform errormessage="" title="Opportunities Info" formlayout="dialog" iconclass="wi wi-edit" name="OpportunitiesLiveForm1" dataset="bind:Variables.CrmOpportunitiesData.dataSet" captionalign="left" captionposition="top">
+                    <wm-layoutgrid columns="3" name="layoutgrid1">
+                        <wm-gridrow name="gridrow14">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn14">
+                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn16">
+                                <wm-form-field name="categories" displayname="Categories" show="true" primary-key="false" generator="assigned" period="false" key="categories" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Opportunities&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:1799&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
+                                    displayexpression="maincategory + ' ----  ' + name" placeholder="Select value" orderby="maincategory:desc,name:desc"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow19">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn29">
+                                <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" widget="textarea" maxchars="5000" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow15">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn17">
+                                <wm-form-field name="probabilityofwinning" displayname="Probability of Winning" show="true" primary-key="false" generator="assigned" period="false" key="probabilityofwinning" type="string" readonly="false" required="false"
+                                    widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn18">
+                                <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" required="false" widget="datetime"
+                                    placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn19">
+                                <wm-form-field name="users" displayname="Who's Responsable?" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="firstname + ' ' + lastname" placeholder="Select value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow16">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn20">
+                                <wm-form-field name="valueCurrency" displayname="Currency" show="true" primary-key="false" generator="assigned" period="false" key="valueCurrency" type="string" readonly="false" widget="select" currency="INR" dataset="bind:Variables.currency.dataSet"
+                                    datafield="AlphabeticCode" displayfield="AlphabeticCode"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn21">
+                                <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" required="false" widget="text" maxchars="255"
+                                    inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn22">
+                                <wm-form-field name="valueUnitofmeasure" displayname="Type Bid" show="true" primary-key="false" generator="assigned" period="false" key="valueUnitofmeasure" type="string" readonly="false" widget="select" maxchars="255" placeholder="Select value"
+                                    dataset="Fixed Bid,Per Hour,Per Day,Per Week,Per Month,Per Year"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow17">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn23">
+                                <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name" placeholder="Select value" on-change="Variables.findStages.invoke()"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn24">
+                                <wm-form-field name="stages" displayname="Stages" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name" placeholder="Select value" dataset="bind:Variables.findStages.dataSet" datafield="All Fields" displayfield="name" defaultvalue="bind:Variables.CrmOpportunitiesData.dataSet.data[$i].stages"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn25"></wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow18">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn26">
+                                <wm-form-field name="forecastCommitDeals" displayname="Forecast Commit Deals?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox"
+                                    placeholder="" checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn27">
+                                <wm-form-field name="forecastUpside" displayname="Forecast Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
+                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn28"></wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livetable>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="bind:&quot;Files for: &quot;+Widgets.OpportunitiesTable1.selecteditem.name" iconclass="wi wi-file-text" name="dialog1">
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button1"></wm-button>
+            </wm-dialogactions>
+            <wm-livetable formlayout="inline" name="FilesOpportunitiesLiveTable1">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="FilesOpportunitiesTable1" title="Files_opportunities List" dataset="bind:Variables.CrmFilesOpportunitiesData.dataSet" navigation="Basic">
+                    <wm-table-column binding="name" caption="Name" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                    <wm-table-column binding="size" caption="Size" generator="assigned" pcdisplay="true" mobiledisplay="true" type="string"></wm-table-column>
+                    <wm-table-action widget-type="button" key="addNewRow" display-name="New" iconclass="wi wi-plus" show="true" class="btn-primary" action="addNewRow()" position="footer" shortcutkey=""></wm-table-action>
+                    <wm-table-row-action key="updaterow" display-name="" title="Edit" iconclass="wi wi-pencil" show="true" class="btn-transparent" action="editRow()"></wm-table-row-action>
+                    <wm-table-row-action key="deleterow" display-name="" title="Delete" iconclass="wi wi-trash" show="true" class="btn-transparent" action="deleteRow()"></wm-table-row-action>
+                </wm-table>
+                <wm-liveform errormessage="" title="Files_opportunities Info" formlayout="inline" iconclass="wi wi-edit" name="FilesOpportunitiesLiveForm1" dataset="bind:Variables.CrmFilesOpportunitiesData.dataSet" captionalign="left" captionposition="top">
+                    <wm-layoutgrid columns="1" name="layoutgrid3">
+                        <wm-gridrow name="gridrow22">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn36">
+                                <wm-fileupload name="fileupload1" service="FileService" operation="uploadFile" on-success="fileupload1Success($event, $scope)"></wm-fileupload>
+                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
+                                    widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow23">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn37">
+                                <wm-form-field name="size" displayname="Size" required="false" show="true" generator="assigned" primary-key="false" key="size" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
+                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livetable>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

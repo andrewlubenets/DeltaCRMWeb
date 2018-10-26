@@ -1,12 +1,13 @@
 <wm-partial data-ng-controller="headerPageController" name="header" type="header">
     <wm-layoutgrid name="headerlayout">
-        <wm-gridrow name="headerrow">
-            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="7">
-                <wm-picture picturesource="resources/images/logos/logo.png" name="AppLogo" marginleft="5"></wm-picture>
-                <wm-label caption="crmweb" class="application-name" name="AppName" fontsize="20"></wm-label>
+        <wm-gridrow name="headerrow" padding="1px unset unset unset">
+            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="7" padding="1px unset unset unset">
+                <wm-picture name="picture1" pictureplaceholder="resources/images/imagelists/opo3.png" height="42" margin="unset unset unset 5px"></wm-picture>
+                <wm-label caption="Delta CRM" class="application-name" name="AppName" fontsize="20" margin="unset unset unset 5px"></wm-label>
+                <wm-icon name="icon1" iconclass="resources/images/imagelists/opo3.png" iconsize="32"></wm-icon>
             </wm-gridcolumn>
-            <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="5" paddingunit="em"  paddingtop="1" paddingright="1">
-                <wm-search name="siteSearch" dataset="Home, Services, Products, About US, Contact"></wm-search>
+            <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="5" padding="1em 1em 1em unset">
+                <wm-popover popoverwidth="240" margin="unset 0.5em" name="popover1" caption="bind:Variables.loggedInUser.dataSet.name" contentsource="partial" content="UserOptions"></wm-popover>
             </wm-gridcolumn>
         </wm-gridrow>
     </wm-layoutgrid>

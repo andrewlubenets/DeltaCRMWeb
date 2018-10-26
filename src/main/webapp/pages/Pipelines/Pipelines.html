@@ -1,0 +1,84 @@
+<wm-page data-ng-controller="PipelinesPageController" pagetitle="Pipelines" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-livetable formlayout="dialog" name="PipelinesLiveTable1">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="PipelinesTable1" title="Pipelines" dataset="bind:Variables.CrmPipelinesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV">
+                    <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="type" caption="Type" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="150px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="customRow" display-name="Stages" show="true" class="btn-transparent" iconclass="" title="Stages" action="Widgets.dialog1.open();Variables.CrmStagesData.listRecords()" disabled="false"></wm-table-row-action>
+                </wm-table>
+                <wm-liveform errormessage="" title="Pipelines Info" formlayout="dialog" iconclass="wi wi-edit" name="PipelinesLiveForm1" dataset="bind:Variables.CrmPipelinesData.dataSet" captionalign="left" captionposition="top" show="true">
+                    <wm-layoutgrid columns="1" name="layoutgrid1">
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn2">
+                                <wm-form-field name="opportunityid" displayname="Opportunityid" required="false" show="false" generator="assigned" primary-key="false" key="opportunityid" type="integer" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                                <wm-form-field name="type" displayname="Type" show="true" primary-key="false" generator="assigned" period="false" key="type" type="string" readonly="false" widget="checkboxset" dataset="Opportunities,Projects"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livetable>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+    <wm-view class="dialog-view" name="view1">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="bind:&quot;Stages for: &quot;+Widgets.PipelinesTable1.selecteditem.name" iconclass="wi wi-file-text" name="dialog1">
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button1"></wm-button>
+            </wm-dialogactions>
+            <wm-livetable name="StagesLiveTable1" formlayout="dialog">
+                <wm-table gridfirstrowselect="true" editmode="form" name="StagesTable1" title="Stages List" dataset="bind:Variables.CrmStagesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV">
+                    <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="number" caption="Number" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="probability" caption="Probability" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
+                    <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
+                </wm-table>
+                <wm-liveform errormessage="" title="Stages Info" formlayout="dialog" iconclass="wi wi-edit" name="StagesLiveForm1" dataset="bind:Variables.CrmStagesData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="StagesLiveForm1Beforeservicecall($event, $operation, $data, options)">
+                    <wm-layoutgrid columns="1" name="layoutgrid3">
+                        <wm-gridrow name="gridrow6">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn8">
+                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow7">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn9">
+                                <wm-form-field name="number" displayname="Number" show="true" primary-key="false" generator="assigned" period="false" key="number" type="integer" readonly="false" required="false" step="0" widget="number" inputtype="number"
+                                    placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow8">
+                            <wm-gridcolumn columnwidth="12" name="gridcolumn10">
+                                <wm-form-field name="probability" displayname="Probability" show="true" primary-key="false" generator="assigned" period="false" key="probability" type="string" readonly="false" required="false" widget="text" maxchars="255"
+                                    inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livetable>
+        </wm-dialog>
+    </wm-view>
+</wm-page>

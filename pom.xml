@@ -13,6 +13,20 @@
             </resource>
             <resource>
                 <filtering>true</filtering>
+                <directory>services/FileService/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
+                <directory>services/crm/src</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <filtering>true</filtering>
                 <directory>services/securityService/src</directory>
                 <excludes>
                     <exclude>**/*.java</exclude>
@@ -101,6 +115,8 @@
                         </goals>
                         <configuration>
                             <sources>
+                                <source>services/FileService/src</source>
+                                <source>services/crm/src</source>
                                 <source>services/securityService/src</source>
                             </sources>
                         </configuration>
@@ -268,6 +284,11 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

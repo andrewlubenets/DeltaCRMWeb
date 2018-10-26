@@ -1,0 +1,13 @@
+<wm-partial data-ng-controller="UserOptionsPageController" type="popover" name="partial1">
+    <wm-nav type="pills" autoclose="outsideClick" name="nav1" layout="stacked">
+        <wm-nav-item name="nav_item1">
+            <wm-anchor caption="My Account" name="anchor1"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item2">
+            <wm-anchor caption="Help" name="anchor2"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item3">
+            <wm-anchor caption="Logout" name="anchor3" on-click="Actions.logoutAction.invoke()"></wm-anchor>
+        </wm-nav-item>
+    </wm-nav>
+</wm-partial>
