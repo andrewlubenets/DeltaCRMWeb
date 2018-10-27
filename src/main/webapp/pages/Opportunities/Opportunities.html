@@ -36,10 +36,8 @@
                     <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
                         <div class="row">
-                            <div class="col-4 col-md-2" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index">
-                                <div ng-if="row.getProperty('stages.number')==($index+1)" title="{{row.getProperty('stages.name')}}" class="bg-primary">&nbsp;</div>
-                                <div ng-if="row.getProperty('stages.number')!==($index+1)" class="bg-info">&nbsp;</div>
-                            </div>
+                            <div class="col-sm-2 borderman {{ (row.getProperty('stages.number')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ (row.getProperty('stages.number')==($index+1))?row.getProperty('stages.name'):'' }}">
+                                <span>&nbsp;</span></div>
                         </div>
                     </wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
