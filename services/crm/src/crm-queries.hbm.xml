@@ -2,4 +2,29 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="searchprojectopportunities">
+        <![CDATA[
+        select p.id,p.name,'(Project)' as typerelation
+from projects p
+
+
+union
+
+select o.id,o.name,'(Opportunity)' as typerelation
+from opportunities o
+        ]]>
+    </sql-query>
+
+    <sql-query name="searchprojectopportunities__count">
+        <![CDATA[
+        select count(*) from (select p.id,p.name,'(Project)' as typerelation
+from projects p
+
+
+union
+
+select o.id,o.name,'(Opportunity)' as typerelation
+from opportunities o) wmTempTable
+        ]]>
+    </sql-query>
 </hibernate-mapping>

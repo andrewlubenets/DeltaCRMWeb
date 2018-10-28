@@ -36,7 +36,7 @@
                     <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
                         <div class="row">
-                            <div class="col-sm-2 borderman {{ (row.getProperty('stages.number')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ (row.getProperty('stages.number')==($index+1))?row.getProperty('stages.name'):'' }}">
+                            <div class="col-sm-2 borderman {{ (row.getProperty('stages.number')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ row.getProperty('pipenames').split(',')[$index] }}">
                                 <span>&nbsp;</span></div>
                         </div>
                     </wm-table-column>

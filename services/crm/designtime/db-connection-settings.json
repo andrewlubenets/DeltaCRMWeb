@@ -54,12 +54,6 @@
     "table" : "stages",
     "schema" : null
   }, {
-    "table" : "task_opportunities",
-    "schema" : null
-  }, {
-    "table" : "task_projects",
-    "schema" : null
-  }, {
     "table" : "tasks",
     "schema" : null
   }, {

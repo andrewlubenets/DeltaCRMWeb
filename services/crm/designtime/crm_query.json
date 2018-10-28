@@ -1,1 +1,52 @@
-{ }
+{
+  "searchprojectopportunities" : {
+    "name" : "searchprojectopportunities",
+    "description" : "project and opportunities",
+    "version" : "V2",
+    "queryString" : "select p.id,p.name,'(Project)' as typerelation\nfrom projects p\n\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o",
+    "countQueryString" : "select count(*) from (select p.id,p.name,'(Project)' as typerelation\nfrom projects p\n\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.SearchprojectopportunitiesResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "typerelation",
+        "fieldName" : "typerelation",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}
