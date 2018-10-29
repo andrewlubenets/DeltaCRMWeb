@@ -3,7 +3,7 @@
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
-            <wm-livetable formlayout="inline" name="TasksLiveTable1">
+            <wm-livetable formlayout="dialog" name="TasksLiveTable1">
                 <wm-table gridfirstrowselect="true" editmode="dialog" name="TasksTable1" title="Tasks List" dataset="bind:Variables.CrmTasksData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
                     <wm-table-column binding="name" caption="Name" width="40%" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="duedate" caption="Duedate" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -17,7 +17,7 @@
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Tasks Info" formlayout="inline" iconclass="wi wi-edit" name="TasksLiveForm1" dataset="bind:Variables.CrmTasksData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="TasksLiveForm1Beforeservicecall($event, $operation, $data, options)">
+                <wm-liveform errormessage="" title="Tasks Info" formlayout="dialog" iconclass="wi wi-edit" name="TasksLiveForm1" dataset="bind:Variables.CrmTasksData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="TasksLiveForm1Beforeservicecall($event, $operation, $data, options)">
                     <wm-layoutgrid columns="1" name="layoutgrid1">
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn1">
