@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wavemaker.commons.wrapper.StringWrapper;
@@ -45,9 +46,9 @@ public class QueryExecutionController {
     @RequestMapping(value = "/queries/searchprojectopportunities", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "project and opportunities")
-    public Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(Pageable pageable, HttpServletRequest _request) {
+    public Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(@RequestParam(value = "words") String words, Pageable pageable, HttpServletRequest _request) {
         LOGGER.debug("Executing named query: searchprojectopportunities");
-        Page<SearchprojectopportunitiesResponse> _result = queryService.executeSearchprojectopportunities(pageable);
+        Page<SearchprojectopportunitiesResponse> _result = queryService.executeSearchprojectopportunities(words, pageable);
         LOGGER.debug("got the result for named query: searchprojectopportunities, result:{}", _result);
         return _result;
     }
@@ -55,7 +56,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query searchprojectopportunities")
     @RequestMapping(value = "/queries/searchprojectopportunities/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public StringWrapper exportSearchprojectopportunities(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+    public StringWrapper exportSearchprojectopportunities(@RequestParam(value = "words") String words, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: searchprojectopportunities");
 
         String exportedFileName = exportOptions.getFileName();
@@ -65,7 +66,7 @@ public class QueryExecutionController {
         exportedFileName += exportOptions.getExportType().getExtension();
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
-                        outputStream -> queryService.exportSearchprojectopportunities( exportOptions, pageable, outputStream));
+                        outputStream -> queryService.exportSearchprojectopportunities(words,  exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }

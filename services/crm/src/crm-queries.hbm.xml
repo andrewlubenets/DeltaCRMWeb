@@ -6,25 +6,29 @@
         <![CDATA[
         select p.id,p.name,'(Project)' as typerelation
 from projects p
-
+where p.name like :words
 
 union
 
 select o.id,o.name,'(Opportunity)' as typerelation
 from opportunities o
+where o.name like :words
         ]]>
+    <query-param name="words" type="java.lang.String"/>
     </sql-query>
 
     <sql-query name="searchprojectopportunities__count">
         <![CDATA[
         select count(*) from (select p.id,p.name,'(Project)' as typerelation
 from projects p
-
+where p.name like :words
 
 union
 
 select o.id,o.name,'(Opportunity)' as typerelation
-from opportunities o) wmTempTable
+from opportunities o
+where o.name like :words) wmTempTable
         ]]>
+    <query-param name="words" type="java.lang.String"/>
     </sql-query>
 </hibernate-mapping>

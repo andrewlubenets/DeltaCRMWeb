@@ -2660,38 +2660,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "userresponsableid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "opportunities_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "opportunities",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "stages",
       "ignored" : false,
       "mappings" : [ {
@@ -2773,6 +2741,38 @@
       "sourceTable" : "opportunities",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "pipelines",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "userresponsableid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "opportunities_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "opportunities",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
       "valid" : true,
       "virtual" : false
     } ],
@@ -3816,38 +3816,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "userresponsibleid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "projects_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "projects",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "stages",
       "ignored" : false,
       "mappings" : [ {
@@ -3961,6 +3929,38 @@
       "sourceTable" : "projects",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "opportunities",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "userresponsibleid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "projects_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "projects",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
       "valid" : true,
       "virtual" : false
     } ],
@@ -4508,6 +4508,64 @@
       "name" : "description",
       "nullable" : true,
       "oldName" : "description",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 0,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "string",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "relatedtoid",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "relatedtoid",
+      "nullable" : true,
+      "oldName" : "relatedtoid",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : false
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "relatedtotype",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "string",
+      "length" : 255,
+      "name" : "relatedtotype",
+      "nullable" : true,
+      "oldName" : "relatedtotype",
       "partOfAnyRelation" : false,
       "partOfForeignKey" : false,
       "partOfPrimaryKey" : false,

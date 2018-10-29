@@ -1,0 +1,25 @@
+{
+  "CrmExecuteSearchprojectopportunities" : {
+    "_id" : "wm-CrmExecuteSearchprojectopportunities-wm.ServiceVariable-1540782768579",
+    "name" : "CrmExecuteSearchprojectopportunities",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.crmweb.crm.models.query.SearchprojectopportunitiesResponse",
+    "service" : "crm",
+    "operation" : "executeSearchprojectopportunities",
+    "operationId" : "QueryExecutionController_executeSearchprojectopportunities",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 200,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  }
+}

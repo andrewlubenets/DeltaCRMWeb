@@ -3,12 +3,20 @@
     "name" : "searchprojectopportunities",
     "description" : "project and opportunities",
     "version" : "V2",
-    "queryString" : "select p.id,p.name,'(Project)' as typerelation\nfrom projects p\n\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o",
-    "countQueryString" : "select count(*) from (select p.id,p.name,'(Project)' as typerelation\nfrom projects p\n\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o) wmTempTable",
+    "queryString" : "select p.id,p.name,'(Project)' as typerelation\nfrom projects p\nwhere p.name like :words\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o\nwhere o.name like :words",
+    "countQueryString" : "select count(*) from (select p.id,p.name,'(Project)' as typerelation\nfrom projects p\nwhere p.name like :words\n\nunion\n\nselect o.id,o.name,'(Opportunity)' as typerelation\nfrom opportunities o\nwhere o.name like :words) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
-    "parameters" : [ ],
+    "parameters" : [ {
+      "name" : "words",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "%pro%",
+      "required" : true
+    } ],
     "request" : {
       "wrapped" : false,
       "typeRef" : null,

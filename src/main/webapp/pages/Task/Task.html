@@ -3,7 +3,7 @@
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
-            <wm-livetable formlayout="dialog" name="TasksLiveTable1">
+            <wm-livetable formlayout="inline" name="TasksLiveTable1">
                 <wm-table gridfirstrowselect="true" editmode="dialog" name="TasksTable1" title="Tasks List" dataset="bind:Variables.CrmTasksData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
                     <wm-table-column binding="name" caption="Name" width="40%" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="duedate" caption="Duedate" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -17,7 +17,7 @@
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Tasks Info" formlayout="dialog" iconclass="wi wi-edit" name="TasksLiveForm1" dataset="bind:Variables.CrmTasksData.dataSet" captionalign="left" captionposition="top">
+                <wm-liveform errormessage="" title="Tasks Info" formlayout="inline" iconclass="wi wi-edit" name="TasksLiveForm1" dataset="bind:Variables.CrmTasksData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="TasksLiveForm1Beforeservicecall($event, $operation, $data, options)">
                     <wm-layoutgrid columns="1" name="layoutgrid1">
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn1">
@@ -53,8 +53,8 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow6">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn6">
-                                <wm-form-field name="progress" displayname="Progress" show="true" primary-key="false" generator="assigned" period="false" key="progress" type="string" maxvalue="100" readonly="false" required="false" widget="slider" maxchars="255"
-                                    placeholder="" minvalue="1" step="1" width="88%"></wm-form-field>
+                                <wm-form-field name="progress" displayname="bind:&quot;Progress: &quot;+Widgets.TasksLiveForm1.formWidgets.progress.datavalue" show="true" primary-key="false" generator="assigned" period="false" key="progress" type="string"
+                                    maxvalue="100" readonly="false" required="false" widget="slider" maxchars="255" placeholder="" minvalue="1" step="1" width="88%"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow7">
@@ -71,8 +71,11 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow9">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn9">
-                                <wm-form-field name="relatedto" displayname="Relatedto" show="true" primary-key="false" generator="assigned" period="false" key="relatedto" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
-                                    placeholder="Enter value"></wm-form-field>
+                                <wm-form-field displayname="Related to:" widget="text" show="true" type="custom" name="relatedto" on-change="Variables.opoandproject.invoke();relatedtoChange($event, $scope, newVal, oldVal)" updateon="default" width="50%" placeholder="Search here"></wm-form-field>
+                                <wm-table title="" dataset="bind:Variables.opoandproject.dataSet" navigation="None" name="table2" editmode="form" showheader="false" enablesort="false" width="50%" subheading="Select here one item" show="false">
+                                    <wm-table-column binding="typerelation" caption="Typerelation" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                                    <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
+                                </wm-table>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow10">

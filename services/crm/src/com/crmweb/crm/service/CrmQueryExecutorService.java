@@ -16,8 +16,8 @@ import com.crmweb.crm.models.query.*;
 
 public interface CrmQueryExecutorService {
 
-    Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(Pageable pageable);
+    Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(String words, Pageable pageable);
 
-    void exportSearchprojectopportunities(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+    void exportSearchprojectopportunities(String words, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
 }

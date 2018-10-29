@@ -35,18 +35,20 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
 
     @Transactional(value = "crmTransactionManager", readOnly = true)
     @Override
-    public Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(Pageable pageable) {
-        Map<String, Object> params = new HashMap<>(0);
+    public Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(String words, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(1);
 
+        params.put("words", words);
 
         return queryExecutor.executeNamedQuery("searchprojectopportunities", params, SearchprojectopportunitiesResponse.class, pageable);
     }
 
     @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportSearchprojectopportunities(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
-        Map<String, Object> params = new HashMap<>(0);
+    public void exportSearchprojectopportunities(String words, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(1);
 
+        params.put("words", words);
 
         QueryProcedureInput queryInput = new QueryProcedureInput("searchprojectopportunities", params, SearchprojectopportunitiesResponse.class);
 

@@ -41,6 +41,8 @@ public class Tasks implements Serializable {
     private String status;
     private String relatedto;
     private String description;
+    private Integer relatedtoid;
+    private String relatedtotype;
     private Categories categories;
     private Users users;
 
@@ -143,6 +145,24 @@ public class Tasks implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Column(name = "`relatedtoid`", nullable = true, scale = 0, precision = 10)
+    public Integer getRelatedtoid() {
+        return this.relatedtoid;
+    }
+
+    public void setRelatedtoid(Integer relatedtoid) {
+        this.relatedtoid = relatedtoid;
+    }
+
+    @Column(name = "`relatedtotype`", nullable = true, length = 255)
+    public String getRelatedtotype() {
+        return this.relatedtotype;
+    }
+
+    public void setRelatedtotype(String relatedtotype) {
+        this.relatedtotype = relatedtotype;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
