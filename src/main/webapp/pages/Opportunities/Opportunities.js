@@ -80,3 +80,31 @@ Application.$controller("FilesOpportunitiesLiveForm1Controller", ["$scope",
 
     }
 ]);
+
+Application.$controller("dialog2Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+
+        $scope.TasksLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
+            $data.relatedtoid = $scope.Widgets.OpportunitiesTable1.selectedItems[0].id;
+            $data.relatedtotype = "(Opportunity)";
+            $data.relatedto = $scope.Widgets.OpportunitiesTable1.selectedItems[0].name;
+        };
+
+    }
+]);
+
+Application.$controller("TasksTable1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("TasksLiveForm1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
