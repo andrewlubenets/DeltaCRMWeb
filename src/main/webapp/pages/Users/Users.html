@@ -11,7 +11,9 @@
                     <wm-table-column binding="password" caption="Password" widget-type="label" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false">
                         <wm-label caption="********" class="" data-ng-class=""></wm-label>
                     </wm-table-column>
-                    <wm-table-column binding="dateCreation" caption="Date Creation" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="dateCreation" caption="Date Creation" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                        <wm-label caption="{{row.getProperty('dateCreation') | date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
                     <wm-table-column binding="role" caption="Role" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
                     <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>

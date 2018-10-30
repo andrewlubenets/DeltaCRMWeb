@@ -32,7 +32,9 @@
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueCurrency" caption="Currency" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueBidamount" caption="Value" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="forecastclosedate" caption="Forecast Close Date" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="forecastclosedate" caption="Forecast Close Date" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                        <wm-label caption="{{row.getProperty('forecastclosedate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
                     <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
                         <div class="row">

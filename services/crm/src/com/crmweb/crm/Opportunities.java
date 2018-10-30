@@ -47,10 +47,10 @@ public class Opportunities implements Serializable {
     private Integer forecastUpside;
     private Integer pipesize;
     private String pipenames;
+    private Users users;
     private Stages stages;
     private Categories categories;
     private Pipelines pipelines;
-    private Users users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -208,6 +208,21 @@ public class Opportunities implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`userresponsableid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_2`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.userresponsableid = users.getId();
+        }
+
+        this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_4`"))
     @Fetch(FetchMode.JOIN)
     public Stages getStages() {
@@ -250,21 +265,6 @@ public class Opportunities implements Serializable {
         }
 
         this.pipelines = pipelines;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`userresponsableid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_2`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.userresponsableid = users.getId();
-        }
-
-        this.users = users;
     }
 
     @Override

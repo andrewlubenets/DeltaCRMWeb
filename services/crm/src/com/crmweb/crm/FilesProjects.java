@@ -11,6 +11,8 @@ import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,6 +30,7 @@ public class FilesProjects implements Serializable {
     private LocalDateTime dateCreation;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "`id`", nullable = false, scale = 0, precision = 10)
     public Integer getId() {
         return this.id;
