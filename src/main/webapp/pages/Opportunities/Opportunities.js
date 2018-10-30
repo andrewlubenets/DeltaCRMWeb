@@ -50,6 +50,15 @@ Application.$controller("dialog1Controller", ["$scope",
     function($scope) {
         "use strict";
         $scope.ctrlScope = $scope;
+
+        $scope.FilesOpportunitiesLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
+            console.log($scope.Widgets.fileupload1.fileTransfers[0]);
+            $data.name = $scope.Widgets.fileupload1.fileTransfers[0].name;
+            $data.size = $scope.Widgets.fileupload1.fileTransfers[0].size;
+            $data.opportunitiesid = $scope.Widgets.OpportunitiesTable1.selectedItems[0].id;
+
+        };
+
     }
 ]);
 

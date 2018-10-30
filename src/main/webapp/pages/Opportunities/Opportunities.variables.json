@@ -93,7 +93,19 @@
     "tableType" : "TABLE",
     "properties" : [ ],
     "relatedTables" : [ ],
-    "filterExpressions" : { },
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "opportunitiesid",
+        "type" : "integer",
+        "matchMode" : "exact",
+        "value" : "bind:Widgets.OpportunitiesTable1.selecteditem.id",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      } ]
+    },
     "package" : "com.crmweb.crm.FilesOpportunities"
   },
   "CrmOpportunitiesData" : {
@@ -3752,6 +3764,28 @@
     "type" : "entry",
     "isList" : true,
     "saveInPhonegap" : false
+  },
+  "downloadFile" : {
+    "_id" : "wm-downloadFile-wm.ServiceVariable-1540871655617",
+    "name" : "downloadFile",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.wavemaker.runtime.file.model.DownloadResponse",
+    "service" : "FileService",
+    "operation" : "getDownloadFile",
+    "operationId" : "FileController_getDownloadFile",
+    "operationType" : "get",
+    "serviceType" : "JavaService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "File"
   },
   "findStages" : {
     "_id" : "wm-findStages-wm.ServiceVariable-1540521521302",

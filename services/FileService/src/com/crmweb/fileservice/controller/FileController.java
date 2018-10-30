@@ -15,6 +15,11 @@ import com.crmweb.fileservice.FileService.FileUploadResponse;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
+import com.wavemaker.tools.api.core.models.AccessSpecifier;
 
 @RestController
 @RequestMapping(value = "/file")
@@ -24,16 +29,22 @@ public class FileController {
     private FileService fileService;
 
     @RequestMapping(value = "/file", method = RequestMethod.DELETE)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "")
     public boolean deleteFile(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "relativePath", required = false) String relativePath) throws IOException {
         return fileService.deleteFile(file, relativePath);
     }
 
     @RequestMapping(value = "/downloadFile", produces = "application/octet-stream", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "")
     public DownloadResponse getDownloadFile(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "relativePath", required = false) String relativePath, @RequestParam(value = "returnName", required = false) String returnName) throws Exception {
         return fileService.getDownloadFile(file, relativePath, returnName);
     }
 
     @RequestMapping(value = "/downloadFileAsInline", produces = "application/octet-stream", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "")
     public DownloadResponse getDownloadFileAsInline(@RequestParam(value = "file", required = false) String file, @RequestParam(value = "relativePath", required = false) String relativePath, @RequestParam(value = "returnName", required = false) String returnName) throws Exception {
         return fileService.getDownloadFileAsInline(file, relativePath, returnName);
     }

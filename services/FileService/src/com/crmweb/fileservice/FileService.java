@@ -44,7 +44,7 @@ public class FileService {
     private File uploadDirectory = null;
 
     @PostConstruct
-    protected void init() {
+    void init() {
         uploadDirectory = getUploadDir();
     }
 
@@ -200,8 +200,11 @@ public class FileService {
      * than you used on your local development environment.
      * ******************************************************************************
      */
-    protected File getUploadDir() {
-        String uploadDir = System.getProperty("user.home") + "/WaveMaker/appdata/crmweb/uploads";
+    File getUploadDir() {
+        //String uploadDir = System.getProperty("user.home") + "/WaveMaker/appdata/crmweb/uploads";///src/main/webapp/wmapp
+        String uploadDir = System.getProperty("user.home") + "/WaveMaker/WaveMaker-Studio/workspace/default/projects/crmweb/src/main/webapp/resources/uploads";
+       
+        
         File f = new File(uploadDir);
         f.mkdirs();
         return f;
