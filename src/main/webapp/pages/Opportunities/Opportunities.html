@@ -71,8 +71,8 @@
                                     widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn18">
-                                <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" required="false" widget="datetime"
-                                    placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                                <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" widget="date" outputformat="yyyy-MM-dd"
+                                    datepattern="yyyy-MM-dd"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn19">
                                 <wm-form-field name="users" displayname="Who's Responsable?" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
@@ -81,8 +81,8 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow16">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn20">
-                                <wm-form-field name="valueCurrency" displayname="Currency" show="true" primary-key="false" generator="assigned" period="false" key="valueCurrency" type="string" readonly="false" widget="select" currency="INR" dataset="bind:Variables.currency.dataSet"
-                                    datafield="AlphabeticCode" displayfield="AlphabeticCode" orderby="AlphabeticCode:asc"></wm-form-field>
+                                <wm-form-field name="valueCurrency" displayname="Currency" show="true" primary-key="false" generator="assigned" period="false" key="valueCurrency" type="string" readonly="false" widget="select" maxchars="255" currency="INR"
+                                    dataset="bind:Variables.currency.dataSet" datafield="AlphabeticCode" displayfield="AlphabeticCode" orderby="AlphabeticCode:asc" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn21">
                                 <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" required="false" widget="text" maxchars="255"
@@ -103,7 +103,6 @@
                                     readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="name" placeholder="Select value" dataset="bind:Variables.findStages.dataSet" datafield="All Fields" displayfield="name" defaultvalue="bind:Variables.CrmOpportunitiesData.dataSet.data[$i].stages" orderby="number:desc"></wm-form-field>
                             </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="4" name="gridcolumn25"></wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn26">
@@ -114,7 +113,6 @@
                                 <wm-form-field name="forecastUpside" displayname="Forecast Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
                                     checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="4" name="gridcolumn28"></wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>
                     <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
