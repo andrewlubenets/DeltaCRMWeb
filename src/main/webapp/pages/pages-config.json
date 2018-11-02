@@ -15,6 +15,14 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "Departments",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Entities",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "LeadSources",
   "type" : "PAGE",
   "params" : [ ]
@@ -24,6 +32,10 @@
   "params" : [ ]
 }, {
   "name" : "Leads",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Locations",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -48,6 +60,10 @@
   "params" : [ ]
 }, {
   "name" : "Pipelines",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Posts",
   "type" : "PAGE",
   "params" : [ ]
 }, {

@@ -30,8 +30,10 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.crmweb.crm.Leads;
 import com.crmweb.crm.Opportunities;
+import com.crmweb.crm.Posts;
 import com.crmweb.crm.Projects;
 import com.crmweb.crm.Tasks;
+import com.crmweb.crm.Userinfo;
 import com.crmweb.crm.Users;
 
 
@@ -63,8 +65,18 @@ public class UsersServiceImpl implements UsersService {
 
     @Lazy
     @Autowired
+    @Qualifier("crm.PostsService")
+    private PostsService postsService;
+
+    @Lazy
+    @Autowired
     @Qualifier("crm.TasksService")
     private TasksService tasksService;
+
+    @Lazy
+    @Autowired
+    @Qualifier("crm.UserinfoService")
+    private UserinfoService userinfoService;
 
     @Autowired
     @Qualifier("crm.UsersDao")
@@ -207,6 +219,17 @@ public class UsersServiceImpl implements UsersService {
 
     @Transactional(readOnly = true, value = "crmTransactionManager")
     @Override
+    public Page<Posts> findAssociatedPostses(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated postses");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("users.id = '" + id + "'");
+
+        return postsService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "crmTransactionManager")
+    @Override
     public Page<Projects> findAssociatedProjectses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated projectses");
 
@@ -225,6 +248,17 @@ public class UsersServiceImpl implements UsersService {
         queryBuilder.append("users.id = '" + id + "'");
 
         return tasksService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    @Transactional(readOnly = true, value = "crmTransactionManager")
+    @Override
+    public Page<Userinfo> findAssociatedUserinfos(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated userinfos");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("users.id = '" + id + "'");
+
+        return userinfoService.findAll(queryBuilder.toString(), pageable);
     }
 
     /**
@@ -257,10 +291,28 @@ public class UsersServiceImpl implements UsersService {
     /**
      * This setter method should only be used by unit tests
      *
+     * @param service PostsService instance
+     */
+    protected void setPostsService(PostsService service) {
+        this.postsService = service;
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
      * @param service TasksService instance
      */
     protected void setTasksService(TasksService service) {
         this.tasksService = service;
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service UserinfoService instance
+     */
+    protected void setUserinfoService(UserinfoService service) {
+        this.userinfoService = service;
     }
 
 }

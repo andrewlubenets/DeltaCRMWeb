@@ -1,4 +1,66 @@
 {
+  "createuserinfo" : {
+    "_id" : "wm-createuserinfo-wm.ServiceVariable-1541116538052",
+    "name" : "createuserinfo",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "isList" : false,
+      "target" : "Userinfo",
+      "value" : "bind:Widgets.editUserinfoForm1.dataoutput",
+      "type" : "com.crmweb.crm.Userinfo"
+    } ],
+    "type" : "com.crmweb.crm.Userinfo",
+    "service" : "crm",
+    "operation" : "createUserinfo",
+    "operationId" : "UserinfoController_createUserinfo",
+    "operationType" : "post",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Userinfo"
+  },
+  "CrmEditUserinfo" : {
+    "_id" : "wm-CrmEditUserinfo-wm.ServiceVariable-1541116128050",
+    "name" : "CrmEditUserinfo",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "Userinfo.users",
+      "value" : "bind:Widgets.UsersTable1.selecteditem"
+    }, {
+      "target" : "id",
+      "value" : "bind:Variables.finduserinfo.dataSet[$i].id",
+      "type" : "integer"
+    }, {
+      "isList" : false,
+      "target" : "Userinfo",
+      "value" : "bind:Widgets.editUserinfoForm1.dataoutput",
+      "type" : "com.crmweb.crm.Userinfo"
+    } ],
+    "type" : "com.crmweb.crm.Userinfo",
+    "service" : "crm",
+    "operation" : "editUserinfo",
+    "operationId" : "UserinfoController_editUserinfo",
+    "operationType" : "put",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : false,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "Userinfo"
+  },
   "CrmUsersData" : {
     "_id" : "wm-CrmUsersData-wm.LiveVariable-1539787856624",
     "name" : "CrmUsersData",
@@ -119,5 +181,32 @@
     "relatedTables" : [ ],
     "filterExpressions" : { },
     "package" : "com.crmweb.crm.Users"
+  },
+  "finduserinfo" : {
+    "_id" : "wm-finduserinfo-wm.ServiceVariable-1541116423452",
+    "name" : "finduserinfo",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "q",
+      "value" : "bind:\"userid=\"+Widgets.UsersTable1.selecteditem.id",
+      "type" : "string"
+    } ],
+    "type" : "com.crmweb.crm.Userinfo",
+    "service" : "crm",
+    "operation" : "findUserinfos",
+    "operationId" : "UserinfoController_findUserinfos",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onSuccess" : "finduserinfoonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "Userinfo"
   }
 }

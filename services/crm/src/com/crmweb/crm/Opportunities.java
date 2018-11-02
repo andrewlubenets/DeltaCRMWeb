@@ -47,6 +47,8 @@ public class Opportunities implements Serializable {
     private Integer forecastUpside;
     private Integer pipesize;
     private String pipenames;
+    private Integer wapu;
+    private String pipelinestatus;
     private Users users;
     private Stages stages;
     private Categories categories;
@@ -205,6 +207,24 @@ public class Opportunities implements Serializable {
 
     public void setPipenames(String pipenames) {
         this.pipenames = pipenames;
+    }
+
+    @Column(name = "`wapu`", nullable = true, scale = 0, precision = 10)
+    public Integer getWapu() {
+        return this.wapu;
+    }
+
+    public void setWapu(Integer wapu) {
+        this.wapu = wapu;
+    }
+
+    @Column(name = "`pipelinestatus`", nullable = true, length = 255)
+    public String getPipelinestatus() {
+        return this.pipelinestatus;
+    }
+
+    public void setPipelinestatus(String pipelinestatus) {
+        this.pipelinestatus = pipelinestatus;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

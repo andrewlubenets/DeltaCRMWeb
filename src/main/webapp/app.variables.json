@@ -70,6 +70,28 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_Departments" : {
+    "_id" : "wm-goToPage_Departments-wm.NavigationVariable-1541114204382",
+    "name" : "goToPage_Departments",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Departments",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Entities" : {
+    "_id" : "wm-goToPage_Entities-wm.NavigationVariable-1541115072844",
+    "name" : "goToPage_Entities",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Entities",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Leads" : {
     "_id" : "wm-goToPage_Leads-wm.NavigationVariable-1540495946288",
     "name" : "goToPage_Leads",
@@ -100,6 +122,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "LeadStatuses",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Locations" : {
+    "_id" : "wm-goToPage_Locations-wm.NavigationVariable-1541114948988",
+    "name" : "goToPage_Locations",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Locations",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
@@ -152,6 +185,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Pipelines",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_Posts" : {
+    "_id" : "wm-goToPage_Posts-wm.NavigationVariable-1541115233433",
+    "name" : "goToPage_Posts",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "Posts",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

@@ -35,8 +35,10 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.crmweb.crm.Leads;
 import com.crmweb.crm.Opportunities;
+import com.crmweb.crm.Posts;
 import com.crmweb.crm.Projects;
 import com.crmweb.crm.Tasks;
+import com.crmweb.crm.Userinfo;
 import com.crmweb.crm.Users;
 import com.crmweb.crm.service.UsersService;
 
@@ -189,6 +191,15 @@ public class UsersController {
         return usersService.findAssociatedOpportunitieses(id, pageable);
     }
 
+    @RequestMapping(value="/{id:.+}/postses", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the postses instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Posts> findAssociatedPostses(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated postses");
+        return usersService.findAssociatedPostses(id, pageable);
+    }
+
     @RequestMapping(value="/{id:.+}/projectses", method=RequestMethod.GET)
     @ApiOperation(value = "Gets the projectses instance associated with the given id.")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
@@ -205,6 +216,15 @@ public class UsersController {
 
         LOGGER.debug("Fetching all associated taskses");
         return usersService.findAssociatedTaskses(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/userinfos", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the userinfos instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Userinfo> findAssociatedUserinfos(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated userinfos");
+        return usersService.findAssociatedUserinfos(id, pageable);
     }
 
     /**

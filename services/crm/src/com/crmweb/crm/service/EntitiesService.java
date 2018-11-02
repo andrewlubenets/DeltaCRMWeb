@@ -21,49 +21,46 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.crmweb.crm.Leads;
-import com.crmweb.crm.Opportunities;
+import com.crmweb.crm.Departments;
+import com.crmweb.crm.Entities;
+import com.crmweb.crm.Locations;
 import com.crmweb.crm.Posts;
-import com.crmweb.crm.Projects;
-import com.crmweb.crm.Tasks;
-import com.crmweb.crm.Userinfo;
-import com.crmweb.crm.Users;
 
 /**
- * Service object for domain model class {@link Users}.
+ * Service object for domain model class {@link Entities}.
  */
-public interface UsersService {
+public interface EntitiesService {
 
     /**
-     * Creates a new Users. It does cascade insert for all the children in a single transaction.
+     * Creates a new Entities. It does cascade insert for all the children in a single transaction.
      *
-     * This method overrides the input field values using Server side or database managed properties defined on Users if any.
+     * This method overrides the input field values using Server side or database managed properties defined on Entities if any.
      *
-     * @param users Details of the Users to be created; value cannot be null.
-     * @return The newly created Users.
+     * @param entities Details of the Entities to be created; value cannot be null.
+     * @return The newly created Entities.
      */
-    Users create(@Valid Users users);
+    Entities create(@Valid Entities entities);
 
 
 	/**
-     * Returns Users by given id if exists.
+     * Returns Entities by given id if exists.
      *
-     * @param usersId The id of the Users to get; value cannot be null.
-     * @return Users associated with the given usersId.
-	 * @throws EntityNotFoundException If no Users is found.
+     * @param entitiesId The id of the Entities to get; value cannot be null.
+     * @return Entities associated with the given entitiesId.
+	 * @throws EntityNotFoundException If no Entities is found.
      */
-    Users getById(Integer usersId);
+    Entities getById(Integer entitiesId);
 
     /**
-     * Find and return the Users by given id if exists, returns null otherwise.
+     * Find and return the Entities by given id if exists, returns null otherwise.
      *
-     * @param usersId The id of the Users to get; value cannot be null.
-     * @return Users associated with the given usersId.
+     * @param entitiesId The id of the Entities to get; value cannot be null.
+     * @return Entities associated with the given entitiesId.
      */
-    Users findById(Integer usersId);
+    Entities findById(Integer entitiesId);
 
 	/**
-     * Find and return the list of Users by given id's.
+     * Find and return the list of Entities by given id's.
      *
      * If orderedReturn true, the return List is ordered and positional relative to the incoming ids.
      *
@@ -72,42 +69,42 @@ public interface UsersService {
      * If enabled, A null is inserted into the List at the proper position(s).
      * If disabled, the nulls are not put into the return List.
      *
-     * @param usersIds The id's of the Users to get; value cannot be null.
+     * @param entitiesIds The id's of the Entities to get; value cannot be null.
      * @param orderedReturn Should the return List be ordered and positional in relation to the incoming ids?
-     * @return Users associated with the given usersIds.
+     * @return Entities associated with the given entitiesIds.
      */
-    List<Users> findByMultipleIds(List<Integer> usersIds, boolean orderedReturn);
+    List<Entities> findByMultipleIds(List<Integer> entitiesIds, boolean orderedReturn);
 
 
     /**
-     * Updates the details of an existing Users. It replaces all fields of the existing Users with the given users.
+     * Updates the details of an existing Entities. It replaces all fields of the existing Entities with the given entities.
      *
-     * This method overrides the input field values using Server side or database managed properties defined on Users if any.
+     * This method overrides the input field values using Server side or database managed properties defined on Entities if any.
      *
-     * @param users The details of the Users to be updated; value cannot be null.
-     * @return The updated Users.
-     * @throws EntityNotFoundException if no Users is found with given input.
+     * @param entities The details of the Entities to be updated; value cannot be null.
+     * @return The updated Entities.
+     * @throws EntityNotFoundException if no Entities is found with given input.
      */
-    Users update(@Valid Users users);
+    Entities update(@Valid Entities entities);
 
     /**
-     * Deletes an existing Users with the given id.
+     * Deletes an existing Entities with the given id.
      *
-     * @param usersId The id of the Users to be deleted; value cannot be null.
-     * @return The deleted Users.
-     * @throws EntityNotFoundException if no Users found with the given id.
+     * @param entitiesId The id of the Entities to be deleted; value cannot be null.
+     * @return The deleted Entities.
+     * @throws EntityNotFoundException if no Entities found with the given id.
      */
-    Users delete(Integer usersId);
+    Entities delete(Integer entitiesId);
 
     /**
-     * Deletes an existing Users with the given object.
+     * Deletes an existing Entities with the given object.
      *
-     * @param users The instance of the Users to be deleted; value cannot be null.
+     * @param entities The instance of the Entities to be deleted; value cannot be null.
      */
-    void delete(Users users);
+    void delete(Entities entities);
 
     /**
-     * Find all Users matching the given QueryFilter(s).
+     * Find all Entities matching the given QueryFilter(s).
      * All the QueryFilter(s) are ANDed to filter the results.
      * This method returns Paginated results.
      *
@@ -115,30 +112,30 @@ public interface UsersService {
      *
      * @param queryFilters Array of queryFilters to filter the results; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of matching Users.
+     * @return Paginated list of matching Entities.
      *
      * @see QueryFilter
      * @see Pageable
      * @see Page
      */
     @Deprecated
-    Page<Users> findAll(QueryFilter[] queryFilters, Pageable pageable);
+    Page<Entities> findAll(QueryFilter[] queryFilters, Pageable pageable);
 
     /**
-     * Find all Users matching the given input query. This method returns Paginated results.
+     * Find all Entities matching the given input query. This method returns Paginated results.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param query The query to filter the results; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of matching Users.
+     * @return Paginated list of matching Entities.
      *
      * @see Pageable
      * @see Page
      */
-    Page<Users> findAll(String query, Pageable pageable);
+    Page<Entities> findAll(String query, Pageable pageable);
 
     /**
-     * Exports all Users matching the given input query to the given exportType format.
+     * Exports all Entities matching the given input query to the given exportType format.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param exportType The format in which to export the data; value cannot be null.
@@ -153,7 +150,7 @@ public interface UsersService {
     Downloadable export(ExportType exportType, String query, Pageable pageable);
 
     /**
-     * Exports all Users matching the given input query to the given exportType format.
+     * Exports all Entities matching the given input query to the given exportType format.
      *
      * @param options The export options provided by the user; No filters applied if the input is null/empty.
      * @param pageable Details of the pagination information along with the sorting options. If null exports all matching records.
@@ -166,11 +163,11 @@ public interface UsersService {
     void export(DataExportOptions options, Pageable pageable, OutputStream outputStream);
 
     /**
-     * Retrieve the count of the Users in the repository with matching query.
+     * Retrieve the count of the Entities in the repository with matching query.
      * Note: Go through the documentation for <u>query</u> syntax.
      *
      * @param query query to filter results. No filters applied if the input is null/empty.
-     * @return The count of the Users.
+     * @return The count of the Entities.
      */
     long count(String query);
 
@@ -188,31 +185,31 @@ public interface UsersService {
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
 
     /*
-     * Returns the associated leadses for given Users id.
+     * Returns the associated departmentses for given Entities id.
      *
      * @param id value of id; value cannot be null
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Leads instances.
+     * @return Paginated list of associated Departments instances.
      *
      * @see Pageable
      * @see Page
      */
-    Page<Leads> findAssociatedLeadses(Integer id, Pageable pageable);
+    Page<Departments> findAssociatedDepartmentses(Integer id, Pageable pageable);
 
     /*
-     * Returns the associated opportunitieses for given Users id.
+     * Returns the associated locationses for given Entities id.
      *
      * @param id value of id; value cannot be null
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Opportunities instances.
+     * @return Paginated list of associated Locations instances.
      *
      * @see Pageable
      * @see Page
      */
-    Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable);
+    Page<Locations> findAssociatedLocationses(Integer id, Pageable pageable);
 
     /*
-     * Returns the associated postses for given Users id.
+     * Returns the associated postses for given Entities id.
      *
      * @param id value of id; value cannot be null
      * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
@@ -222,41 +219,5 @@ public interface UsersService {
      * @see Page
      */
     Page<Posts> findAssociatedPostses(Integer id, Pageable pageable);
-
-    /*
-     * Returns the associated projectses for given Users id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Projects instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Projects> findAssociatedProjectses(Integer id, Pageable pageable);
-
-    /*
-     * Returns the associated taskses for given Users id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Tasks instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Tasks> findAssociatedTaskses(Integer id, Pageable pageable);
-
-    /*
-     * Returns the associated userinfos for given Users id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Userinfo instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Userinfo> findAssociatedUserinfos(Integer id, Pageable pageable);
 
 }

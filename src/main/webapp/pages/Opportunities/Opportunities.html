@@ -71,8 +71,8 @@
                                     widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn18">
-                                <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" widget="date" outputformat="yyyy-MM-dd"
-                                    datepattern="yyyy-MM-dd"></wm-form-field>
+                                <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" widget="date" outputformat="yyyy-MM-ddTHH:mm:ss"
+                                    datepattern="yyyy-MM-dd" placeholder="Select date"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn19">
                                 <wm-form-field name="users" displayname="Who's Responsable?" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
@@ -112,6 +112,15 @@
                             <wm-gridcolumn columnwidth="4" name="gridcolumn27">
                                 <wm-form-field name="forecastUpside" displayname="Forecast Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
                                     checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                                <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
+                                    placeholder=""></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                                <wm-form-field name="pipelinestatus" displayname="Pipeline Status" show="true" primary-key="false" generator="assigned" period="false" key="pipelinestatus" type="string" readonly="false" widget="select" dataset="WON, LOST, ABANDONED"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

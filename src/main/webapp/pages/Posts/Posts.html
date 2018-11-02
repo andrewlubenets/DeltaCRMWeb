@@ -1,0 +1,83 @@
+<wm-page data-ng-controller="PostsPageController" pagetitle="Posts" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-livetable formlayout="dialog" name="PostsLiveTable1">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="PostsTable1" title="Posts List" dataset="bind:Variables.CrmPostsData.dataSet" navigation="Basic">
+                    <wm-table-column binding="code" caption="Code" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="positionname" caption="Position Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="typepost" caption="Type" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="weight" caption="Weight" edit-widget-type="number" type="integer" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="status" caption="Status" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="entities.name" caption="Entities Name" edit-widget-type="text" related-entity-name="Entities" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="departments.name" caption="Department" edit-widget-type="text" related-entity-name="Departments" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="users.firstname" caption="User" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="locations.name" caption="Location" edit-widget-type="text" related-entity-name="Locations" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
+                    <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
+                </wm-table>
+                <wm-liveform errormessage="" title="Posts Info" formlayout="dialog" iconclass="wi wi-edit" name="PostsLiveForm1" dataset="bind:Variables.CrmPostsData.dataSet" captionalign="left" captionposition="top">
+                    <wm-layoutgrid columns="3" name="layoutgrid1">
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                                <wm-form-field name="code" displayname="Code" show="true" primary-key="false" generator="assigned" period="false" key="code" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn2">
+                                <wm-form-field name="positionname" displayname="Position Name" show="true" primary-key="false" generator="assigned" period="false" key="positionname" type="string" readonly="false" required="false" widget="text" maxchars="255"
+                                    inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn3">
+                                <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" required="false" widget="text" maxchars="255"
+                                    inputtype="text" placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow2">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                                <wm-form-field name="weight" displayname="Weight" show="true" primary-key="false" generator="assigned" period="false" key="weight" type="integer" readonly="false" required="false" step="0" widget="number" inputtype="number"
+                                    placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn5">
+                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="status" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                                    placeholder="Enter value"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn6">
+                                <wm-form-field name="typepost" displayname="Type" show="true" primary-key="false" generator="assigned" period="false" key="typepost" type="string" readonly="false" required="false" widget="select" maxchars="255" placeholder="Select value"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow3">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn7">
+                                <wm-form-field name="departments" displayname="Departments" show="true" primary-key="false" generator="assigned" period="false" key="departments" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn8">
+                                <wm-form-field name="users" displayname="User" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="firstname + ' ' + lastname"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn9">
+                                <wm-form-field name="entities" displayname="Entity" show="true" primary-key="false" generator="assigned" period="false" key="entities" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow4">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn12">
+                                <wm-form-field name="locations" displayname="Location" show="true" primary-key="false" generator="assigned" period="false" key="locations" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name"></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                    </wm-layoutgrid>
+                    <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
+                </wm-liveform>
+            </wm-livetable>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

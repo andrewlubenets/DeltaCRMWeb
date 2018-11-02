@@ -21,6 +21,12 @@
     "table" : "contacts",
     "schema" : null
   }, {
+    "table" : "departments",
+    "schema" : null
+  }, {
+    "table" : "entities",
+    "schema" : null
+  }, {
     "table" : "files_opportunities",
     "schema" : null
   }, {
@@ -36,6 +42,9 @@
     "table" : "leads",
     "schema" : null
   }, {
+    "table" : "locations",
+    "schema" : null
+  }, {
     "table" : "opportunities",
     "schema" : null
   }, {
@@ -48,6 +57,9 @@
     "table" : "pipelines",
     "schema" : null
   }, {
+    "table" : "posts",
+    "schema" : null
+  }, {
     "table" : "projects",
     "schema" : null
   }, {
@@ -55,6 +67,9 @@
     "schema" : null
   }, {
     "table" : "tasks",
+    "schema" : null
+  }, {
+    "table" : "userinfo",
     "schema" : null
   }, {
     "table" : "users",
