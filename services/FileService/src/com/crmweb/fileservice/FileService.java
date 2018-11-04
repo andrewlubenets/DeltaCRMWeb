@@ -201,8 +201,8 @@ public class FileService {
      * ******************************************************************************
      */
     File getUploadDir() {
-        //String uploadDir = System.getProperty("user.home") + "/WaveMaker/appdata/crmweb/uploads";///src/main/webapp/wmapp
-        String uploadDir = System.getProperty("user.home") + "/WaveMaker/WaveMaker-Studio/workspace/default/projects/crmweb/src/main/webapp/resources/uploads";
+        String uploadDir = "/var/lib/tomcat7/webapps/deltacrmapps/ROOT/resources/uploads";///src/main/webapp/wmapp
+        //String uploadDir = System.getProperty("user.home") + "/WaveMaker/WaveMaker-Studio/workspace/default/projects/crmweb/src/main/webapp/resources/uploads";
        
         
         File f = new File(uploadDir);

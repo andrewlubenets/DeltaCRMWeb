@@ -43,6 +43,21 @@ Application.$controller("OpportunitiesLiveForm1Controller", ["$scope",
     function($scope) {
         "use strict";
         $scope.ctrlScope = $scope;
+
+
+        $scope.valueBidamountKeyup = function($event, $isolateScope) {
+            try {
+                $scope.Widgets.valueBidamount.datavalue = $scope.Widgets.valueBidamount.datavalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            } catch (e) {
+                console.log(e.message, $scope.Widgets.valueBidamount);
+            }
+        };
+
+    
+        $scope.valueBidamountChange = function ($event, $isolateScope, newVal, oldVal) { 
+
+        };
+ 
     }
 ]);
 

@@ -4,7 +4,7 @@
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-layoutgrid name="layoutgrid3_1">
-                <wm-gridrow name="gridrow9">
+                <wm-gridrow name="gridrow9" padding="25px unset unset unset">
                     <wm-gridcolumn columnwidth="2" name="gridcolumn22_1"></wm-gridcolumn>
                     <wm-gridcolumn columnwidth="3" name="gridcolumn18_1">
                         <wm-composite name="composite2">
@@ -82,45 +82,44 @@
                         <wm-gridrow name="gridrow16">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn20">
                                 <wm-form-field name="valueCurrency" displayname="Currency" show="true" primary-key="false" generator="assigned" period="false" key="valueCurrency" type="string" readonly="false" widget="select" maxchars="255" currency="INR"
-                                    dataset="bind:Variables.currency.dataSet" datafield="AlphabeticCode" displayfield="AlphabeticCode" orderby="AlphabeticCode:asc" placeholder="Select value"></wm-form-field>
+                                    dataset="bind:Variables.currency.dataSet" datafield="AlphabeticCode" displayfield="AlphabeticCode" orderby="AlphabeticCode:asc" placeholder="Select value" defaultvalue="IDR"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn21">
-                                <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" required="false" widget="text" maxchars="255"
-                                    inputtype="text" placeholder="Enter value"></wm-form-field>
+                                <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" widget="text" inputtype="text" updateon="blur"
+                                    on-keyup="valueBidamountKeyup($event, $scope)" on-change="valueBidamountChange($event, $scope, newVal, oldVal)"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn22">
                                 <wm-form-field name="valueUnitofmeasure" displayname="Type Bid" show="true" primary-key="false" generator="assigned" period="false" key="valueUnitofmeasure" type="string" readonly="false" widget="select" maxchars="255" placeholder="Select value"
-                                    dataset="Fixed Bid,Per Hour,Per Day,Per Week,Per Month,Per Year"></wm-form-field>
+                                    dataset="One time Project,Leasing,Pay per use"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow17">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn23">
-                                <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Opportunities&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:16939&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
                                     displayexpression="name" placeholder="Select value" on-change="Variables.findStages.invoke()"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn24">
-                                <wm-form-field name="stages" displayname="bind:&quot;Stage: &quot;+Widgets.OpportunitiesLiveForm1.dataoutput.stages.name" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true"
-                                    readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                <wm-form-field name="stages" displayname="bind:&quot;Stage: &quot;" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="name" placeholder="Select value" dataset="bind:Variables.findStages.dataSet" datafield="All Fields" displayfield="name" defaultvalue="bind:Variables.CrmOpportunitiesData.dataSet.data[$i].stages" orderby="number:desc"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn31_1">
+                                <wm-form-field name="pipelinestatus" displayname="Pipeline Status" show="true" primary-key="false" generator="assigned" period="false" key="pipelinestatus" type="string" readonly="false" widget="select" maxchars="255" dataset="Win,Loss,Suspended,Abandoned"
+                                    placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn26">
-                                <wm-form-field name="forecastCommitDeals" displayname="Forecast Commit Deals?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox"
-                                    placeholder="" checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                                <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
+                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn27">
-                                <wm-form-field name="forecastUpside" displayname="Forecast Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
-                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                                <wm-form-field name="forecastUpside" displayname="Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder="" checkedvalue="1"
+                                    uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn name="gridcolumn1" columnwidth="4">
                                 <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
                                     placeholder=""></wm-form-field>
-                            </wm-gridcolumn>
-                        </wm-gridrow>
-                        <wm-gridrow name="gridrow1">
-                            <wm-gridcolumn name="gridcolumn1" columnwidth="4">
-                                <wm-form-field name="pipelinestatus" displayname="Pipeline Status" show="true" primary-key="false" generator="assigned" period="false" key="pipelinestatus" type="string" readonly="false" widget="select" dataset="WON, LOST, ABANDONED"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

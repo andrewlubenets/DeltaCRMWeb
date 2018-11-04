@@ -49,8 +49,7 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow6">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn6">
-                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="status" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
-                                    placeholder="Enter value"></wm-form-field>
+                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="status" type="string" readonly="false" widget="select" inputtype="text" dataset="Active,Inactive"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow7">
@@ -63,7 +62,7 @@
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn name="gridcolumn1" columnwidth="12">
                                 <wm-form-field name="locations" displayname="Locations" show="true" primary-key="false" generator="assigned" period="false" key="locations" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                    displayexpression="name"></wm-form-field>
+                                    displayexpression="name" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

@@ -702,6 +702,30 @@
           "generator" : "assigned",
           "isRelated" : false,
           "scale" : 0
+        }, {
+          "fieldName" : "wapu",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "wapu",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "pipelinestatus",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "pipelinestatus",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "id",

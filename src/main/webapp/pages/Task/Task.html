@@ -23,7 +23,8 @@
                     <wm-layoutgrid columns="2" name="layoutgrid1">
                         <wm-gridrow name="gridrow11">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn11">
-                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                <wm-form-field name="name" displayname="Task Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text"
+                                    placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn12">
                                 <wm-form-field name="users" displayname="Assigned To" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
@@ -34,7 +35,7 @@
                         <wm-gridrow name="gridrow12">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn13">
                                 <wm-form-field name="categories" displayname="Categories" show="true" primary-key="false" generator="assigned" period="false" key="categories" type="list" is-related="true" readonly="false" required="false" widget="select"
-                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Task&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:11546&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
                                     displayexpression="name + ' ' + type"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn14">
@@ -65,7 +66,8 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow15">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn19">
-                                <wm-form-field displayname="Related to:" widget="text" show="true" type="custom" name="relatedto" on-change="Variables.opoandproject.invoke();relatedtoChange($event, $scope, newVal, oldVal)" updateon="default" width="50%" placeholder="Search here"></wm-form-field>
+                                <wm-form-field name="relatedto" displayname="Related to:" show="true" primary-key="false" generator="assigned" period="false" key="relatedto" type="string" readonly="false" widget="text" maxchars="255" on-change="Variables.opoandproject.invoke();relatedtoChange($event, $scope, newVal, oldVal)"
+                                    updateon="default" width="50%" placeholder="Project Name" inputtype="text"></wm-form-field>
                                 <wm-table title="" dataset="bind:Variables.opoandproject.dataSet" navigation="None" name="table2" editmode="form" showheader="false" enablesort="false" width="50%" subheading="Select here one item" show="false">
                                     <wm-table-column binding="typerelation" caption="Typerelation" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
                                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>

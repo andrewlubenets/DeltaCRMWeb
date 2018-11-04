@@ -19,35 +19,37 @@
                     <wm-layoutgrid columns="1" name="layoutgrid1">
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn1">
-                                <wm-form-field name="code" displayname="Code" required="false" show="true" generator="assigned" primary-key="false" key="code" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                                <wm-form-field name="code" displayname="Code" show="true" primary-key="false" generator="assigned" period="false" key="code" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow2">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn2">
-                                <wm-form-field name="name" displayname="Name" required="false" show="true" generator="assigned" primary-key="false" key="name" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true" widget="text"></wm-form-field>
+                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" required="false" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow3">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn3">
-                                <wm-form-field name="country" displayname="Country" required="false" show="true" generator="assigned" primary-key="false" key="country" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
-                                    widget="select"></wm-form-field>
+                                <wm-form-field name="country" displayname="Country" show="true" primary-key="false" generator="assigned" period="false" key="country" type="string" readonly="false" required="false" widget="select" maxchars="255" placeholder="Select value"
+                                    dataset="bind:Variables.countryVar.dataSet" datafield="dataValue" displayfield="dataValue"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow4">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn4">
-                                <wm-form-field name="statusVal" displayname="Status" required="false" show="true" generator="assigned" primary-key="false" key="statusVal" type="string" is-related="false" maxchars="255" pc-display="true" mobile-display="true"
-                                    widget="select"></wm-form-field>
+                                <wm-form-field name="statusVal" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="statusVal" type="string" readonly="false" required="false" widget="select" maxchars="255" dataset="Active,Inactive"
+                                    placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow5">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn5">
-                                <wm-form-field name="entities" displayname="Entities" required="false" show="true" generator="assigned" primary-key="false" key="entities" type="list" is-related="true" pc-display="true" mobile-display="true" widget="select"></wm-form-field>
+                                <wm-form-field name="entities" displayname="Entities" show="true" primary-key="false" generator="assigned" period="false" key="entities" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>
-                    <wm-form-field name="id" displayname="Id" required="true" show="false" generator="identity" primary-key="true" key="id" type="integer" is-related="false" step="0" pc-display="true" mobile-display="true" widget="number"></wm-form-field>
-                    <wm-form-action key="cancel" class="form-cancel btn-secondary" iconclass="wi wi-cancel" action="cancel()" display-name="Cancel" show="true" type="button" update-mode="true"></wm-form-action>
-                    <wm-form-action key="save" class="form-save btn-success" iconclass="wi wi-save" display-name="Save" show="true" type="submit" update-mode="true"></wm-form-action>
+                    <wm-form-field name="id" displayname="Id" show="false" primary-key="true" generator="identity" period="false" key="id" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field>
+                    <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action>
+                    <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true"></wm-form-action>
                 </wm-liveform>
             </wm-livetable>
         </wm-page-content>
