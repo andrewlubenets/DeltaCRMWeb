@@ -27,8 +27,7 @@
                 </wm-gridrow>
             </wm-layoutgrid>
             <wm-livetable formlayout="dialog" name="OpportunitiesLiveTable1">
-                <wm-table gridfirstrowselect="true" editmode="dialog" name="OpportunitiesTable1" title="Opportunities List" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500"
-                    on-select="Variables.findStages.invoke()">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="OpportunitiesTable1" title="Opportunities List" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueCurrency" caption="Currency" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueBidamount" caption="Value" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -38,7 +37,7 @@
                     <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
                         <div class="row">
-                            <div class="col-sm-2 borderman {{ (row.getProperty('stages.number')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ row.getProperty('pipenames').split(',')[$index] }}"><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('pipelines.nbr')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ row.getProperty('pipenames').split(',')[$index] }}"><span>&nbsp;</span></div>
                         </div>
                     </wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
@@ -48,7 +47,8 @@
                     <wm-table-row-action key="customRow" display-name="Tasks" show="true" class="btn-transparent" iconclass="" title="Tasks" action="Widgets.dialog2.open();Variables.CrmTasksData.listRecords()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="customRow1" display-name="Files" show="true" class="btn-transparent" iconclass="" title="Files" action="Widgets.dialog1.open();Variables.CrmFilesOpportunitiesData.listRecords()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Opportunities Info" formlayout="dialog" iconclass="wi wi-edit" name="OpportunitiesLiveForm1" dataset="bind:Variables.CrmOpportunitiesData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="OpportunitiesLiveForm1Beforeservicecall($event, $operation, $data, options)">
+                <wm-liveform errormessage="" title="Opportunities Info" formlayout="dialog" iconclass="wi wi-edit" name="OpportunitiesLiveForm1" dataset="bind:Variables.CrmOpportunitiesData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="OpportunitiesLiveForm1Beforeservicecall($event, $operation, $data, options)"
+                    on-success="OpportunitiesLiveForm1Success($event, $operation, $data)">
                     <wm-layoutgrid columns="3" name="layoutgrid1">
                         <wm-gridrow name="gridrow14">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn14">
@@ -85,8 +85,8 @@
                                     dataset="bind:Variables.currency.dataSet" datafield="AlphabeticCode" displayfield="AlphabeticCode" orderby="AlphabeticCode:asc" placeholder="Select value" defaultvalue="IDR"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn21">
-                                <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" widget="text" inputtype="text" updateon="blur"
-                                    on-keyup="valueBidamountKeyup($event, $scope)" on-change="valueBidamountChange($event, $scope, newVal, oldVal)"></wm-form-field>
+                                <wm-form-field name="valueBidamount" displayname="Amount" show="true" primary-key="false" generator="assigned" period="false" key="valueBidamount" type="string" readonly="false" widget="text" maxchars="255" inputtype="text"
+                                    updateon="blur" on-change="valueBidamountChange($event, $scope, newVal, oldVal)" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn22">
                                 <wm-form-field name="valueUnitofmeasure" displayname="Type Bid" show="true" primary-key="false" generator="assigned" period="false" key="valueUnitofmeasure" type="string" readonly="false" widget="select" maxchars="255" placeholder="Select value"
@@ -95,29 +95,26 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow17">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn23">
-                                <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Opportunities&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:16939&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
+                                <wm-form-field name="pipelines" displayname="Pipelines Stages" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Opportunities&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:16939&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
                                     displayexpression="name" placeholder="Select value" on-change="Variables.findStages.invoke()"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn24">
-                                <wm-form-field name="stages" displayname="bind:&quot;Stage: &quot;" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                <wm-form-field name="leadSources" displayname="Lead Sources" show="true" primary-key="false" generator="assigned" period="false" key="leadSources" type="list" is-related="true" readonly="false" required="false" widget="select"
                                     filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                    displayexpression="name" placeholder="Select value" dataset="bind:Variables.findStages.dataSet" datafield="All Fields" displayfield="name" defaultvalue="bind:Variables.CrmOpportunitiesData.dataSet.data[$i].stages" orderby="number:desc"></wm-form-field>
+                                    displayexpression="name" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn31_1">
-                                <wm-form-field name="pipelinestatus" displayname="Pipeline Status" show="true" primary-key="false" generator="assigned" period="false" key="pipelinestatus" type="string" readonly="false" widget="select" maxchars="255" dataset="Win,Loss,Suspended,Abandoned"
-                                    placeholder="Select value"></wm-form-field>
+                                <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
+                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn26">
-                                <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
-                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
-                            </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="4" name="gridcolumn27">
                                 <wm-form-field name="forecastUpside" displayname="Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder="" checkedvalue="1"
                                     uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
-                            <wm-gridcolumn name="gridcolumn1" columnwidth="4">
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn27">
                                 <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
                                     placeholder=""></wm-form-field>
                             </wm-gridcolumn>

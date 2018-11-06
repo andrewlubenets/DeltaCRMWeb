@@ -19,14 +19,30 @@ Application.$controller("OpportunitiesPageController", ["$scope", function($scop
 
 
     $scope.OpportunitiesLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
-        console.log($scope.Variables.findStages.dataSet.content.length);
-        var names = $scope.Variables.findStages.dataSet.content[0].name;
-        for (var i = 1; i < $scope.Variables.findStages.dataSet.content.length; i++) {
-            names += "," + $scope.Variables.findStages.dataSet.content[i].name;
+        //console.log($scope.Variables.findStages.dataSet.content.length);
+        var names = $scope.Variables.findPipelines.dataSet.content[0].name;
+        for (var i = 1; i < $scope.Variables.findPipelines.dataSet.content.length; i++) {
+            names += "," + $scope.Variables.findPipelines.dataSet.content[i].name;
         }
         console.log(names);
-        $data.pipesize = $scope.Variables.findStages.dataSet.content.length;
+        $data.pipesize = $scope.Variables.findPipelines.dataSet.content.length;
         $data.pipenames = names;
+    };
+
+
+    $scope.OpportunitiesLiveForm1Success = function($event, $operation, $data) {
+        console.log($operation, $data, "pipelinestatus");
+        if ($data.pipelinestatus == "Win") {
+            $scope.Variables.createProjectIfWon.update();
+        }
+    };
+
+
+
+
+
+    $scope.findPipelinesonSuccess = function(variable, data, options) {
+        console.log("find pipelines: ", data);
     };
 
 }]);
@@ -46,6 +62,11 @@ Application.$controller("OpportunitiesLiveForm1Controller", ["$scope",
 
 
         $scope.valueBidamountKeyup = function($event, $isolateScope) {
+
+        };
+
+
+        $scope.valueBidamountChange = function($event, $isolateScope, newVal, oldVal) {
             try {
                 $scope.Widgets.valueBidamount.datavalue = $scope.Widgets.valueBidamount.datavalue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
             } catch (e) {
@@ -53,11 +74,6 @@ Application.$controller("OpportunitiesLiveForm1Controller", ["$scope",
             }
         };
 
-    
-        $scope.valueBidamountChange = function ($event, $isolateScope, newVal, oldVal) { 
-
-        };
- 
     }
 ]);
 

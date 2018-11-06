@@ -21,7 +21,6 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 
@@ -182,18 +181,6 @@ public interface StagesService {
      * @see Page
 	 */
     Page<Map<String, Object>> getAggregatedValues(AggregationInfo aggregationInfo, Pageable pageable);
-
-    /*
-     * Returns the associated opportunitieses for given Stages id.
-     *
-     * @param id value of id; value cannot be null
-     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
-     * @return Paginated list of associated Opportunities instances.
-     *
-     * @see Pageable
-     * @see Page
-     */
-    Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable);
 
     /*
      * Returns the associated projectses for given Stages id.

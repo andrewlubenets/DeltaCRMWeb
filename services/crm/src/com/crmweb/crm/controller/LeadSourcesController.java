@@ -35,6 +35,7 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.crmweb.crm.LeadSources;
 import com.crmweb.crm.Leads;
+import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.service.LeadSourcesService;
 
 
@@ -175,6 +176,15 @@ public class LeadSourcesController {
 
         LOGGER.debug("Fetching all associated leadses");
         return leadSourcesService.findAssociatedLeadses(id, pageable);
+    }
+
+    @RequestMapping(value="/{id:.+}/opportunitieses", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the opportunitieses instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Opportunities> findAssociatedOpportunitieses(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated opportunitieses");
+        return leadSourcesService.findAssociatedOpportunitieses(id, pageable);
     }
 
     /**

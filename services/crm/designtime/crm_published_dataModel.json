@@ -1044,38 +1044,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "locations",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "locationid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "departments_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "departments",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "locations",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "entities",
       "ignored" : false,
       "mappings" : [ {
@@ -1093,6 +1061,38 @@
       "sourceTable" : "departments",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "entities",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "locations",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "locationid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "departments_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "departments",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "locations",
       "valid" : true,
       "virtual" : false
     } ],
@@ -2534,38 +2534,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "user_responsibleid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "leads_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "leads",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "leadStatuses",
       "ignored" : false,
       "mappings" : [ {
@@ -2647,6 +2615,38 @@
       "sourceTable" : "leads",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "organizations",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "user_responsibleid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "leads_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "leads",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
       "valid" : true,
       "virtual" : false
     } ],
@@ -3213,35 +3213,6 @@
         "type" : "user-defined"
       },
       "constraintList" : null,
-      "fieldName" : "stageid",
-      "foreignKey" : true,
-      "generatorType" : "assigned",
-      "generatorValue" : null,
-      "hidden" : false,
-      "javaType" : "integer",
-      "length" : 0,
-      "name" : "stageid",
-      "nullable" : true,
-      "oldName" : "stageid",
-      "partOfAnyRelation" : true,
-      "partOfForeignKey" : true,
-      "partOfPrimaryKey" : false,
-      "partOfUniqueKey" : false,
-      "period" : false,
-      "precision" : 10,
-      "primaryKey" : false,
-      "scale" : 0,
-      "sequenceSchema" : null,
-      "sqlType" : "number",
-      "unique" : false
-    }, {
-      "columnValue" : {
-        "insertable" : true,
-        "updatable" : true,
-        "defaultValue" : null,
-        "type" : "user-defined"
-      },
-      "constraintList" : null,
       "fieldName" : "dateCreation",
       "foreignKey" : false,
       "generatorType" : "assigned",
@@ -3437,6 +3408,35 @@
       "sequenceSchema" : null,
       "sqlType" : "string",
       "unique" : false
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "leadsourceid",
+      "foreignKey" : true,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "leadsourceid",
+      "nullable" : true,
+      "oldName" : "leadsourceid",
+      "partOfAnyRelation" : true,
+      "partOfForeignKey" : true,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Opportunities",
@@ -3457,70 +3457,6 @@
       "virtual" : false
     },
     "relations" : [ {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "userresponsableid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "opportunities_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "opportunities",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "stages",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "stageid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "opportunities_ibfk_4",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "opportunities",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "stages",
-      "valid" : true,
-      "virtual" : false
-    }, {
       "cardinality" : "ManyToOne",
       "cascadeEnabled" : false,
       "cascadeOptions" : {
@@ -3582,6 +3518,70 @@
       "sourceTable" : "opportunities",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "pipelines",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "userresponsableid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "opportunities_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "opportunities",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "leadSources",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "leadsourceid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "opportunities_ibfk_5",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "opportunities",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "lead_sources",
       "valid" : true,
       "virtual" : false
     } ],
@@ -4307,6 +4307,35 @@
       "sequenceSchema" : null,
       "sqlType" : "datetime",
       "unique" : false
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "nbr",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 0,
+      "name" : "nbr",
+      "nullable" : true,
+      "oldName" : "nbr",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : false,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : false
     } ],
     "constraints" : [ ],
     "entityName" : "Pipelines",
@@ -4741,70 +4770,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "locations",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "locationid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "posts_ibfk_3",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "posts",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "locations",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
-      "fieldName" : "entities",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "entityid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "posts_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "posts",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "entities",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "departments",
       "ignored" : false,
       "mappings" : [ {
@@ -4854,6 +4819,70 @@
       "sourceTable" : "posts",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "users",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "locations",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "locationid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "posts_ibfk_3",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "posts",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "locations",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "entities",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "entityid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "posts_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "posts",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "entities",
       "valid" : true,
       "virtual" : false
     } ],
@@ -5155,38 +5184,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "userresponsibleid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "projects_ibfk_2",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "projects",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "stages",
       "ignored" : false,
       "mappings" : [ {
@@ -5300,6 +5297,38 @@
       "sourceTable" : "projects",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "opportunities",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "userresponsibleid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "projects_ibfk_2",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "projects",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
       "valid" : true,
       "virtual" : false
     } ],
@@ -5948,38 +5977,6 @@
         "fetch" : true,
         "columnsFilter" : [ ]
       },
-      "fieldName" : "users",
-      "ignored" : false,
-      "mappings" : [ {
-        "sourceColumn" : "assignedto_userid",
-        "targetColumn" : "id"
-      } ],
-      "name" : "tasks_ibfk_1",
-      "parentFetchOptions" : {
-        "fetch" : false,
-        "columnsFilter" : [ ]
-      },
-      "primary" : true,
-      "selfRelation" : false,
-      "sourceColumnsNotUniqueKey" : true,
-      "sourceTable" : "tasks",
-      "targetColumnsUniqueKey" : false,
-      "targetTable" : "users",
-      "valid" : true,
-      "virtual" : false
-    }, {
-      "cardinality" : "ManyToOne",
-      "cascadeEnabled" : false,
-      "cascadeOptions" : {
-        "cascadeRemove" : "NONE",
-        "cascadeReplace" : true
-      },
-      "columnsUniqueKey" : false,
-      "composite" : false,
-      "fetchOptions" : {
-        "fetch" : true,
-        "columnsFilter" : [ ]
-      },
       "fieldName" : "categories",
       "ignored" : false,
       "mappings" : [ {
@@ -5997,6 +5994,38 @@
       "sourceTable" : "tasks",
       "targetColumnsUniqueKey" : false,
       "targetTable" : "categories",
+      "valid" : true,
+      "virtual" : false
+    }, {
+      "cardinality" : "ManyToOne",
+      "cascadeEnabled" : false,
+      "cascadeOptions" : {
+        "cascadeRemove" : "NONE",
+        "cascadeReplace" : true
+      },
+      "columnsUniqueKey" : false,
+      "composite" : false,
+      "fetchOptions" : {
+        "fetch" : true,
+        "columnsFilter" : [ ]
+      },
+      "fieldName" : "users",
+      "ignored" : false,
+      "mappings" : [ {
+        "sourceColumn" : "assignedto_userid",
+        "targetColumn" : "id"
+      } ],
+      "name" : "tasks_ibfk_1",
+      "parentFetchOptions" : {
+        "fetch" : false,
+        "columnsFilter" : [ ]
+      },
+      "primary" : true,
+      "selfRelation" : false,
+      "sourceColumnsNotUniqueKey" : true,
+      "sourceTable" : "tasks",
+      "targetColumnsUniqueKey" : false,
+      "targetTable" : "users",
       "valid" : true,
       "virtual" : false
     } ],

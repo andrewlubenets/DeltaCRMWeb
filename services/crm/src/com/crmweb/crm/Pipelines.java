@@ -27,6 +27,7 @@ public class Pipelines implements Serializable {
     private String name;
     private String type;
     private LocalDateTime dateCreation;
+    private Integer nbr;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,6 +65,15 @@ public class Pipelines implements Serializable {
 
     public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    @Column(name = "`nbr`", nullable = true, scale = 0, precision = 10)
+    public Integer getNbr() {
+        return this.nbr;
+    }
+
+    public void setNbr(Integer nbr) {
+        this.nbr = nbr;
     }
 
 

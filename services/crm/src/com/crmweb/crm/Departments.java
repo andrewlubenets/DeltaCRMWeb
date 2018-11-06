@@ -38,8 +38,8 @@ public class Departments implements Serializable {
     private Integer head;
     private Integer locationid;
     private String status;
-    private Locations locations;
     private Entities entities;
+    private Locations locations;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -125,21 +125,6 @@ public class Departments implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`locationid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`departments_ibfk_2`"))
-    @Fetch(FetchMode.JOIN)
-    public Locations getLocations() {
-        return this.locations;
-    }
-
-    public void setLocations(Locations locations) {
-        if(locations != null) {
-            this.locationid = locations.getId();
-        }
-
-        this.locations = locations;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`entityid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`departments_ibfk_1`"))
     @Fetch(FetchMode.JOIN)
     public Entities getEntities() {
@@ -152,6 +137,21 @@ public class Departments implements Serializable {
         }
 
         this.entities = entities;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`locationid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`departments_ibfk_2`"))
+    @Fetch(FetchMode.JOIN)
+    public Locations getLocations() {
+        return this.locations;
+    }
+
+    public void setLocations(Locations locations) {
+        if(locations != null) {
+            this.locationid = locations.getId();
+        }
+
+        this.locations = locations;
     }
 
     @Override

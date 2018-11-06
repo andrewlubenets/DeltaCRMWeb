@@ -30,6 +30,7 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.crmweb.crm.LeadSources;
 import com.crmweb.crm.Leads;
+import com.crmweb.crm.Opportunities;
 
 
 /**
@@ -47,6 +48,11 @@ public class LeadSourcesServiceImpl implements LeadSourcesService {
     @Autowired
     @Qualifier("crm.LeadsService")
     private LeadsService leadsService;
+
+    @Lazy
+    @Autowired
+    @Qualifier("crm.OpportunitiesService")
+    private OpportunitiesService opportunitiesService;
 
     @Autowired
     @Qualifier("crm.LeadSourcesDao")
@@ -176,6 +182,17 @@ public class LeadSourcesServiceImpl implements LeadSourcesService {
         return leadsService.findAll(queryBuilder.toString(), pageable);
     }
 
+    @Transactional(readOnly = true, value = "crmTransactionManager")
+    @Override
+    public Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated opportunitieses");
+
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("leadSources.id = '" + id + "'");
+
+        return opportunitiesService.findAll(queryBuilder.toString(), pageable);
+    }
+
     /**
      * This setter method should only be used by unit tests
      *
@@ -183,6 +200,15 @@ public class LeadSourcesServiceImpl implements LeadSourcesService {
      */
     protected void setLeadsService(LeadsService service) {
         this.leadsService = service;
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service OpportunitiesService instance
+     */
+    protected void setOpportunitiesService(OpportunitiesService service) {
+        this.opportunitiesService = service;
     }
 
 }

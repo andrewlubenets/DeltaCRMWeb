@@ -28,7 +28,6 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
-import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 
@@ -48,11 +47,6 @@ public class StagesServiceImpl implements StagesService {
     @Autowired
     @Qualifier("crm.ProjectsService")
     private ProjectsService projectsService;
-
-    @Lazy
-    @Autowired
-    @Qualifier("crm.OpportunitiesService")
-    private OpportunitiesService opportunitiesService;
 
     @Autowired
     @Qualifier("crm.StagesDao")
@@ -173,17 +167,6 @@ public class StagesServiceImpl implements StagesService {
 
     @Transactional(readOnly = true, value = "crmTransactionManager")
     @Override
-    public Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated opportunitieses");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("stages.id = '" + id + "'");
-
-        return opportunitiesService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "crmTransactionManager")
-    @Override
     public Page<Projects> findAssociatedProjectses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated projectses");
 
@@ -200,15 +183,6 @@ public class StagesServiceImpl implements StagesService {
      */
     protected void setProjectsService(ProjectsService service) {
         this.projectsService = service;
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service OpportunitiesService instance
-     */
-    protected void setOpportunitiesService(OpportunitiesService service) {
-        this.opportunitiesService = service;
     }
 
 }

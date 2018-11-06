@@ -23,6 +23,7 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.crmweb.crm.LeadSources;
 import com.crmweb.crm.Leads;
+import com.crmweb.crm.Opportunities;
 
 /**
  * Service object for domain model class {@link LeadSources}.
@@ -193,5 +194,17 @@ public interface LeadSourcesService {
      * @see Page
      */
     Page<Leads> findAssociatedLeadses(Integer id, Pageable pageable);
+
+    /*
+     * Returns the associated opportunitieses for given LeadSources id.
+     *
+     * @param id value of id; value cannot be null
+     * @param pageable Details of the pagination information along with the sorting options. If null returns all matching records.
+     * @return Paginated list of associated Opportunities instances.
+     *
+     * @see Pageable
+     * @see Page
+     */
+    Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable);
 
 }

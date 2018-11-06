@@ -33,7 +33,6 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 import com.crmweb.crm.service.StagesService;
@@ -167,15 +166,6 @@ public class StagesController {
 	public Page<Map<String, Object>> getStagesAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return stagesService.getAggregatedValues(aggregationInfo, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/opportunitieses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the opportunitieses instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Opportunities> findAssociatedOpportunitieses(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated opportunitieses");
-        return stagesService.findAssociatedOpportunitieses(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/projectses", method=RequestMethod.GET)

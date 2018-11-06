@@ -69,6 +69,18 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "nbr",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "nbr",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Pipelines",
       "fullyQualifiedName" : "com.crmweb.crm.Pipelines",
@@ -169,6 +181,18 @@
           "notNull" : false,
           "length" : 0,
           "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "nbr",
+          "type" : "integer",
+          "fullyQualifiedType" : "integer",
+          "columnName" : "nbr",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 0,
+          "precision" : 10,
           "generator" : "assigned",
           "isRelated" : false,
           "scale" : 0

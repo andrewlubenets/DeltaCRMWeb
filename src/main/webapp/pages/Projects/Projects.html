@@ -31,34 +31,30 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow16_1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn22_1">
-                                <wm-form-field name="dateCreation" displayname="Date Creation" show="true" primary-key="false" generator="assigned" period="false" key="dateCreation" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time"
-                                    outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
-                            </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="6" name="gridcolumn23_1">
                                 <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
                                     filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Projects&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:19511&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
+                                    displayexpression="name"></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn23_1">
+                                <wm-form-field name="opportunities" displayname="Opportunities" show="true" primary-key="false" generator="assigned" period="false" key="opportunities" type="list" is-related="true" readonly="false" required="false" widget="select"
+                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="name"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow17_1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn24">
-                                <wm-form-field name="opportunities" displayname="Opportunities" show="true" primary-key="false" generator="assigned" period="false" key="opportunities" type="list" is-related="true" readonly="false" required="false" widget="select"
-                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                    displayexpression="name"></wm-form-field>
-                            </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="6" name="gridcolumn25_1">
                                 <wm-form-field name="users" displayname="Assigned To" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
                                     filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="firstname + ' ' + lastname"></wm-form-field>
                             </wm-gridcolumn>
-                        </wm-gridrow>
-                        <wm-gridrow name="gridrow18">
-                            <wm-gridcolumn columnwidth="6" name="gridcolumn26">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn25_1">
                                 <wm-form-field name="stages" displayname="Stages" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
                                     filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="name"></wm-form-field>
                             </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="6" name="gridcolumn27">
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow18">
+                            <wm-gridcolumn columnwidth="6" name="gridcolumn26">
                                 <wm-form-field name="categories" displayname="Categories" show="true" primary-key="false" generator="assigned" period="false" key="categories" type="list" is-related="true" readonly="false" required="false" widget="select"
                                     placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Project&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:14654&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
                                     displayexpression="name"></wm-form-field>
