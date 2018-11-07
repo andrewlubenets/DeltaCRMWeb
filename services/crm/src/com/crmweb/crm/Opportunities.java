@@ -49,10 +49,10 @@ public class Opportunities implements Serializable {
     private Integer wapu;
     private String pipelinestatus;
     private Integer leadsourceid;
-    private Categories categories;
     private Pipelines pipelines;
     private Users users;
     private LeadSources leadSources;
+    private Categories categories;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -228,21 +228,6 @@ public class Opportunities implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public Categories getCategories() {
-        return this.categories;
-    }
-
-    public void setCategories(Categories categories) {
-        if(categories != null) {
-            this.categoryid = categories.getId();
-        }
-
-        this.categories = categories;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`pipelineid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_3`"))
     @Fetch(FetchMode.JOIN)
     public Pipelines getPipelines() {
@@ -285,6 +270,21 @@ public class Opportunities implements Serializable {
         }
 
         this.leadSources = leadSources;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public Categories getCategories() {
+        return this.categories;
+    }
+
+    public void setCategories(Categories categories) {
+        if(categories != null) {
+            this.categoryid = categories.getId();
+        }
+
+        this.categories = categories;
     }
 
     @Override

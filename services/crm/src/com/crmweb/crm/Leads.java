@@ -49,10 +49,10 @@ public class Leads implements Serializable {
     private String state;
     private String country;
     private String notes;
-    private LeadStatuses leadStatuses;
     private LeadSources leadSources;
     private Organizations organizations;
     private Users users;
+    private LeadStatuses leadStatuses;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -237,21 +237,6 @@ public class Leads implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`leadstatusid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public LeadStatuses getLeadStatuses() {
-        return this.leadStatuses;
-    }
-
-    public void setLeadStatuses(LeadStatuses leadStatuses) {
-        if(leadStatuses != null) {
-            this.leadstatusid = leadStatuses.getId();
-        }
-
-        this.leadStatuses = leadStatuses;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_3`"))
     @Fetch(FetchMode.JOIN)
     public LeadSources getLeadSources() {
@@ -294,6 +279,21 @@ public class Leads implements Serializable {
         }
 
         this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`leadstatusid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public LeadStatuses getLeadStatuses() {
+        return this.leadStatuses;
+    }
+
+    public void setLeadStatuses(LeadStatuses leadStatuses) {
+        if(leadStatuses != null) {
+            this.leadstatusid = leadStatuses.getId();
+        }
+
+        this.leadStatuses = leadStatuses;
     }
 
     @Override

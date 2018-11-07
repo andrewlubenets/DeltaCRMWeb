@@ -2,9 +2,9 @@
     <wm-header content="header" name="header1"></wm-header>
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
-        <wm-page-content columnwidth="10" name="page_content1">
-            <wm-layoutgrid name="layoutgrid3_1">
-                <wm-gridrow name="gridrow9" padding="25px unset unset unset">
+        <wm-page-content columnwidth="10" name="page_content1" padding="50px unset unset unset">
+            <wm-layoutgrid name="layoutgrid3_1" height="65">
+                <wm-gridrow name="gridrow9" height="100">
                     <wm-gridcolumn columnwidth="2" name="gridcolumn22_1"></wm-gridcolumn>
                     <wm-gridcolumn columnwidth="3" name="gridcolumn18_1">
                         <wm-composite name="composite2">
@@ -18,7 +18,7 @@
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn19_1">
                         <wm-composite name="composite1">
-                            <wm-label class="col-md-3 control-label" name="label1" caption="Product Category"></wm-label>
+                            <wm-label class="col-md-3" name="label1" caption="Product Category"></wm-label>
                             <wm-container class="col-md-9" name="container1">
                                 <wm-select name="select1" dataset="DeltaApp,Hardware-Software" datafield="All Fields"></wm-select>
                             </wm-container>
@@ -67,12 +67,12 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow15">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn17">
-                                <wm-form-field name="probabilityofwinning" displayname="Probability of Winning" show="true" primary-key="false" generator="assigned" period="false" key="probabilityofwinning" type="string" readonly="false" required="false"
-                                    widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field>
+                                <wm-form-field name="probabilityofwinning" displayname="Probability of Winning (%)" show="true" primary-key="false" generator="assigned" period="false" key="probabilityofwinning" type="string" maxvalue="100" readonly="false"
+                                    widget="number" maxchars="3" inputtype="number" minvalue="0" step="1" validationmessage="Probabily must be number between 0-100" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn18">
                                 <wm-form-field name="forecastclosedate" displayname="Forecast Close Date" show="true" primary-key="false" generator="assigned" period="false" key="forecastclosedate" type="datetime" readonly="false" widget="date" outputformat="yyyy-MM-ddTHH:mm:ss"
-                                    datepattern="yyyy-MM-dd" placeholder="Select date"></wm-form-field>
+                                    datepattern="yyyy-MM-dd" placeholder="Select date" width="160"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn19">
                                 <wm-form-field name="users" displayname="Who's Responsable?" show="true" primary-key="false" generator="assigned" period="false" key="users" type="list" is-related="true" readonly="false" required="false" widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
@@ -105,18 +105,18 @@
                                     displayexpression="name" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn31_1">
-                                <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
-                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                                <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
+                                    placeholder=""></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn26">
-                                <wm-form-field name="forecastUpside" displayname="Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder="" checkedvalue="1"
-                                    uncheckedvalue="0" defaultvalue="0"></wm-form-field>
+                                <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
+                                    checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn27">
-                                <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
-                                    placeholder=""></wm-form-field>
+                                <wm-form-field name="forecastUpside" displayname="Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder="" checkedvalue="1"
+                                    uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

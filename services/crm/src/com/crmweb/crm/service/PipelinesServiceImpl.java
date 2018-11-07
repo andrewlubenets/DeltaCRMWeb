@@ -30,7 +30,6 @@ import com.wavemaker.runtime.file.model.Downloadable;
 
 import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.Pipelines;
-import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 
 
@@ -44,11 +43,6 @@ import com.crmweb.crm.Stages;
 public class PipelinesServiceImpl implements PipelinesService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PipelinesServiceImpl.class);
-
-    @Lazy
-    @Autowired
-    @Qualifier("crm.ProjectsService")
-    private ProjectsService projectsService;
 
     @Lazy
     @Autowired
@@ -190,17 +184,6 @@ public class PipelinesServiceImpl implements PipelinesService {
 
     @Transactional(readOnly = true, value = "crmTransactionManager")
     @Override
-    public Page<Projects> findAssociatedProjectses(Integer id, Pageable pageable) {
-        LOGGER.debug("Fetching all associated projectses");
-
-        StringBuilder queryBuilder = new StringBuilder();
-        queryBuilder.append("pipelines.id = '" + id + "'");
-
-        return projectsService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    @Transactional(readOnly = true, value = "crmTransactionManager")
-    @Override
     public Page<Stages> findAssociatedStageses(Integer id, Pageable pageable) {
         LOGGER.debug("Fetching all associated stageses");
 
@@ -208,15 +191,6 @@ public class PipelinesServiceImpl implements PipelinesService {
         queryBuilder.append("pipelines.id = '" + id + "'");
 
         return stagesService.findAll(queryBuilder.toString(), pageable);
-    }
-
-    /**
-     * This setter method should only be used by unit tests
-     *
-     * @param service ProjectsService instance
-     */
-    protected void setProjectsService(ProjectsService service) {
-        this.projectsService = service;
     }
 
     /**

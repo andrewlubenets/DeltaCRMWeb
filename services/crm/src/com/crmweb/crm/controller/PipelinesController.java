@@ -35,7 +35,6 @@ import com.wordnik.swagger.annotations.ApiParam;
 
 import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.Pipelines;
-import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 import com.crmweb.crm.service.PipelinesService;
 
@@ -177,15 +176,6 @@ public class PipelinesController {
 
         LOGGER.debug("Fetching all associated opportunitieses");
         return pipelinesService.findAssociatedOpportunitieses(id, pageable);
-    }
-
-    @RequestMapping(value="/{id:.+}/projectses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectses instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectses(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated projectses");
-        return pipelinesService.findAssociatedProjectses(id, pageable);
     }
 
     @RequestMapping(value="/{id:.+}/stageses", method=RequestMethod.GET)

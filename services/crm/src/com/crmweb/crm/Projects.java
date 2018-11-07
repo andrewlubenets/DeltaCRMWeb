@@ -35,13 +35,11 @@ public class Projects implements Serializable {
     private String description;
     private Integer categoryid;
     private Integer userresponsibleid;
-    private Integer pipelineid;
-    private Integer stageid;
     private Integer opportunityid;
     private LocalDateTime dateCreation;
-    private Stages stages;
+    private Integer hasopportunities;
+    private String stages;
     private Categories categories;
-    private Pipelines pipelines;
     private Opportunities opportunities;
     private Users users;
 
@@ -92,24 +90,6 @@ public class Projects implements Serializable {
         this.userresponsibleid = userresponsibleid;
     }
 
-    @Column(name = "`pipelineid`", nullable = true, scale = 0, precision = 10)
-    public Integer getPipelineid() {
-        return this.pipelineid;
-    }
-
-    public void setPipelineid(Integer pipelineid) {
-        this.pipelineid = pipelineid;
-    }
-
-    @Column(name = "`stageid`", nullable = true, scale = 0, precision = 10)
-    public Integer getStageid() {
-        return this.stageid;
-    }
-
-    public void setStageid(Integer stageid) {
-        this.stageid = stageid;
-    }
-
     @Column(name = "`opportunityid`", nullable = true, scale = 0, precision = 10)
     public Integer getOpportunityid() {
         return this.opportunityid;
@@ -128,18 +108,21 @@ public class Projects implements Serializable {
         this.dateCreation = dateCreation;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`stageid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_4`"))
-    @Fetch(FetchMode.JOIN)
-    public Stages getStages() {
+    @Column(name = "`hasopportunities`", nullable = true, scale = 0, precision = 10)
+    public Integer getHasopportunities() {
+        return this.hasopportunities;
+    }
+
+    public void setHasopportunities(Integer hasopportunities) {
+        this.hasopportunities = hasopportunities;
+    }
+
+    @Column(name = "`stages`", nullable = true, length = 255)
+    public String getStages() {
         return this.stages;
     }
 
-    public void setStages(Stages stages) {
-        if(stages != null) {
-            this.stageid = stages.getId();
-        }
-
+    public void setStages(String stages) {
         this.stages = stages;
     }
 
@@ -156,21 +139,6 @@ public class Projects implements Serializable {
         }
 
         this.categories = categories;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`pipelineid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_3`"))
-    @Fetch(FetchMode.JOIN)
-    public Pipelines getPipelines() {
-        return this.pipelines;
-    }
-
-    public void setPipelines(Pipelines pipelines) {
-        if(pipelines != null) {
-            this.pipelineid = pipelines.getId();
-        }
-
-        this.pipelines = pipelines;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

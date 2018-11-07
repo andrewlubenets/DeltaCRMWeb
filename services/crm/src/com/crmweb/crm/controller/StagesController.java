@@ -33,7 +33,6 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
-import com.crmweb.crm.Projects;
 import com.crmweb.crm.Stages;
 import com.crmweb.crm.service.StagesService;
 
@@ -168,14 +167,6 @@ public class StagesController {
         return stagesService.getAggregatedValues(aggregationInfo, pageable);
     }
 
-    @RequestMapping(value="/{id:.+}/projectses", method=RequestMethod.GET)
-    @ApiOperation(value = "Gets the projectses instance associated with the given id.")
-    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
-    public Page<Projects> findAssociatedProjectses(@PathVariable("id") Integer id, Pageable pageable) {
-
-        LOGGER.debug("Fetching all associated projectses");
-        return stagesService.findAssociatedProjectses(id, pageable);
-    }
 
     /**
 	 * This setter method should only be used by unit tests

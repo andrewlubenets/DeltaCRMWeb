@@ -2,7 +2,7 @@
     <wm-header content="header" name="header1"></wm-header>
     <wm-content name="content1">
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
-        <wm-page-content columnwidth="10" name="page_content1">
+        <wm-page-content columnwidth="10" name="page_content1" padding="50px unset unset unset">
             <wm-livetable formlayout="dialog" name="ProjectsLiveTable1">
                 <wm-table gridfirstrowselect="true" editmode="dialog" name="ProjectsTable1" title="Projects List" dataset="bind:Variables.CrmProjectsData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -10,6 +10,14 @@
                         <wm-label caption="{{row.getProperty('users.firstname')+&quot; &quot;+row.getProperty('users.lastname')}}" class="" data-ng-class=""></wm-label>
                     </wm-table-column>
                     <wm-table-column binding="categories.name" caption="Categorie" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                    <wm-table-column binding="stages" caption="Stages" widget-type="label" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false">
+                        <div class="row">
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Starting')?'bg-primary':'bg-info' }}" title="Starting" starting="" "=" "><span>&nbsp;</span></div><div class="col-md-2 borderman {{ (row.getProperty( 'stages')=='In Progress'
+                                )? 'bg-primary': 'bg-info' }} " title="In Progress " in=" " progress"=""><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Stuck')?'bg-primary':'bg-info' }}" title="Stuck" stuck="" "=" "><span>&nbsp;</span></div><div class="col-md-2 borderman {{ (row.getProperty(
+                                'stages')=='Completed' )? 'bg-primary': 'bg-info' }} " title="Completed " completed"=""><span>&nbsp;</span></div>
+                        </div>
+                    </wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
                     <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
@@ -31,13 +39,12 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow16_1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn22_1">
-                                <wm-form-field name="pipelines" displayname="Pipelines" show="true" primary-key="false" generator="assigned" period="false" key="pipelines" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
-                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Projects&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:19511&quot;,&quot;secondvalue&quot;:&quot;&quot;}]}"
-                                    displayexpression="name"></wm-form-field>
+                                <wm-form-field name="hasopportunities" displayname="Related to opportunity?" show="true" primary-key="false" generator="assigned" period="false" key="hasopportunities" type="integer" readonly="false" step="0" widget="checkbox"
+                                    defaultvalue="0" checkedvalue="1" uncheckedvalue="0"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn23_1">
-                                <wm-form-field name="opportunities" displayname="Opportunities" show="true" primary-key="false" generator="assigned" period="false" key="opportunities" type="list" is-related="true" readonly="false" required="false" widget="select"
-                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                <wm-form-field name="opportunities" displayname="Opportunities" show="bind:Widgets.ProjectsLiveForm1.formWidgets.hasopportunities.datavalue==1?true:false" primary-key="false" generator="assigned" period="false" key="opportunities"
+                                    type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
                                     displayexpression="name"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
@@ -48,9 +55,9 @@
                                     displayexpression="firstname + ' ' + lastname"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn25_1">
-                                <wm-form-field name="stages" displayname="Stages" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="list" is-related="true" readonly="false" required="false" widget="select" placeholder="Select value"
+                                <wm-form-field name="stages" displayname="Stages" show="true" primary-key="false" generator="assigned" period="false" key="stages" type="string" readonly="false" required="false" widget="select" maxchars="255" placeholder="Select value"
                                     filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                    displayexpression="name"></wm-form-field>
+                                    displayexpression="name" dataset="Starting,In Progress,Stuck,Completed"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
@@ -92,7 +99,7 @@
                     <wm-layoutgrid columns="2" name="layoutgrid4">
                         <wm-gridrow name="gridrow13">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn17">
-                                <wm-form-field name="name" displayname="Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" widget="textarea" inputtype="text"></wm-form-field>
+                                <wm-form-field name="name" displayname="Task Name" show="true" primary-key="false" generator="assigned" period="false" key="name" type="string" readonly="false" widget="textarea" inputtype="text"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn18">
                                 <wm-form-field name="duedate" displayname="Duedate" show="true" primary-key="false" generator="assigned" period="false" key="duedate" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time"
