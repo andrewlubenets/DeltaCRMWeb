@@ -10330,10 +10330,12 @@ button.wm-app .close {
   font-size: 16px;
   vertical-align: top;
   overflow: auto;
+  font-family: 'Quicksand', 'Arial', sans-serif;
 }
 
 .wm-app .app-page-content.login .app-container {
   background-color: #F4F5FA;
+  background-image: none !important;
 }
 
 .wm-app .app-page-content.login .app-container > .app-grid-layout > .app-grid-row {
@@ -10344,6 +10346,43 @@ button.wm-app .close {
   background-color: #2C303A;
   border-radius: 5px;
   box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+}
+
+.wm-app .app-page-content.login .app-container .p.app-label {
+  background-color: transparent !important;
+  font-size: 14px !important;
+}
+
+.wm-app .app-page-content.login .app-container .input-group-addon {
+  background-color: transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top: 1px solid #dadada;
+  border-left: 1px solid #dadada;
+  border-bottom: 1px solid #dadada;
+}
+
+.wm-app .app-page-content.login .app-container input.app-login-username,
+.wm-app .app-page-content.login .app-container input.app-login-password {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px; 
+  font-size: 16px;
+  border: 1px solid #dadada;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+.wm-app .app-page-content.login .app-container .app-checkbox.checkbox .caption {
+  font-size: 14px;
+}
+
+.wm-app .app-page-content.login .app-container .app-button .btn-caption {
+  text-transform: none;
+}
+
+.wm-app .app-page-content.login .app-container .app-form .app-label {
+  font-size: 14px;
+  padding-top: 20px;
+  margin-bottom: 0;
 }
 
 /* Main screen */

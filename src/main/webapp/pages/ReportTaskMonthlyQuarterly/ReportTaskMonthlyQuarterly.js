@@ -15,3 +15,11 @@ Application.$controller("ReportTaskMonthlyQuarterlyPageController", ["$scope", f
     };
 
 }]);
+
+
+Application.$controller("TasksTable1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);

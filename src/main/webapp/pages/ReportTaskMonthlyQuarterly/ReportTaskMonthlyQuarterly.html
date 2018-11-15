@@ -1,9 +1,54 @@
-<wm-page data-ng-controller="ReportTaskMonthlyQuarterlyPageController" pagetitle="Report Task Monthly Quarterly"> 
-    <wm-header content="header"></wm-header> 
-    <wm-content> 
-        <wm-left-panel columnwidth="2" content="leftnav"></wm-left-panel> 
-        <wm-page-content columnwidth="10"> 
-        </wm-page-content> 
-    </wm-content> 
-    <wm-footer content="footer"></wm-footer> 
+<wm-page data-ng-controller="ReportTaskMonthlyQuarterlyPageController" pagetitle="Report Task Monthly Quarterly" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn1">
+                        <wm-label padding="unset 0.5em" caption="Task Monthly and Quarterly Report" class="h3 bg-primary" textalign="left" name="label4"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="1" name="gridcolumn5_1"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="2" name="gridcolumn5" horizontalalign="right">
+                        <wm-composite name="composite2" horizontalalign="left" captionposition="top">
+                            <wm-label class="col-md-3 control-label" name="label2" caption="Filter by"></wm-label>
+                            <wm-container class="col-md-9" name="container2">
+                                <wm-radioset height="auto" name="radioset1" dataset="Monthly,Quarterly" width="100" layout="inline"></wm-radioset>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="5" name="gridcolumn2">
+                        <wm-composite name="composite1" show="bind:Widgets.radioset1.datavalue==&quot;Monthly&quot;?true:false">
+                            <wm-label class="col-md-3 control-label" name="label1" caption="Month"></wm-label>
+                            <wm-container class="col-md-9" name="container1">
+                                <wm-select name="select1" dataset="bind:Variables.monthsList.dataSet" datafield="dataValue" displayfield="name"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                        <wm-composite name="composite3" show="bind:Widgets.radioset1.datavalue==&quot;Quarterly&quot;?true:false">
+                            <wm-label class="col-md-3 control-label" name="label3" caption="Quarter"></wm-label>
+                            <wm-container class="col-md-9" name="container3">
+                                <wm-select name="select2" dataset="January to March,April to June,July to September,October to December" datafield="All Fields"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-table name="TasksTable1" title="" dataset="bind:Variables.CrmTasksData.dataSet" navigation="None" exportformat="EXCEL,CSV" exportdatasize="1000">
+                            <wm-table-column binding="name" caption="Task Title" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="startdate" caption="Date Created" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                                <wm-label caption="{{row.getProperty('startdate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="duedate" caption="Due Date" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                                <wm-label caption="{{row.getProperty('duedate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="status" caption="Status" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="progress" caption="Percent Complete" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
 </wm-page>
