@@ -663,6 +663,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_OpportunitySummaryReportBySales" : {
+    "_id" : "wm-goToPage_OpportunitySummaryReportBySales-wm.NavigationVariable-1541900658771",
+    "name" : "goToPage_OpportunitySummaryReportBySales",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "OpportunitySummaryReportBySales",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Organizations" : {
     "_id" : "wm-goToPage_Organizations-wm.NavigationVariable-1540500880482",
     "name" : "goToPage_Organizations",
@@ -707,6 +718,105 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_ReportCommitUpside2" : {
+    "_id" : "wm-goToPage_ReportCommitUpside2-wm.NavigationVariable-1542212939857",
+    "name" : "goToPage_ReportCommitUpside2",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportCommitUpside2",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppoByBidType" : {
+    "_id" : "wm-goToPage_ReportOppoByBidType-wm.NavigationVariable-1541976244522",
+    "name" : "goToPage_ReportOppoByBidType",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppoByBidType",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppoByCategory" : {
+    "_id" : "wm-goToPage_ReportOppoByCategory-wm.NavigationVariable-1541976274950",
+    "name" : "goToPage_ReportOppoByCategory",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppoByCategory",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppoByValue" : {
+    "_id" : "wm-goToPage_ReportOppoByValue-wm.NavigationVariable-1541976189470",
+    "name" : "goToPage_ReportOppoByValue",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppoByValue",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppoStage" : {
+    "_id" : "wm-goToPage_ReportOppoState-wm.NavigationVariable-1541976291454",
+    "name" : "goToPage_ReportOppoStage",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppoStage",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppoWonLost" : {
+    "_id" : "wm-goToPage_ReportOppoWonLost-wm.NavigationVariable-1541976309742",
+    "name" : "goToPage_ReportOppoWonLost",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppoWonLost",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportOppSummaryBySales" : {
+    "_id" : "wm-goToPage_ReportOppSummaryBySales-wm.NavigationVariable-1541976126021",
+    "name" : "goToPage_ReportOppSummaryBySales",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportOppSummaryBySales",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportProjectActivity" : {
+    "_id" : "wm-goToPage_ReportProjectActivity-wm.NavigationVariable-1541976336987",
+    "name" : "goToPage_ReportProjectActivity",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportProjectActivity",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportProjectReport" : {
+    "_id" : "wm-goToPage_ReportProjectReport-wm.NavigationVariable-1541976373344",
+    "name" : "goToPage_ReportProjectReport",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportProjectReport",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Reports" : {
     "_id" : "wm-goToPage_Reports-wm.NavigationVariable-1540496226934",
     "name" : "goToPage_Reports",
@@ -715,6 +825,28 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Reports",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportTaskByPriority" : {
+    "_id" : "wm-goToPage_ReportTaskByPriority-wm.NavigationVariable-1541976390970",
+    "name" : "goToPage_ReportTaskByPriority",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportTaskByPriority",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ReportTaskMonthlyQuarterly" : {
+    "_id" : "wm-goToPage_ReportTaskMonthlyQuarterly-wm.NavigationVariable-1541976426279",
+    "name" : "goToPage_ReportTaskMonthlyQuarterly",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ReportTaskMonthlyQuarterly",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

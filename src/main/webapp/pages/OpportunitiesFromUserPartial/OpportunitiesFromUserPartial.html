@@ -1,0 +1,27 @@
+<wm-partial data-ng-controller="OpportunitiesFromUserPartialPageController" name="partial1">
+    <wm-layoutgrid name="layoutgrid1">
+        <wm-gridrow name="gridrow1">
+            <wm-gridcolumn columnwidth="12" name="gridcolumn1">
+                <wm-table name="OpportunitiesTable1" title="" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="None">
+                    <wm-table-column binding="name" caption="Opportunity Name" width="180px" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="forecastclosedate" caption="Date Closed (Forecast)" widget-type="label" width="100px" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                        <wm-label caption="{{row.getProperty('forecastclosedate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
+                    <wm-table-column binding="valueBidamount" caption="Opportunity Value" width="120px" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="valueCurrency" caption="Bid Currency" width="80px" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="users.firstname" caption="Owner Name" widget-type="label" width="150px" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true">
+                        <wm-label caption="{{row.getProperty('users.firstname')+&quot; &quot;+row.getProperty('users.lastname')}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
+                </wm-table>
+            </wm-gridcolumn>
+        </wm-gridrow>
+        <wm-gridrow name="gridrow2">
+            <wm-gridcolumn columnwidth="2" name="gridcolumn3" padding="unset unset unset 240px"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="4" name="gridcolumn4">
+                <wm-label padding="unset 0.5em" name="label1" caption="Total:" textalign="right" class="bg-primary"></wm-label>
+                <wm-label padding="unset 0.5em" name="lbltotal" caption="0"></wm-label>
+            </wm-gridcolumn>
+            <wm-gridcolumn columnwidth="6" name="gridcolumn5"></wm-gridcolumn>
+        </wm-gridrow>
+    </wm-layoutgrid>
+</wm-partial>

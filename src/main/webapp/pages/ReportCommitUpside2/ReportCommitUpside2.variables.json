@@ -1,0 +1,33 @@
+{
+  "CrmExecuteUserthathasOpenOpportunities" : {
+    "_id" : "wm-CrmExecuteUserthathasOpenOpportunities-wm.ServiceVariable-1542220140668",
+    "name" : "CrmExecuteUserthathasOpenOpportunities",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "date1",
+      "value" : "bind:Widgets.select1.datavalue+\"-01-01\"",
+      "type" : "string"
+    }, {
+      "target" : "date2",
+      "value" : "bind:Widgets.select1.datavalue+\"-12-31\"",
+      "type" : "string"
+    } ],
+    "type" : "com.crmweb.crm.models.query.UserthathasOpenOpportunitiesResponse",
+    "service" : "crm",
+    "operation" : "executeUserthathasOpenOpportunities",
+    "operationId" : "QueryExecutionController_executeUserthathasOpenOpportunities",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 200,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  }
+}

@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.model.Downloadable;
 
+import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.OpportunityStates;
 
 
@@ -41,6 +43,10 @@ public class OpportunityStatesServiceImpl implements OpportunityStatesService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(OpportunityStatesServiceImpl.class);
 
+    @Lazy
+    @Autowired
+    @Qualifier("crm.OpportunitiesService")
+    private OpportunitiesService opportunitiesService;
 
     @Autowired
     @Qualifier("crm.OpportunityStatesDao")
@@ -159,6 +165,24 @@ public class OpportunityStatesServiceImpl implements OpportunityStatesService {
         return this.wmGenericDao.getAggregatedValues(aggregationInfo, pageable);
     }
 
+    @Transactional(readOnly = true, value = "crmTransactionManager")
+    @Override
+    public Page<Opportunities> findAssociatedOpportunitieses(Integer id, Pageable pageable) {
+        LOGGER.debug("Fetching all associated opportunitieses");
 
+        StringBuilder queryBuilder = new StringBuilder();
+        queryBuilder.append("opportunityStates.id = '" + id + "'");
+
+        return opportunitiesService.findAll(queryBuilder.toString(), pageable);
+    }
+
+    /**
+     * This setter method should only be used by unit tests
+     *
+     * @param service OpportunitiesService instance
+     */
+    protected void setOpportunitiesService(OpportunitiesService service) {
+        this.opportunitiesService = service;
+    }
 
 }

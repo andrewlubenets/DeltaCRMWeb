@@ -39,9 +39,9 @@ public class Projects implements Serializable {
     private LocalDateTime dateCreation;
     private Integer hasopportunities;
     private String stages;
+    private Users users;
     private Categories categories;
     private Opportunities opportunities;
-    private Users users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -127,6 +127,21 @@ public class Projects implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`userresponsibleid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_2`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.userresponsibleid = users.getId();
+        }
+
+        this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_1`"))
     @Fetch(FetchMode.JOIN)
     public Categories getCategories() {
@@ -154,21 +169,6 @@ public class Projects implements Serializable {
         }
 
         this.opportunities = opportunities;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`userresponsibleid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`projects_ibfk_2`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.userresponsibleid = users.getId();
-        }
-
-        this.users = users;
     }
 
     @Override

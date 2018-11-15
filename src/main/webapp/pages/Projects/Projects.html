@@ -12,10 +12,10 @@
                     <wm-table-column binding="categories.name" caption="Categorie" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="stages" caption="Stages" widget-type="label" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false">
                         <div class="row">
-                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Starting')?'bg-primary':'bg-info' }}" title="Starting" starting="" "=" "><span>&nbsp;</span></div><div class="col-md-2 borderman {{ (row.getProperty( 'stages')=='In Progress'
-                                )? 'bg-primary': 'bg-info' }} " title="In Progress " in=" " progress"=""><span>&nbsp;</span></div>
-                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Stuck')?'bg-primary':'bg-info' }}" title="Stuck" stuck="" "=" "><span>&nbsp;</span></div><div class="col-md-2 borderman {{ (row.getProperty(
-                                'stages')=='Completed' )? 'bg-primary': 'bg-info' }} " title="Completed " completed"=""><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Starting')?'bg-primary':'bg-info' }}" title="Starting"><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='In Progress')?'bg-primary':'bg-info' }}" title="In Progress"><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Stuck')?'bg-primary':'bg-info' }}" title="Stuck"><span>&nbsp;</span></div>
+                            <div class="col-md-2 borderman {{ (row.getProperty('stages')=='Completed')?'bg-primary':'bg-info' }}" title="Completed"><span>&nbsp;</span></div>
                         </div>
                     </wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>

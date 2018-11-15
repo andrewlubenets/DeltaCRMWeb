@@ -51,7 +51,21 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "OpportunitiesFromUserPartial",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "userid",
+    "type" : "integer"
+  }, {
+    "name" : "year",
+    "type" : "integer"
+  } ]
+}, {
   "name" : "OpportunitiesStates",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "OpportunitySummaryReportBySales",
   "type" : "PAGE",
   "params" : [ ]
 }, {
@@ -75,8 +89,56 @@
   "type" : "POPOVER",
   "params" : [ ]
 }, {
+  "name" : "ReportCommitUpside2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppSummaryBySales",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppoByBidType",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppoByCategory",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppoByValue",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppoStage",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportOppoWonLost",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportProjectActivity",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportProjectReport",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportTaskByPriority",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportTaskMonthlyQuarterly",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "Reports",
   "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ReportsMenu",
+  "type" : "POPOVER",
   "params" : [ ]
 }, {
   "name" : "Stages",

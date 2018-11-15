@@ -32,7 +32,7 @@ Application.$controller("OpportunitiesPageController", ["$scope", function($scop
 
     $scope.OpportunitiesLiveForm1Success = function($event, $operation, $data) {
         console.log($operation, $data, "pipelinestatus");
-        if ($data.pipelinestatus == "Win") {
+        if ($data.opportunityStates.name == "WON") {
             $scope.Variables.createProjectIfWon.update();
         }
     };

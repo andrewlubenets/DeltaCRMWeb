@@ -105,16 +105,21 @@
                                     displayexpression="name" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="4" name="gridcolumn31_1">
-                                <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
-                                    placeholder=""></wm-form-field>
+                                <wm-form-field name="opportunityStates" displayname="Opportunity States" show="true" primary-key="false" generator="assigned" period="false" key="opportunityStates" type="list" is-related="true" readonly="false" required="false"
+                                    widget="select" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    displayexpression="name"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow18">
                             <wm-gridcolumn columnwidth="4" name="gridcolumn26">
+                                <wm-form-field name="wapu" displayname="Wapu" show="true" primary-key="false" generator="assigned" period="false" key="wapu" type="integer" readonly="false" step="0" widget="checkbox" defaultvalue="0" checkedvalue="1" uncheckedvalue="0"
+                                    placeholder=""></wm-form-field>
+                            </wm-gridcolumn>
+                            <wm-gridcolumn columnwidth="4" name="gridcolumn27">
                                 <wm-form-field name="forecastCommitDeals" displayname="Commit?" show="true" primary-key="false" generator="assigned" period="false" key="forecastCommitDeals" type="integer" readonly="false" step="0" widget="checkbox" placeholder=""
                                     checkedvalue="1" uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>
-                            <wm-gridcolumn columnwidth="4" name="gridcolumn27">
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="4">
                                 <wm-form-field name="forecastUpside" displayname="Upside?" show="true" primary-key="false" generator="assigned" period="false" key="forecastUpside" type="integer" readonly="false" step="0" widget="checkbox" placeholder="" checkedvalue="1"
                                     uncheckedvalue="0" defaultvalue="0"></wm-form-field>
                             </wm-gridcolumn>

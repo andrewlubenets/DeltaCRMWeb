@@ -49,10 +49,12 @@ public class Opportunities implements Serializable {
     private Integer wapu;
     private String pipelinestatus;
     private Integer leadsourceid;
+    private Integer opportunitystateid;
     private Pipelines pipelines;
     private Users users;
-    private LeadSources leadSources;
+    private OpportunityStates opportunityStates;
     private Categories categories;
+    private LeadSources leadSources;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -227,6 +229,15 @@ public class Opportunities implements Serializable {
         this.leadsourceid = leadsourceid;
     }
 
+    @Column(name = "`opportunitystateid`", nullable = true, scale = 0, precision = 10)
+    public Integer getOpportunitystateid() {
+        return this.opportunitystateid;
+    }
+
+    public void setOpportunitystateid(Integer opportunitystateid) {
+        this.opportunitystateid = opportunitystateid;
+    }
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`pipelineid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_3`"))
     @Fetch(FetchMode.JOIN)
@@ -258,18 +269,18 @@ public class Opportunities implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_5`"))
+    @JoinColumn(name = "`opportunitystateid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_6`"))
     @Fetch(FetchMode.JOIN)
-    public LeadSources getLeadSources() {
-        return this.leadSources;
+    public OpportunityStates getOpportunityStates() {
+        return this.opportunityStates;
     }
 
-    public void setLeadSources(LeadSources leadSources) {
-        if(leadSources != null) {
-            this.leadsourceid = leadSources.getId();
+    public void setOpportunityStates(OpportunityStates opportunityStates) {
+        if(opportunityStates != null) {
+            this.opportunitystateid = opportunityStates.getId();
         }
 
-        this.leadSources = leadSources;
+        this.opportunityStates = opportunityStates;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -285,6 +296,21 @@ public class Opportunities implements Serializable {
         }
 
         this.categories = categories;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_5`"))
+    @Fetch(FetchMode.JOIN)
+    public LeadSources getLeadSources() {
+        return this.leadSources;
+    }
+
+    public void setLeadSources(LeadSources leadSources) {
+        if(leadSources != null) {
+            this.leadsourceid = leadSources.getId();
+        }
+
+        this.leadSources = leadSources;
     }
 
     @Override

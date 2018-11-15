@@ -1,0 +1,29 @@
+<wm-page data-ng-controller="ReportProjectReportPageController" pagetitle="Report Project Report" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow1">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                        <wm-label padding="unset 0.5em" caption="Project Report" class="h3 bg-primary" textalign="left" name="label1"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn2"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow2">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn3">
+                        <wm-table name="ProjectsTable1" title="" dataset="bind:Variables.CrmProjectsData.dataSet" navigation="None" exportformat="EXCEL,CSV" exportdatasize="1000">
+                            <wm-table-column binding="name" caption="Project Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="dateCreation" caption="Date Created" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                                <wm-label caption="{{row.getProperty('dateCreation')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                            </wm-table-column>
+                            <wm-table-column binding="stages" caption="Status" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                            <wm-table-column binding="opportunities.name" caption="Linked Opportunity" edit-widget-type="text" related-entity-name="Opportunities" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                        </wm-table>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

@@ -1,8 +1,62 @@
-/* DELTA CRM Theme */
+/* DeltaCRM Theme */
+
+/* quicksand-regular - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/quicksand-v8-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Quicksand Regular'), local('Quicksand-Regular'),
+       url('fonts/quicksand-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/quicksand-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/quicksand-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/quicksand-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/quicksand-v8-latin-regular.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* quicksand-700 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/quicksand-v8-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Quicksand Bold'), local('Quicksand-Bold'),
+       url('fonts/quicksand-v8-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/quicksand-v8-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/quicksand-v8-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('fonts/quicksand-v8-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/quicksand-v8-latin-700.svg#Quicksand') format('svg'); /* Legacy iOS */
+}
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/open-sans-v15-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+       url('fonts/open-sans-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/open-sans-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/open-sans-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/open-sans-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/open-sans-v15-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-700 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/open-sans-v15-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+       url('fonts/open-sans-v15-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/open-sans-v15-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/open-sans-v15-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('fonts/open-sans-v15-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/open-sans-v15-latin-700.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
 .wm-app {
-  font-size: 16px;
+  font-size: 13px;
   color: #5e5e5e;
-  font-family: 'Quicksand', 'Arial', sans-serif;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
   background-color: #f1f2f3;
 }
 
@@ -1397,8 +1451,8 @@
 }
 
 .wm-app body {
-  font-family: 'Quicksand', 'Arial', sans-serif;
-  font-size: 16px;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
+  font-size: 13px;
   line-height: 1.42857143;
   color: #5e5e5e;
   background-color: #f1f2f3;
@@ -1467,8 +1521,8 @@
 }
 
 .wm-app hr {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 18px;
+  margin-bottom: 18px;
   border: 0;
   border-top: 1px solid #ffffff;
 }
@@ -1551,8 +1605,8 @@
 .wm-app .h2,
 .wm-app h3,
 .wm-app .h3 {
-  margin-top: 22px;
-  margin-bottom: 11px;
+  margin-top: 18px;
+  margin-bottom: 9px;
 }
 
 .wm-app h1 small,
@@ -1576,8 +1630,8 @@
 .wm-app .h5,
 .wm-app h6,
 .wm-app .h6 {
-  margin-top: 11px;
-  margin-bottom: 11px;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 
 .wm-app h4 small,
@@ -1597,55 +1651,55 @@
 
 .wm-app h1,
 .wm-app .h1 {
-  font-size: 41px;
+  font-size: 33px;
 }
 
 .wm-app h2,
 .wm-app .h2 {
-  font-size: 27px;
+  font-size: 22px;
 }
 
 .wm-app h3,
 .wm-app .h3 {
-  font-size: 21px;
+  font-size: 17px;
 }
 
 .wm-app h4,
 .wm-app .h4 {
-  font-size: 19px;
+  font-size: 15px;
 }
 
 .wm-app h5,
 .wm-app .h5 {
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .wm-app h6,
 .wm-app .h6 {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .wm-app p {
-  margin: 0 0 11px;
+  margin: 0 0 9px;
 }
 
 .wm-app .lead {
-  margin-bottom: 22px;
-  font-size: 18px;
+  margin-bottom: 18px;
+  font-size: 14px;
   font-weight: 300;
   line-height: 1.4;
 }
 
 @media (min-width: 768px) {
   .wm-app .lead {
-    font-size: 24px;
+    font-size: 19.5px;
   }
 
 }
 
 .wm-app small,
 .wm-app .small {
-  font-size: 75%;
+  font-size: 84%;
 }
 
 .wm-app mark,
@@ -1782,15 +1836,15 @@ a.wm-app .bg-danger:focus {
 }
 
 .wm-app .page-header {
-  padding-bottom: 10px;
-  margin: 44px 0 22px;
+  padding-bottom: 8px;
+  margin: 36px 0 18px;
   border-bottom: 1px solid #ffffff;
 }
 
 .wm-app ul,
 .wm-app ol {
   margin-top: 0;
-  margin-bottom: 11px;
+  margin-bottom: 9px;
 }
 
 .wm-app ul ul,
@@ -1819,7 +1873,7 @@ a.wm-app .bg-danger:focus {
 
 .wm-app dl {
   margin-top: 0;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .wm-app dt,
@@ -1864,9 +1918,9 @@ a.wm-app .bg-danger:focus {
 }
 
 .wm-app blockquote {
-  padding: 11px 22px;
-  margin: 0 0 22px;
-  font-size: 20px;
+  padding: 9px 18px;
+  margin: 0 0 18px;
+  font-size: 16.25px;
   border-left: 5px solid #ffffff;
 }
 
@@ -1919,7 +1973,7 @@ a.wm-app .bg-danger:focus {
 }
 
 .wm-app address {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   font-style: normal;
   line-height: 1.42857143;
 }
@@ -1928,7 +1982,7 @@ a.wm-app .bg-danger:focus {
 .wm-app kbd,
 .wm-app pre,
 .wm-app samp {
-  font-family: 'Quicksand', 'Arial', sans-serif;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
 }
 
 .wm-app code {
@@ -1957,9 +2011,9 @@ a.wm-app .bg-danger:focus {
 
 .wm-app pre {
   display: block;
-  padding: 10.5px;
-  margin: 0 0 11px;
-  font-size: 15px;
+  padding: 8.5px;
+  margin: 0 0 9px;
+  font-size: 12px;
   line-height: 1.42857143;
   word-break: break-all;
   word-wrap: break-word;
@@ -2889,7 +2943,7 @@ a.wm-app .bg-danger:focus {
 .wm-app .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .wm-app .table > thead > tr > th,
@@ -3097,7 +3151,7 @@ a.wm-app .bg-danger:focus {
 @media screen and (max-width: 767px) {
   .wm-app .table-responsive {
     width: 100%;
-    margin-bottom: 16.5px;
+    margin-bottom: 13.5px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #eee;
@@ -3158,8 +3212,8 @@ a.wm-app .bg-danger:focus {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 22px;
-  font-size: 24px;
+  margin-bottom: 18px;
+  font-size: 19.5px;
   line-height: inherit;
   color: #666666;
   border: 0;
@@ -3211,7 +3265,7 @@ a.wm-app .bg-danger:focus {
 .wm-app output {
   display: block;
   padding-top: 9px;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.42857143;
   color: #3b3b3b;
 }
@@ -3219,9 +3273,9 @@ a.wm-app .bg-danger:focus {
 .wm-app .form-control {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 36px;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.42857143;
   color: #3b3b3b;
   background-color: transparent;
@@ -3295,7 +3349,7 @@ textarea.wm-app .form-control {
   .wm-app input[type="time"].form-control,
   .wm-app input[type="datetime-local"].form-control,
   .wm-app input[type="month"].form-control {
-    line-height: 40px;
+    line-height: 36px;
   }
 
   .wm-app input[type="date"].input-sm,
@@ -3306,7 +3360,7 @@ textarea.wm-app .form-control {
   .input-group-sm .wm-app input[type="time"],
   .input-group-sm .wm-app input[type="datetime-local"],
   .input-group-sm .wm-app input[type="month"] {
-    line-height: 24px;
+    line-height: 22px;
   }
 
   .wm-app input[type="date"].input-lg,
@@ -3317,7 +3371,7 @@ textarea.wm-app .form-control {
   .input-group-lg .wm-app input[type="time"],
   .input-group-lg .wm-app input[type="datetime-local"],
   .input-group-lg .wm-app input[type="month"] {
-    line-height: 55px;
+    line-height: 50px;
   }
 
 }
@@ -3336,7 +3390,7 @@ textarea.wm-app .form-control {
 
 .wm-app .radio label,
 .wm-app .checkbox label {
-  min-height: 22px;
+  min-height: 18px;
   padding-left: 20px;
   margin-bottom: 0;
   font-weight: normal;
@@ -3401,7 +3455,7 @@ fieldset[disabled] .wm-app .checkbox label {
   padding-top: 9px;
   padding-bottom: 9px;
   margin-bottom: 0;
-  min-height: 38px;
+  min-height: 31px;
 }
 
 .wm-app .form-control-static.input-lg,
@@ -3411,16 +3465,16 @@ fieldset[disabled] .wm-app .checkbox label {
 }
 
 .wm-app .input-sm {
-  height: 24px;
+  height: 22px;
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 0px;
 }
 
 select.wm-app .input-sm {
-  height: 24px;
-  line-height: 24px;
+  height: 22px;
+  line-height: 22px;
 }
 
 textarea.wm-app .input-sm,
@@ -3429,16 +3483,16 @@ select[multiple].wm-app .input-sm {
 }
 
 .wm-app .form-group-sm .form-control {
-  height: 24px;
+  height: 22px;
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 0px;
 }
 
 .wm-app .form-group-sm select.form-control {
-  height: 24px;
-  line-height: 24px;
+  height: 22px;
+  line-height: 22px;
 }
 
 .wm-app .form-group-sm textarea.form-control,
@@ -3447,24 +3501,24 @@ select[multiple].wm-app .input-sm {
 }
 
 .wm-app .form-group-sm .form-control-static {
-  height: 24px;
-  min-height: 34px;
+  height: 22px;
+  min-height: 29px;
   padding: 3px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
 }
 
 .wm-app .input-lg {
-  height: 55px;
+  height: 50px;
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
   border-radius: 0px;
 }
 
 select.wm-app .input-lg {
-  height: 55px;
-  line-height: 55px;
+  height: 50px;
+  line-height: 50px;
 }
 
 textarea.wm-app .input-lg,
@@ -3473,16 +3527,16 @@ select[multiple].wm-app .input-lg {
 }
 
 .wm-app .form-group-lg .form-control {
-  height: 55px;
+  height: 50px;
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
   border-radius: 0px;
 }
 
 .wm-app .form-group-lg select.form-control {
-  height: 55px;
-  line-height: 55px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .wm-app .form-group-lg textarea.form-control,
@@ -3491,10 +3545,10 @@ select[multiple].wm-app .input-lg {
 }
 
 .wm-app .form-group-lg .form-control-static {
-  height: 55px;
-  min-height: 42px;
+  height: 50px;
+  min-height: 34px;
   padding: 14px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
 }
 
@@ -3503,7 +3557,7 @@ select[multiple].wm-app .input-lg {
 }
 
 .wm-app .has-feedback .form-control {
-  padding-right: 50px;
+  padding-right: 45px;
 }
 
 .wm-app .form-control-feedback {
@@ -3512,9 +3566,9 @@ select[multiple].wm-app .input-lg {
   right: 0;
   z-index: 2;
   display: block;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
   text-align: center;
   pointer-events: none;
 }
@@ -3522,17 +3576,17 @@ select[multiple].wm-app .input-lg {
 .wm-app .input-lg + .form-control-feedback,
 .wm-app .input-group-lg + .form-control-feedback,
 .wm-app .form-group-lg .form-control + .form-control-feedback {
-  width: 55px;
-  height: 55px;
-  line-height: 55px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
 }
 
 .wm-app .input-sm + .form-control-feedback,
 .wm-app .input-group-sm + .form-control-feedback,
 .wm-app .form-group-sm .form-control + .form-control-feedback {
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
+  width: 22px;
+  height: 22px;
+  line-height: 22px;
 }
 
 .wm-app .has-success .help-block,
@@ -3671,7 +3725,7 @@ select[multiple].wm-app .input-lg {
 }
 
 .wm-app .has-feedback label ~ .form-control-feedback {
-  top: 27px;
+  top: 23px;
 }
 
 .wm-app .has-feedback label.sr-only ~ .form-control-feedback {
@@ -3758,7 +3812,7 @@ select[multiple].wm-app .input-lg {
 
 .wm-app .form-horizontal .radio,
 .wm-app .form-horizontal .checkbox {
-  min-height: 31px;
+  min-height: 27px;
 }
 
 .wm-app .form-horizontal .form-group {
@@ -3782,7 +3836,7 @@ select[multiple].wm-app .input-lg {
 @media (min-width: 768px) {
   .wm-app .form-horizontal .form-group-lg .control-label {
     padding-top: 14px;
-    font-size: 20px;
+    font-size: 16px;
   }
 
 }
@@ -3790,7 +3844,7 @@ select[multiple].wm-app .input-lg {
 @media (min-width: 768px) {
   .wm-app .form-horizontal .form-group-sm .control-label {
     padding-top: 3px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
 }
@@ -3807,7 +3861,7 @@ select[multiple].wm-app .input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1.42857143;
   border-radius: 2px;
   -webkit-user-select: none;
@@ -4302,21 +4356,21 @@ fieldset[disabled] .wm-app .btn-link:focus {
 
 .wm-app .btn-lg {
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
   border-radius: 0px;
 }
 
 .wm-app .btn-sm {
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 0px;
 }
 
 .wm-app .btn-xs {
   padding: 1px 2px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 0px;
 }
@@ -4407,7 +4461,7 @@ tbody.wm-app .collapse.in {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 16px;
+  font-size: 13px;
   text-align: left;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -4430,7 +4484,7 @@ tbody.wm-app .collapse.in {
 
 .wm-app .dropdown-menu .divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 8px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -4497,7 +4551,7 @@ tbody.wm-app .collapse.in {
 .wm-app .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.42857143;
   color: #aaaaaa;
   white-space: nowrap;
@@ -4790,9 +4844,9 @@ tbody.wm-app .collapse.in {
 .wm-app .input-group-lg > .form-control,
 .wm-app .input-group-lg > .input-group-addon,
 .wm-app .input-group-lg > .input-group-btn > .btn {
-  height: 55px;
+  height: 50px;
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
   border-radius: 0px;
 }
@@ -4800,8 +4854,8 @@ tbody.wm-app .collapse.in {
 select.wm-app .input-group-lg > .form-control,
 select.wm-app .input-group-lg > .input-group-addon,
 select.wm-app .input-group-lg > .input-group-btn > .btn {
-  height: 55px;
-  line-height: 55px;
+  height: 50px;
+  line-height: 50px;
 }
 
 textarea.wm-app .input-group-lg > .form-control,
@@ -4816,9 +4870,9 @@ select[multiple].wm-app .input-group-lg > .input-group-btn > .btn {
 .wm-app .input-group-sm > .form-control,
 .wm-app .input-group-sm > .input-group-addon,
 .wm-app .input-group-sm > .input-group-btn > .btn {
-  height: 24px;
+  height: 22px;
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
   border-radius: 0px;
 }
@@ -4826,8 +4880,8 @@ select[multiple].wm-app .input-group-lg > .input-group-btn > .btn {
 select.wm-app .input-group-sm > .form-control,
 select.wm-app .input-group-sm > .input-group-addon,
 select.wm-app .input-group-sm > .input-group-btn > .btn {
-  height: 24px;
-  line-height: 24px;
+  height: 22px;
+  line-height: 22px;
 }
 
 textarea.wm-app .input-group-sm > .form-control,
@@ -4860,7 +4914,7 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 
 .wm-app .input-group-addon {
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: normal;
   line-height: 1;
   color: #3b3b3b;
@@ -4872,13 +4926,13 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 
 .wm-app .input-group-addon.input-sm {
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   border-radius: 0px;
 }
 
 .wm-app .input-group-addon.input-lg {
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 0px;
 }
 
@@ -4992,7 +5046,7 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 
 .wm-app .nav .nav-divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 8px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -5326,9 +5380,9 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 
 .wm-app .navbar-brand {
   float: left;
-  padding: 14px 0;
-  font-size: 20px;
-  line-height: 22px;
+  padding: 16px 0;
+  font-size: 16px;
+  line-height: 18px;
   height: 50px;
 }
 
@@ -5385,13 +5439,13 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 }
 
 .wm-app .navbar-nav {
-  margin: 7px 0;
+  margin: 8px 0;
 }
 
 .wm-app .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 22px;
+  line-height: 18px;
 }
 
 @media (max-width: 767px) {
@@ -5411,7 +5465,7 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
   }
 
   .wm-app .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 22px;
+    line-height: 18px;
   }
 
   .wm-app .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -5432,8 +5486,8 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
   }
 
   .wm-app .navbar-nav > li > a {
-    padding-top: 14px;
-    padding-bottom: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
 }
@@ -5451,8 +5505,8 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
   -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1) 2px 5px #DBDBDB;
   -ms-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1) 2px 5px #DBDBDB;
   -o-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1) 2px 5px #DBDBDB;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 @media (min-width: 768px) {
@@ -5562,13 +5616,13 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 }
 
 .wm-app .navbar-btn {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 7px;
+  margin-bottom: 7px;
 }
 
 .wm-app .navbar-btn.btn-sm {
-  margin-top: 13px;
-  margin-bottom: 13px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 .wm-app .navbar-btn.btn-xs {
@@ -5577,8 +5631,8 @@ select[multiple].wm-app .input-group-sm > .input-group-btn > .btn {
 }
 
 .wm-app .navbar-text {
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 @media (min-width: 768px) {
@@ -5854,7 +5908,7 @@ fieldset[disabled] .wm-app .navbar-inverse .btn-link:focus {
 
 .wm-app .breadcrumb {
   padding: 8px 12px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   list-style: none;
   background-color: #F2F3F6;
   border-radius: 2px;
@@ -5877,7 +5931,7 @@ fieldset[disabled] .wm-app .navbar-inverse .btn-link:focus {
 .wm-app .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 22px 0;
+  margin: 18px 0;
   border-radius: 2px;
 }
 
@@ -5949,7 +6003,7 @@ fieldset[disabled] .wm-app .navbar-inverse .btn-link:focus {
 .wm-app .pagination-lg > li > a,
 .wm-app .pagination-lg > li > span {
   padding: 13px 16px;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.3333333;
 }
 
@@ -5968,7 +6022,7 @@ fieldset[disabled] .wm-app .navbar-inverse .btn-link:focus {
 .wm-app .pagination-sm > li > a,
 .wm-app .pagination-sm > li > span {
   padding: 2px 4px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
 }
 
@@ -5986,7 +6040,7 @@ fieldset[disabled] .wm-app .navbar-inverse .btn-link:focus {
 
 .wm-app .pager {
   padding-left: 0;
-  margin: 22px 0;
+  margin: 18px 0;
   list-style: none;
   text-align: center;
 }
@@ -6116,7 +6170,7 @@ a.wm-app .label:focus {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -6182,7 +6236,7 @@ a.wm-app .badge:focus {
 
 .wm-app .jumbotron p {
   margin-bottom: 15px;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 200;
 }
 
@@ -6215,7 +6269,7 @@ a.wm-app .badge:focus {
 
   .wm-app .jumbotron h1,
   .wm-app .jumbotron .h1 {
-    font-size: 72px;
+    font-size: 59px;
   }
 
 }
@@ -6223,7 +6277,7 @@ a.wm-app .badge:focus {
 .wm-app .thumbnail {
   display: block;
   padding: 4px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   line-height: 1.42857143;
   background-color: #f1f2f3;
   border: 1px solid #ddd;
@@ -6252,7 +6306,7 @@ a.wm-app .thumbnail.active {
 
 .wm-app .alert {
   padding: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   border: 1px solid transparent;
   border-radius: 2px;
 }
@@ -6368,8 +6422,8 @@ a.wm-app .thumbnail.active {
 
 .wm-app .progress {
   overflow: hidden;
-  height: 22px;
-  margin-bottom: 22px;
+  height: 18px;
+  margin-bottom: 18px;
   background-color: #f5f5f5;
   border-radius: 2px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -6385,8 +6439,8 @@ a.wm-app .thumbnail.active {
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 12px;
-  line-height: 22px;
+  font-size: 11px;
+  line-height: 18px;
   color: #fff;
   text-align: center;
   background-color: #2090ea;
@@ -6761,7 +6815,7 @@ button.wm-app .list-group-item-danger.active:focus {
 }
 
 .wm-app .panel {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
   background-color: #fff;
   border: 1px solid transparent;
   border-radius: 2px;
@@ -6792,7 +6846,7 @@ button.wm-app .list-group-item-danger.active:focus {
 .wm-app .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 18px;
+  font-size: 15px;
   color: inherit;
 }
 
@@ -7010,7 +7064,7 @@ button.wm-app .list-group-item-danger.active:focus {
 }
 
 .wm-app .panel-group {
-  margin-bottom: 22px;
+  margin-bottom: 18px;
 }
 
 .wm-app .panel-group .panel {
@@ -7240,7 +7294,7 @@ button.wm-app .list-group-item-danger.active:focus {
 
 .wm-app .close {
   float: right;
-  font-size: 24px;
+  font-size: 19.5px;
   font-weight: bold;
   line-height: 1;
   color: #000;
@@ -7428,7 +7482,7 @@ button.wm-app .close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: 'Quicksand', 'Arial', sans-serif;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7443,7 +7497,7 @@ button.wm-app .close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-size: 12px;
+  font-size: 11px;
   opacity: 0;
   filter: alpha(opacity=0);
 }
@@ -7562,7 +7616,7 @@ button.wm-app .close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: 'Quicksand', 'Arial', sans-serif;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7577,7 +7631,7 @@ button.wm-app .close {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  font-size: 16px;
+  font-size: 13px;
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ccc;
@@ -7611,7 +7665,7 @@ button.wm-app .close {
 .wm-app .popover-title {
   margin: 0;
   padding: 8px 14px;
-  font-size: 16px;
+  font-size: 13px;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-radius: -1px -1px 0 0;
@@ -8349,25 +8403,21 @@ button.wm-app .close {
 
 }
 
-@font-face {
-  font-family: 'Quicksand';
+/*@font-face {
+  font-family: 'robotoregular';
+  src: url('fonts/Roboto-Regular-webfont.eot');
+  src: url('fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/Roboto-Regular-webfont.woff') format('woff'), url('fonts/Roboto-Regular-webfont.ttf') format('truetype'), url('fonts/Roboto-Regular-webfont.svg#robotoregular') format('svg');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: url('fonts/quicksand-v8-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local('Quicksand Regular'), local('Quicksand-Regular'), url('fonts/quicksand-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('fonts/quicksand-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */ url('fonts/quicksand-v8-latin-regular.woff') format('woff'), /* Modern Browsers */ url('fonts/quicksand-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */ url('fonts/quicksand-v8-latin-regular.svg#Quicksand') format('svg');
-  /* Legacy iOS */
 }
 
 @font-face {
-  font-family: 'Quicksand';
+  font-family: 'Robotomedium';
+  src: url('fonts/Roboto-Medium.eot');
+  src: url('fonts/Roboto-Medium.eot?#iefix') format('embedded-opentype'), url('fonts/Roboto-Medium.woff') format('woff'), url('fonts/Roboto-Medium.ttf') format('truetype'), url('fonts/Roboto-Medium.svg#Robotomedium') format('svg');
+  font-weight: normal;
   font-style: normal;
-  font-weight: 500;
-  src: url('fonts/quicksand-v8-latin-500.eot');
-  /* IE9 Compat Modes */
-  src: local('Quicksand Medium'), local('Quicksand-Medium'), url('fonts/quicksand-v8-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('fonts/quicksand-v8-latin-500.woff2') format('woff2'), /* Super Modern Browsers */ url('fonts/quicksand-v8-latin-500.woff') format('woff'), /* Modern Browsers */ url('fonts/quicksand-v8-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */ url('fonts/quicksand-v8-latin-500.svg#Quicksand') format('svg');
-  /* Legacy iOS */
-}
+}*/
 
 .wm-app .btn-shadow {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
@@ -8682,59 +8732,49 @@ button.wm-app .close {
   padding: 1em 1.5em;
 }
 
-.wm-app header img.app-picture {
-  margin: 0;
-  background-color: #000000;
-}
-
 .wm-app .app-header,
 .wm-app .app-mobile-header {
-  background-color: #ffffff;
-  color: #2090ea;
+  background-color: #379cec;
+  color: #fff;
   box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
   border-color: transparent;
   height: auto;
-
-  position: absolute;
-  z-index: 3;
-  width: calc(100% / 12 * 10);
-  right: 0;
 }
 
 .wm-app .app-header a,
 .wm-app .app-mobile-header a {
-  color: #2090ea;
+  color: #fff;
 }
 
 .wm-app .app-header .app-search,
 .wm-app .app-mobile-header .app-search {
-  background-color: #ffffff;
+  background-color: #379cec;
 }
 
 .wm-app .app-header .app-search .form-control,
 .wm-app .app-mobile-header .app-search .form-control {
   background-image: linear-gradient(#ffeb3b, #ffeb3b), linear-gradient(#e0e0e0, #e0e0e0);
-  color: #2090ea;
+  color: #fff;
 }
 
 .wm-app .app-header .app-search .form-control::-webkit-input-placeholder,
 .wm-app .app-mobile-header .app-search .form-control::-webkit-input-placeholder {
-  color: #2090ea;
+  color: #fff;
 }
 
 .wm-app .app-header .app-search .form-control:-moz-placeholder,
 .wm-app .app-mobile-header .app-search .form-control:-moz-placeholder {
-  color: #2090ea;
+  color: #fff;
 }
 
 .wm-app .app-header .app-search .form-control:-ms-placeholder,
 .wm-app .app-mobile-header .app-search .form-control:-ms-placeholder {
-  color: #2090ea;
+  color: #fff;
 }
 
 .wm-app .app-header .input-group-addon,
 .wm-app .app-mobile-header .input-group-addon {
-  color: #2090ea;
+  color: #fff;
   font-size: 1.1em;
 }
 
@@ -8813,13 +8853,6 @@ button.wm-app .close {
   padding: 0;
 }
 
-.wm-app main.app-content {
-  height: calc(100% - 50px);
-  position: absolute;
-  z-index: 1;
-  width: 100%;
-}
-
 .wm-app .app-left-panel,
 .wm-app .app-right-panel {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
@@ -8835,7 +8868,7 @@ button.wm-app .close {
 .wm-app .app-left-panel .nav li.active > a,
 .wm-app .app-right-panel .nav li.active > a {
   color: inherit;
-  background-color: #23262F;
+  background-color: #F4F4F4;
 }
 
 .wm-app .app-left-panel .nav li.active > a:hover,
@@ -8843,7 +8876,7 @@ button.wm-app .close {
 .wm-app .app-left-panel .nav li.active > a:focus,
 .wm-app .app-right-panel .nav li.active > a:focus {
   color: inherit;
-  background-color: #23262F;
+  background-color: #F4F4F4;
 }
 
 .wm-app .app-left-panel .nav li a,
@@ -8860,9 +8893,9 @@ button.wm-app .close {
   position: relative;
   border-radius: 0;
   line-height: 1.7;
-  color: #c3c3c3;
+  color: #4f5256;
   text-shadow: none;
-  font-family: 'Quicksand', Arial, sans-serif;
+  /*font-family: 'Robotomedium', Arial, sans-serif;*/
 }
 
 .wm-app .app-left-panel .nav li a:hover,
@@ -8877,7 +8910,7 @@ button.wm-app .close {
 .wm-app .app-right-panel .nav li .app-popover a:hover {
   color: inherit;
   text-decoration: none;
-  background-color: #1f2229;
+  background-color: #f7f7f7;
 }
 
 .wm-app .app-left-panel .nav li a.active,
@@ -8890,7 +8923,7 @@ button.wm-app .close {
 .wm-app .app-right-panel .nav li .dropdown a.dropdown-toggle.active,
 .wm-app .app-left-panel .nav li .app-popover a.active,
 .wm-app .app-right-panel .nav li .app-popover a.active {
-  background-color: #23262F;
+  background-color: #F4F4F4;
 }
 
 .wm-app .app-left-panel .nav li a.active:hover,
@@ -8913,7 +8946,7 @@ button.wm-app .close {
 .wm-app .app-right-panel .nav li .dropdown a.dropdown-toggle.active:focus,
 .wm-app .app-left-panel .nav li .app-popover a.active:focus,
 .wm-app .app-right-panel .nav li .app-popover a.active:focus {
-  background-color: #1f2229;
+  background-color: #f7f7f7;
   color: inherit;
 }
 
@@ -8965,7 +8998,7 @@ button.wm-app .close {
 .wm-app .app-right-panel .nav.open a:hover,
 .wm-app .app-left-panel .nav.open a:focus,
 .wm-app .app-right-panel .nav.open a:focus {
-  background-color: #1f2229;
+  background-color: #f7f7f7;
 }
 
 .wm-app .app-left-panel .app-nav .app-nav-item > .dropdown > a,
@@ -9013,7 +9046,7 @@ button.wm-app .close {
 }
 
 .wm-app .app-left-panel {
-  background-color: #2c303a;
+  background-color: #fff;
   border-right: 1px solid #CFDBE2;
 }
 
@@ -9023,12 +9056,6 @@ button.wm-app .close {
 }
 
 .wm-app .app-footer {
-  position: absolute;
-  z-index: 3;
-  width: calc(100% / 12 * 10);
-  right: 0;
-  bottom: 0;
-
   padding: 1em 1.5em;
   background-color: #F5F7FA;
   color: #515253;
@@ -9250,7 +9277,7 @@ button.wm-app .close {
 .wm-app .app-form .app-label,
 .wm-app .app-liveform .app-label {
   padding: 1em 1em 0;
-  font-family: Quicksand;
+  /*font-family: Robotomedium;*/
   margin-bottom: 1em;
   font-weight: normal;
   color: inherit;
@@ -9302,7 +9329,7 @@ button.wm-app .close {
 
 .wm-app .app-form .form-control-static,
 .wm-app .app-liveform .form-control-static {
-  font-family: 'Quicksand', 'Arial', sans-serif;
+  /*font-family: 'robotoregular', 'Arial', sans-serif;*/
   color: #999;
 }
 
@@ -10293,3 +10320,166 @@ button.wm-app .close {
   color: #2090ea;
 }
 
+/* Extra styles */
+
+/* Login */
+.wm-app .app-page-content.login {
+  width: 100%;
+  height: 100%;
+  display: inline-block !important;
+  font-size: 16px;
+  vertical-align: top;
+  overflow: auto;
+}
+
+.wm-app .app-page-content.login .app-container {
+  background-color: #F4F5FA;
+}
+
+.wm-app .app-page-content.login .app-container > .app-grid-layout > .app-grid-row {
+  background-color: transparent;
+}
+
+.wm-app .app-page-content.login .app-container > .app-grid-layout > .app-grid-row .panel {
+  background-color: #2C303A;
+  border-radius: 5px;
+  box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+}
+
+/* Main screen */
+.wm-app body {
+  margin: 0;
+  font-size: 0;
+  padding: 0;
+  font-family: "Open Sans", "Arial", sans-serif;
+}
+
+.wm-app .container {
+  text-align: right;
+  font-size: 0;
+  background-color: #2C303A;
+}
+
+.wm-app .app-header {
+  width: calc(100% - 250px);
+  background-color: #FFFFFF;
+  color: #1E9FF2;
+  display: inline-block;
+  box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+  text-align: left;
+}
+
+.wm-app .app-header-container .app-grid-row,
+.wm-app .app-header-container .app-grid-column:first-child {
+  padding-top: 0 !important;
+}
+
+.wm-app .app-header .app-picture { 
+  margin-left: -250px !important;
+}
+
+.wm-app .app-content {
+  width: 100%;
+  height: calc(100% - 100px);
+  background-color: #F4F5FA;
+  font-size: 0;
+  display: inline-block;
+}
+
+.wm-app .app-content .app-content-row {
+  display: inline-block;
+}
+
+.wm-app .app-left-panel {
+  width: 250px;
+  height: 100%;
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: top;
+  overflow: auto;
+  border: 0;
+  background-color: #2C303A;
+  text-align: left;
+  font-family: "Quicksand", "Arial", sans-serif;
+}
+
+.wm-app .app-left-panel .nav li a img {
+  width: auto !important;
+  max-height: 30px;
+  max-width: 30px;
+}
+
+.wm-app .app-left-panel .nav li a {
+  color: #DCDCDC;
+  font-family: "Quicksand", "Arial", sans-serif; */
+}
+
+.wm-app .app-left-panel .nav li a.active {
+  background-color: #1F2228;
+  color: #FFFFFF;
+}
+
+.wm-app .app-left-panel .nav li a.active:hover {
+  color: #5175F6;
+  background-color: #1F2228;
+}
+
+.wm-app .app-left-panel .anchor-caption {
+  padding-left: 5px;
+  position: absolute;
+  left: 55px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.wm-app .app-page-content:not(.login) {
+  width: calc(100% - 250px);
+  height: 100%;
+  display: inline-block !important;
+  font-size: 12px;
+  vertical-align: top;
+  overflow: auto;
+}
+
+.wm-app .app-livelist.panel, .wm-app .app-grid.panel {
+  border-radius: 5px;
+  box-shadow: 0px 1px 15px 1px rgba(62, 57, 107, 0.07);
+}
+
+.wm-app .panel-heading {
+  padding: 15px;
+}
+
+.wm-app .panel .panel-heading .panel-title .heading, .wm-app .card .panel-heading .panel-title .heading {
+  font-family: "Quicksand", "Arial", sans-serif;
+  font-weight: bold;
+}
+
+.wm-app .app-footer {
+  border: 0;
+  width: calc(100% - 250px);
+  height: 50px;
+  display: inline-block;
+  background-color: #FFFFFF;
+  font-size: 12px;
+  text-align: left;
+}
+
+.wm-app .app-footer .app-grid-column:first-child {
+  margin-left: -250px;
+  padding-left: 30px;
+  padding-right: 220px;
+}
+
+.wm-app .app-footer .app-label {
+  font-family: "Open Sans", "Arial", sans-serif;
+  color: #FFFFFF;
+  font-size: 12px;
+  margin: 0;
+  padding-right: 5px;
+  line-height: 20px;
+}
+
+.wm-app .bg-info {
+  width: 20px;
+}

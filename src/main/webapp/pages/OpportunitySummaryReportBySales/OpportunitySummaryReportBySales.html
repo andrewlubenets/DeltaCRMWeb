@@ -1,0 +1,127 @@
+<wm-page data-ng-controller="OpportunitySummaryReportBySalesPageController"> 
+    <wm-header content="header"></wm-header> 
+    <wm-content> 
+        <wm-left-panel columnwidth="2" content="leftnav"></wm-left-panel> 
+        <wm-page-content columnwidth="10"> 
+            <wm-layoutgrid name="layoutgrid1"> 
+                <wm-gridrow name="gridrow1"> 
+                    <wm-gridcolumn columnwidth="8" name="gridcolumn1" padding=".5em 0.5em"> 
+                        <wm-panel class="panel-default panel-primary" collapsible="false" showheader="true" name="panel1" title="My Daily Tickets" borderwidth="0em" margin="unset unset 0px unset"> 
+                            <wm-layoutgrid name="layoutgrid2"> 
+                                <wm-gridrow name="gridrow4"> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn10" padding=".5em unset"> 
+                                        <wm-composite name="composite1" class="col-xs-6" margin="unset unset 0em unset"> 
+                                            <wm-container class="col-md-9" name="container1"> 
+                                                <wm-checkboxset height="auto" name="checkboxset1" layout="inline" dataset="am,pm" selectedvalues="am,pm" class="text-uppercase" margin="unset unset 0px unset"></wm-checkboxset> 
+                                            </wm-container> 
+                                        </wm-composite> 
+                                    </wm-gridcolumn> 
+                                    <wm-gridcolumn columnwidth="6" name="gridcolumn19" horizontalalign="right" class="col-xs-6" padding=".5em 1em"> 
+                                        <wm-composite name="composite5" margin="unset unset 0px unset"> 
+                                            <wm-container class="pull-right" name="container5"> 
+                                                <wm-select name="select4" dataset="US, Canada, Spain" datavalue="US"></wm-select> 
+                                            </wm-container> 
+                                        </wm-composite> 
+                                    </wm-gridcolumn> 
+                                </wm-gridrow> 
+                            </wm-layoutgrid> 
+                            <wm-livetable name="livegrid2" service="hrdb@Employee"> 
+                                <wm-table deleterow="false" updaterow="false" insertrow="false" gridfirstrowselect="false" readonlygrid="false" name="grid3" shownavigation="false" height="15em"> 
+                                    <wm-table-column binding="name" caption="Name" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                    <wm-table-column binding="ticketid" caption="Ticket Id" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                    <wm-table-column binding="airport" caption="Airport" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                    <wm-table-column binding="issuedate" caption="Issue Date" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                    <wm-table-column binding="resolution" caption="Resolution" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                </wm-table> 
+                            </wm-livetable> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn2"> 
+                        <wm-layoutgrid name="layoutgrid3"> 
+                            <wm-gridrow name="gridrow7"> 
+                                <wm-gridcolumn columnwidth="6" name="gridcolumn20" horizontalalign="center" class="col-xs-6" padding=".5em"> 
+                                    <wm-tile name="tile1" horizontalalign="center" class="panel-default" backgroundcolor="#0b79a7" height="12em"> 
+                                        <wm-label name="label6" class="h1" caption="605" color="#fff"></wm-label> 
+                                        <wm-label name="label7" caption="pilots" class="h4 text-uppercase" margin="2px 0px" padding=".5em unset" color="#fff"></wm-label> 
+                                    </wm-tile> 
+                                </wm-gridcolumn> 
+                                <wm-gridcolumn columnwidth="6" name="gridcolumn21" horizontalalign="center" class="col-xs-6" padding=".5em"> 
+                                    <wm-tile horizontalalign="center" name="tile5" backgroundcolor="#2089b5" height="12em"> 
+                                        <wm-label class="h1" caption="1244" color="#fff" name="label14"></wm-label> 
+                                        <wm-label caption="cabin crew" class="h4 text-uppercase" margin="2px 0px" padding=".5em unset" color="#fff" name="label15"></wm-label> 
+                                    </wm-tile> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow> 
+                                <wm-gridcolumn columnwidth="6" horizontalalign="center" class="col-xs-6" padding=".5em"> 
+                                    <wm-tile horizontalalign="center" class="panel-primary" backgroundcolor="#e8bd23" height="12em"> 
+                                        <wm-label class="h1" caption="1605" color="#fff"></wm-label> 
+                                        <wm-label caption="ground staff" class="h4 text-uppercase" margin="2px 0px" padding=".5em unset" color="#fff"></wm-label> 
+                                    </wm-tile> 
+                                </wm-gridcolumn> 
+                                <wm-gridcolumn columnwidth="6" horizontalalign="center" class="col-xs-6" padding=".5em"> 
+                                    <wm-tile horizontalalign="center" class="panel-default" paddingunit="em" backgroundcolor="#f29350" height="12em"> 
+                                        <wm-label class="h1" caption="09" color="#fff"></wm-label> 
+                                        <wm-label caption="resigned" class="h4 text-uppercase" margin="2px 0px" padding=".5em unset" color="#fff"></wm-label> 
+                                    </wm-tile> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow2"> 
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn4" horizontalalign="center" padding=".5em"> 
+                        <wm-tile name="tile16" height="7em" backgroundcolor="#00667f" color="#fff" padding=".5px"> 
+                            <wm-label name="label35" caption="Employees" fontsize="1.7" fontunit="em" fontweight="bold" margin="1em unset unset unset"></wm-label> 
+                        </wm-tile> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn5" horizontalalign="center" padding=".5em"> 
+                        <wm-tile name="tile10" height="7em" backgroundcolor="#80e6ff" color="#000" padding=".5px"> 
+                            <wm-label name="label23" class="h5" caption="Total Employees"></wm-label> 
+                            <wm-label name="label24" class="h1" caption="1605" margin="0px"></wm-label> 
+                        </wm-tile> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn6" horizontalalign="center" padding=".5em"> 
+                        <wm-tile name="tile14" height="7em" backgroundcolor="#00ccff" padding=".5px"> 
+                            <wm-label class="h5" caption="On Duty" name="label31" color="#fff"></wm-label> 
+                            <wm-label class="h1" caption="203" margin="0px" name="label32" color="#fff"></wm-label> 
+                        </wm-tile> 
+                    </wm-gridcolumn> 
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn29" horizontalalign="center" padding=".5em"> 
+                        <wm-tile height="7em" backgroundcolor="#0099bf" name="tile15" padding=".5px"> 
+                            <wm-label class="h5" caption="On Leave" name="label33" color="#fff"></wm-label> 
+                            <wm-label class="h1" caption="591" margin="0px" color="#fff" name="label34"></wm-label> 
+                        </wm-tile> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow10"> 
+                    <wm-gridcolumn name="gridcolumn30" columnwidth="12" padding=".5em"> 
+                        <wm-panel class="panel-default panel-primary" collapsible="false" showheader="true" name="panel3" title="New Hires" borderwidth="0em" margin="unset unset 0px unset" padding=".5em unset"> 
+                            <wm-list listclass="list-group" template="true" name="livelist2" dataset="1, 2, 3, 4, 5, 6, 7, 8, 9, 10" itemsperrow="12"> 
+                                <wm-listtemplate layout="inline" name="listtemplate2"> 
+                                    <wm-label name="label16_1" caption="NY" width="100%" class="h2" textalign="center"></wm-label> 
+                                    <wm-label name="label17_1" caption="2" width="100%" class="h4" textalign="center"></wm-label> 
+                                </wm-listtemplate> 
+                            </wm-list> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+                <wm-gridrow name="gridrow3"> 
+                    <wm-gridcolumn name="gridcolumn7" columnwidth="12" padding=".5em"> 
+                        <wm-panel class="panel-default panel-primary" collapsible="false" showheader="true" name="panel2" title="My Direct Reports" borderwidth="0em" margin="unset unset 0px unset" padding="1em unset"> 
+                            <wm-table deleterow="false" updaterow="false" insertrow="true" gridfirstrowselect="false" readonlygrid="false" name="grid3_1" shownavigation="false" gridsearch="true"> 
+                                <wm-table-column binding="username" caption="User Name" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                <wm-table-column binding="employeeid" caption="Employee Id" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                <wm-table-column binding="title" caption="Title" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                <wm-table-column binding="email" caption="Email" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                <wm-table-column binding="status" caption="Status" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column> 
+                                <wm-grid-action key="addNewRow" display-name="Add Employee" show="true" class="btn-primary" title="" action="addNewRow()" icon="new"></wm-grid-action> 
+                            </wm-table> 
+                        </wm-panel> 
+                    </wm-gridcolumn> 
+                </wm-gridrow> 
+            </wm-layoutgrid> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-footer content="footer"></wm-footer> 
+</wm-page>

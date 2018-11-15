@@ -33,6 +33,7 @@ import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 
+import com.crmweb.crm.Opportunities;
 import com.crmweb.crm.OpportunityStates;
 import com.crmweb.crm.service.OpportunityStatesService;
 
@@ -167,6 +168,14 @@ public class OpportunityStatesController {
         return opportunityStatesService.getAggregatedValues(aggregationInfo, pageable);
     }
 
+    @RequestMapping(value="/{id:.+}/opportunitieses", method=RequestMethod.GET)
+    @ApiOperation(value = "Gets the opportunitieses instance associated with the given id.")
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public Page<Opportunities> findAssociatedOpportunitieses(@PathVariable("id") Integer id, Pageable pageable) {
+
+        LOGGER.debug("Fetching all associated opportunitieses");
+        return opportunityStatesService.findAssociatedOpportunitieses(id, pageable);
+    }
 
     /**
 	 * This setter method should only be used by unit tests
