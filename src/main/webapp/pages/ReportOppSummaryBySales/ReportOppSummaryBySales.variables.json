@@ -1,1 +1,63 @@
-{ }
+{
+  "CrmExecuteUserthathasOpenOpportunities" : {
+    "_id" : "wm-CrmExecuteUserthathasOpenOpportunities-wm.ServiceVariable-1542320244156",
+    "name" : "CrmExecuteUserthathasOpenOpportunities",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "date1",
+      "value" : "bind:Widgets.select1.datavalue+\"-01-01\"",
+      "type" : "string"
+    }, {
+      "target" : "date2",
+      "value" : "bind:Widgets.select1.datavalue+\"-12-31\"",
+      "type" : "string"
+    } ],
+    "type" : "com.crmweb.crm.models.query.UserthathasOpenOpportunitiesResponse",
+    "service" : "crm",
+    "operation" : "executeUserthathasOpenOpportunities",
+    "operationId" : "QueryExecutionController_executeUserthathasOpenOpportunities",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 2000,
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  },
+  "Userthathasoppo2var" : {
+    "_id" : "wm-Userthathasoppo2var-wm.ServiceVariable-1542332809681",
+    "name" : "Userthathasoppo2var",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "date1",
+      "value" : "bind:Widgets.select1.datavalue+\"-01-01\"",
+      "type" : "string"
+    }, {
+      "target" : "date2",
+      "value" : "bind:Widgets.select1.datavalue+\"-12-31\"",
+      "type" : "string"
+    } ],
+    "type" : "com.crmweb.crm.models.query.Userthathasoppo2Response",
+    "service" : "crm",
+    "operation" : "executeUserthathasoppo2",
+    "operationId" : "QueryExecutionController_executeUserthathasoppo2",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 2000,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
+  }
+}

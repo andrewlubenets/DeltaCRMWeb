@@ -32,6 +32,28 @@ where o.name like :words) wmTempTable
     <query-param name="words" type="java.lang.String"/>
     </sql-query>
 
+    <sql-query name="userthathasoppo2">
+        <![CDATA[
+        select concat(u.firstname,' ',lastname) as completename,u.id,(select sum(replace(value_bidamount,',','')) from opportunities where opportunitystateid=5 and userresponsableid=u.id and (forecastclosedate between :date1 and :date2)) as Total_Bid_Amount
+from users u
+where u.id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
+order by u.lastname asc,u.firstname asc
+        ]]>
+    <query-param name="date1" type="java.lang.String"/>
+    <query-param name="date2" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="userthathasoppo2__count">
+        <![CDATA[
+        select count(*) from (select concat(u.firstname,' ',lastname) as completename,u.id,(select sum(replace(value_bidamount,',','')) from opportunities where opportunitystateid=5 and userresponsableid=u.id and (forecastclosedate between :date1 and :date2)) as Total_Bid_Amount
+from users u
+where u.id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
+order by u.lastname asc,u.firstname asc) wmTempTable
+        ]]>
+    <query-param name="date1" type="java.lang.String"/>
+    <query-param name="date2" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="userthathasOpenOpportunities">
         <![CDATA[
         select *

@@ -158,5 +158,71 @@
         }
       } ]
     }
+  },
+  "userthathasoppo2" : {
+    "name" : "userthathasoppo2",
+    "description" : "user that has oppo 2",
+    "version" : "V2",
+    "queryString" : "select concat(u.firstname,' ',lastname) as completename,u.id,(select sum(replace(value_bidamount,',','')) from opportunities where opportunitystateid=5 and userresponsableid=u.id and (forecastclosedate between :date1 and :date2)) as Total_Bid_Amount\nfrom users u\nwhere u.id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))\norder by u.lastname asc,u.firstname asc",
+    "countQueryString" : "select count(*) from (select concat(u.firstname,' ',lastname) as completename,u.id,(select sum(replace(value_bidamount,',','')) from opportunities where opportunitystateid=5 and userresponsableid=u.id and (forecastclosedate between :date1 and :date2)) as Total_Bid_Amount\nfrom users u\nwhere u.id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))\norder by u.lastname asc,u.firstname asc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "date1",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2018-01-01",
+      "required" : true
+    }, {
+      "name" : "date2",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2018-12-31",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.Userthathasoppo2Response",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "completename",
+        "fieldName" : "completename",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "id",
+        "fieldName" : "id",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "Total_Bid_Amount",
+        "fieldName" : "totalBidAmount",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
   }
 }

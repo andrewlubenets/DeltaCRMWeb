@@ -51,6 +51,16 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "OpportunitiesFromUser2Partia",
+  "type" : "PARTIAL",
+  "params" : [ {
+    "name" : "userid",
+    "type" : "integer"
+  }, {
+    "name" : "year",
+    "type" : "integer"
+  } ]
+}, {
   "name" : "OpportunitiesFromUserPartial",
   "type" : "PARTIAL",
   "params" : [ {

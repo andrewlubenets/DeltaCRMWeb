@@ -20,6 +20,10 @@ public interface CrmQueryExecutorService {
 
     void exportSearchprojectopportunities(String words, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
+    Page<Userthathasoppo2Response> executeUserthathasoppo2(String date1, String date2, Pageable pageable);
+
+    void exportUserthathasoppo2(String date1, String date2, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<UserthathasOpenOpportunitiesResponse> executeUserthathasOpenOpportunities(String date1, String date2, Pageable pageable);
 
     void exportUserthathasOpenOpportunities(String date1, String date2, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);

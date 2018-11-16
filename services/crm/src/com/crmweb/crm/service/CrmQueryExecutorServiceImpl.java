@@ -57,6 +57,30 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
 
     @Transactional(value = "crmTransactionManager", readOnly = true)
     @Override
+    public Page<Userthathasoppo2Response> executeUserthathasoppo2(String date1, String date2, Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("date1", date1);
+        params.put("date2", date2);
+
+        return queryExecutor.executeNamedQuery("userthathasoppo2", params, Userthathasoppo2Response.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportUserthathasoppo2(String date1, String date2, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(2);
+
+        params.put("date1", date1);
+        params.put("date2", date2);
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("userthathasoppo2", params, Userthathasoppo2Response.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
     public Page<UserthathasOpenOpportunitiesResponse> executeUserthathasOpenOpportunities(String date1, String date2, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(2);
 

@@ -71,6 +71,34 @@ public class QueryExecutionController {
         return new StringWrapper(exportedUrl);
     }
 
+    @RequestMapping(value = "/queries/userthathasoppo2", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "user that has oppo 2")
+    public Page<Userthathasoppo2Response> executeUserthathasoppo2(@RequestParam(value = "date1") String date1, @RequestParam(value = "date2") String date2, Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: userthathasoppo2");
+        Page<Userthathasoppo2Response> _result = queryService.executeUserthathasoppo2(date1, date2, pageable);
+        LOGGER.debug("got the result for named query: userthathasoppo2, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query userthathasoppo2")
+    @RequestMapping(value = "/queries/userthathasoppo2/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportUserthathasoppo2(@RequestParam(value = "date1") String date1, @RequestParam(value = "date2") String date2, @RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: userthathasoppo2");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "userthathasoppo2";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportUserthathasoppo2(date1, date2,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/userthathasOpenOpportunities", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "Users that has open opportunities")
