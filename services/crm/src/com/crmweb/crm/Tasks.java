@@ -43,6 +43,10 @@ public class Tasks implements Serializable {
     private String description;
     private Integer relatedtoid;
     private String relatedtotype;
+    private Integer createdby;
+    private LocalDateTime dateCreation;
+    private LocalDateTime dateModification;
+    private Integer modifyby;
     private Categories categories;
     private Users users;
 
@@ -163,6 +167,42 @@ public class Tasks implements Serializable {
 
     public void setRelatedtotype(String relatedtotype) {
         this.relatedtotype = relatedtotype;
+    }
+
+    @Column(name = "`createdby`", nullable = true, scale = 0, precision = 10)
+    public Integer getCreatedby() {
+        return this.createdby;
+    }
+
+    public void setCreatedby(Integer createdby) {
+        this.createdby = createdby;
+    }
+
+    @Column(name = "`date_creation`", nullable = true)
+    public LocalDateTime getDateCreation() {
+        return this.dateCreation;
+    }
+
+    public void setDateCreation(LocalDateTime dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    @Column(name = "`date_modification`", nullable = true)
+    public LocalDateTime getDateModification() {
+        return this.dateModification;
+    }
+
+    public void setDateModification(LocalDateTime dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    @Column(name = "`modifyby`", nullable = true, scale = 0, precision = 10)
+    public Integer getModifyby() {
+        return this.modifyby;
+    }
+
+    public void setModifyby(Integer modifyby) {
+        this.modifyby = modifyby;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

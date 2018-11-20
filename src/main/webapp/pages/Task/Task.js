@@ -16,9 +16,22 @@ Application.$controller("TaskPageController", ["$scope", function($scope) {
 
 
     $scope.TasksLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
-        $data.relatedtoid = $scope.Widgets.table2.selectedItems[0].id;
-        $data.relatedto = $scope.Widgets.table2.selectedItems[0].name;
-        $data.relatedtotype = $scope.Widgets.table2.selectedItems[0].typerelation;
+        try {
+            $data.relatedtoid = $scope.Widgets.table2.selectedItems[0].id;
+            $data.relatedto = $scope.Widgets.table2.selectedItems[0].name;
+            $data.relatedtotype = $scope.Widgets.table2.selectedItems[0].typerelation;
+        } catch (e) {}
+
+        try {
+            if ($operation == "insert") {
+                $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+            if ($operation == "update") {
+                $data.modifyby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateModification = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+        } catch (e) {}
     };
 
 }]);

@@ -21,7 +21,7 @@
         <wm-nav-item name="nav_item19">
             <wm-popover popoverwidth="240" popoverheight="500" name="popover1" iconclass="" caption="Reports" iconurl="resources/images/imagelists/report1.png" iconwidth="32" content="ReportsMenu" interaction="default" popoverplacement="right"></wm-popover>
         </wm-nav-item>
-        <wm-nav-item name="nav_item19_1">
+        <wm-nav-item name="nav_item19_1" show="false">
             <wm-menu caption="Reports" autoclose="outsideClick" name="menu1" iconurl="resources/images/imagelists/report1.png" iconwidth="32" type="anchor" dataset="Opportunity Summary Report by Sales,Commit and Upside Report,Opportunity by Value,Opportunity by bid type,Opportunity by Category,Opportunity by stage,Opportunity Won/Lost,Project Activity by Report,Task by Priority,Task Report Monthly and Quaterly"
                 iconclass="wi wi-bar-chart fa-2x"></wm-menu>
         </wm-nav-item>
@@ -57,6 +57,9 @@
         </wm-nav-item>
         <wm-nav-item name="nav_item18">
             <wm-anchor name="anchor18" iconclass="" caption="Posts" on-click="Actions.goToPage_Posts.invoke()" accessroles="admin" iconurl="resources/images/imagelists/posts.png" iconwidth="32"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item20">
+            <wm-anchor name="anchor18_1" iconclass="wi wi-file" on-click="Actions.logoutAction.invoke()" caption="Temporal Logout"></wm-anchor>
         </wm-nav-item>
     </wm-nav>
 </wm-partial>

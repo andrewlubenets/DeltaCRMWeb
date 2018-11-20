@@ -4,16 +4,17 @@
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-livetable formlayout="dialog" name="OrganizationsLiveTable1">
-                <wm-table gridfirstrowselect="true" editmode="dialog" name="OrganizationsTable1" title="Organizations List" dataset="bind:Variables.CrmOrganizationsData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="OrganizationsTable1" title="Organizations List" dataset="bind:Variables.CrmOrganizationsData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500"
+                    spacing="condensed">
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="billingaddress" caption="Address" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="billingcity" caption="City" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
-                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Organizations Info" formlayout="dialog" iconclass="wi wi-edit" name="OrganizationsLiveForm1" dataset="bind:Variables.CrmOrganizationsData.dataSet" captionalign="left" captionposition="top">
+                <wm-liveform errormessage="" title="Organizations Info" formlayout="dialog" iconclass="wi wi-edit" name="OrganizationsLiveForm1" dataset="bind:Variables.CrmOrganizationsData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="OrganizationsLiveForm1Beforeservicecall($event, $operation, $data, options)">
                     <wm-layoutgrid columns="2" name="layoutgrid1">
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn1">

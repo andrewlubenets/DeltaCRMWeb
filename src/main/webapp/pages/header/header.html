@@ -1,11 +1,12 @@
 <wm-partial data-ng-controller="headerPageController" name="header" type="header">
     <wm-layoutgrid name="headerlayout">
         <wm-gridrow name="headerrow" padding="1px unset unset unset">
-            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="7" padding="1px unset unset unset">
+            <wm-gridcolumn name="headerleft" verticalalign="middle" columnwidth="8" padding="1px unset unset unset">
                 <wm-picture name="picture1" pictureplaceholder="resources/images/imagelists/deltacrm_logo.png" margin="unset unset unset 5px" pictureaspect="V" height="50"></wm-picture>
                 <wm-icon name="icon1" iconclass="resources/images/imagelists/opo3.png" iconsize="32"></wm-icon>
             </wm-gridcolumn>
-            <wm-gridcolumn name="headerright" horizontalalign="right" verticalalign="middle" columnwidth="5" padding="1em 1em 1em unset">
+            <wm-gridcolumn name="headerright" horizontalalign="left" verticalalign="middle" columnwidth="3" padding="1em 1em 1em unset"></wm-gridcolumn>
+            <wm-gridcolumn columnwidth="1" name="gridcolumn3">
                 <wm-popover popoverwidth="240" margin="unset 0.5em" name="popover1" caption="bind:Variables.loggedInUser.dataSet.name" contentsource="partial" content="UserOptions"></wm-popover>
             </wm-gridcolumn>
         </wm-gridrow>

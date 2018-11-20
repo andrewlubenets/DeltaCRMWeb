@@ -167,6 +167,18 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "product",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "product",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 200,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Users",
       "fullyQualifiedName" : "com.crmweb.crm.Users",

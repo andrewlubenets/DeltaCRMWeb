@@ -1,4 +1,44 @@
 {
+  "getproductfromuserid" : {
+    "name" : "getproductfromuserid",
+    "description" : "get product from userid",
+    "version" : "V2",
+    "queryString" : "select product from users where id=:iduser",
+    "countQueryString" : "select count(*) from (select product from users where id=:iduser) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "iduser",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "16",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.GetproductfromuseridResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "product",
+        "fieldName" : "product",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "searchprojectopportunities" : {
     "name" : "searchprojectopportunities",
     "description" : "project and opportunities",

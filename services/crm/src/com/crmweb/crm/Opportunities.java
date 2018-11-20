@@ -38,6 +38,7 @@ public class Opportunities implements Serializable {
     private LocalDateTime forecastclosedate;
     private Integer userresponsableid;
     private String valueCurrency;
+    private String valueBidamountIdr;
     private String valueBidamount;
     private String valueUnitofmeasure;
     private Integer pipelineid;
@@ -50,6 +51,9 @@ public class Opportunities implements Serializable {
     private String pipelinestatus;
     private Integer leadsourceid;
     private Integer opportunitystateid;
+    private LocalDateTime dateModification;
+    private Integer createdby;
+    private Integer modifyby;
     private Pipelines pipelines;
     private Users users;
     private OpportunityStates opportunityStates;
@@ -128,6 +132,15 @@ public class Opportunities implements Serializable {
 
     public void setValueCurrency(String valueCurrency) {
         this.valueCurrency = valueCurrency;
+    }
+
+    @Column(name = "`value_bidamount_idr`", nullable = true, length = 255)
+    public String getValueBidamountIdr() {
+        return this.valueBidamountIdr;
+    }
+
+    public void setValueBidamountIdr(String valueBidamountIdr) {
+        this.valueBidamountIdr = valueBidamountIdr;
     }
 
     @Column(name = "`value_bidamount`", nullable = true, length = 255)
@@ -236,6 +249,33 @@ public class Opportunities implements Serializable {
 
     public void setOpportunitystateid(Integer opportunitystateid) {
         this.opportunitystateid = opportunitystateid;
+    }
+
+    @Column(name = "`date_modification`", nullable = true)
+    public LocalDateTime getDateModification() {
+        return this.dateModification;
+    }
+
+    public void setDateModification(LocalDateTime dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    @Column(name = "`createdby`", nullable = true, scale = 0, precision = 10)
+    public Integer getCreatedby() {
+        return this.createdby;
+    }
+
+    public void setCreatedby(Integer createdby) {
+        this.createdby = createdby;
+    }
+
+    @Column(name = "`modifyby`", nullable = true, scale = 0, precision = 10)
+    public Integer getModifyby() {
+        return this.modifyby;
+    }
+
+    public void setModifyby(Integer modifyby) {
+        this.modifyby = modifyby;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

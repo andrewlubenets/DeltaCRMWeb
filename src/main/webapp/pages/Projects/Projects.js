@@ -14,6 +14,23 @@ Application.$controller("ProjectsPageController", ["$scope", function($scope) {
          */
     };
 
+
+    $scope.ProjectsLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
+        try {
+
+            if ($operation == "insert") {
+                $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+            if ($operation == "update") {
+                $data.modifyby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateModification = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+        } catch (e) {
+            console.log(e.message);
+        }
+    };
+
 }]);
 
 
@@ -37,9 +54,26 @@ Application.$controller("dialog1Controller", ["$scope",
         $scope.ctrlScope = $scope;
 
         $scope.TasksLiveForm1Beforeservicecall = function($event, $operation, $data, options) {
-            $data.relatedtoid = $scope.Widgets.ProjectsTable1.selectedItems[0].id;
-            $data.relatedtotype = "(Project)";
-            $data.relatedto = $scope.Widgets.ProjectsTable1.selectedItems[0].name;
+            try {
+                $data.relatedtoid = $scope.Widgets.ProjectsTable1.selectedItems[0].id;
+                $data.relatedtotype = "(Project)";
+                $data.relatedto = $scope.Widgets.ProjectsTable1.selectedItems[0].name;
+            } catch (e) {}
+
+            try {
+
+                if ($operation == "insert") {
+                    $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+                if ($operation == "update") {
+                    $data.modifyby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateModification = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+            } catch (e1) {
+                console.log(e1.message);
+            }
+
         };
 
     }
@@ -69,7 +103,15 @@ Application.$controller("dialog2Controller", ["$scope",
             $data.projectid = $scope.Widgets.ProjectsTable1.selectedItems[0].id;
             $data.name = $scope.Widgets.fileupload1.fileTransfers[0].name;
             $data.size = $scope.Widgets.fileupload1.fileTransfers[0].size;
+            try {
 
+
+
+                if ($operation == "insert") {
+                    $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+            } catch (e) {}
 
         };
 

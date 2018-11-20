@@ -4,7 +4,7 @@
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-livetable formlayout="dialog" name="TasksLiveTable1">
-                <wm-table gridfirstrowselect="true" editmode="dialog" name="TasksTable1" title="Tasks List" dataset="bind:Variables.CrmTasksData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="TasksTable1" title="Tasks List" dataset="bind:Variables.CrmTasksData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500" spacing="condensed">
                     <wm-table-column binding="name" caption="Name" width="40%" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="duedate" caption="Duedate" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
                         <wm-label caption="{{row.getProperty('duedate') | date : format : shortDate}}" class="" data-ng-class=""></wm-label>
@@ -15,7 +15,7 @@
                     <wm-table-column binding="priority" caption="Priority" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="status" caption="Status" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
-                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>

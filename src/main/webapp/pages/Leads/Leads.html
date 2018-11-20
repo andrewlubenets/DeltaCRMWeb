@@ -4,18 +4,18 @@
         <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-livetable formlayout="dialog" name="LeadsLiveTable1">
-                <wm-table gridfirstrowselect="true" editmode="dialog" name="LeadsTable1" title="Leads List" dataset="bind:Variables.CrmLeadsData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="LeadsTable1" title="Leads List" dataset="bind:Variables.CrmLeadsData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500" spacing="condensed">
                     <wm-table-column binding="firstname" caption="Firstname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="lastname" caption="Lastname" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="organizations.name" caption="Organization" primary-key="false" edit-widget-type="text" related-entity-name="Organizations" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="jobtitle" caption="Jobtitle" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="emailaddress" caption="Emailaddress" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
-                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Leads Info" formlayout="dialog" iconclass="wi wi-edit" name="LeadsLiveForm1" dataset="bind:Variables.CrmLeadsData.dataSet" captionalign="left" captionposition="top">
+                <wm-liveform errormessage="" title="Leads Info" formlayout="dialog" iconclass="wi wi-edit" name="LeadsLiveForm1" dataset="bind:Variables.CrmLeadsData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="LeadsLiveForm1Beforeservicecall($event, $operation, $data, options)">
                     <wm-layoutgrid columns="2" name="layoutgrid1">
                         <wm-gridrow name="gridrow20">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn20">

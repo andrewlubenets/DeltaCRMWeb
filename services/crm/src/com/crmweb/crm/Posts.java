@@ -42,10 +42,10 @@ public class Posts implements Serializable {
     private String typepost;
     private Integer weight;
     private String status;
-    private Users users;
     private Departments departments;
     private Locations locations;
     private Entities entities;
+    private Users users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -167,21 +167,6 @@ public class Posts implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`userid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.userid = users.getId();
-        }
-
-        this.users = users;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`departmentid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_4`"))
     @Fetch(FetchMode.JOIN)
     public Departments getDepartments() {
@@ -224,6 +209,21 @@ public class Posts implements Serializable {
         }
 
         this.entities = entities;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`userid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.userid = users.getId();
+        }
+
+        this.users = users;
     }
 
     @Override

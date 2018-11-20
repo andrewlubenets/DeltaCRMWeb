@@ -30,6 +30,7 @@ public class Users implements Serializable {
     private String password;
     private LocalDateTime dateCreation;
     private String role;
+    private String product;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -94,6 +95,15 @@ public class Users implements Serializable {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Column(name = "`product`", nullable = true, length = 200)
+    public String getProduct() {
+        return this.product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
     }
 
 

@@ -39,6 +39,9 @@ public class Projects implements Serializable {
     private LocalDateTime dateCreation;
     private Integer hasopportunities;
     private String stages;
+    private Integer createdby;
+    private LocalDateTime dateModification;
+    private Integer modifyby;
     private Users users;
     private Categories categories;
     private Opportunities opportunities;
@@ -124,6 +127,33 @@ public class Projects implements Serializable {
 
     public void setStages(String stages) {
         this.stages = stages;
+    }
+
+    @Column(name = "`createdby`", nullable = true, scale = 0, precision = 10)
+    public Integer getCreatedby() {
+        return this.createdby;
+    }
+
+    public void setCreatedby(Integer createdby) {
+        this.createdby = createdby;
+    }
+
+    @Column(name = "`date_modification`", nullable = true)
+    public LocalDateTime getDateModification() {
+        return this.dateModification;
+    }
+
+    public void setDateModification(LocalDateTime dateModification) {
+        this.dateModification = dateModification;
+    }
+
+    @Column(name = "`modifyby`", nullable = true, scale = 0, precision = 10)
+    public Integer getModifyby() {
+        return this.modifyby;
+    }
+
+    public void setModifyby(Integer modifyby) {
+        this.modifyby = modifyby;
     }
 
     @ManyToOne(fetch = FetchType.EAGER)

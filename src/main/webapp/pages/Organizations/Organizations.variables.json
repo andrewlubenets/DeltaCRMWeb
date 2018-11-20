@@ -201,6 +201,42 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateModification",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_modification",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "modifyby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "modifyby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Organizations",
       "fullyQualifiedName" : "com.crmweb.crm.Organizations",
@@ -213,7 +249,19 @@
     "tableType" : "TABLE",
     "properties" : [ ],
     "relatedTables" : [ ],
-    "filterExpressions" : { },
+    "filterFields" : { },
+    "filterExpressions" : {
+      "condition" : "AND",
+      "rules" : [ {
+        "target" : "createdby",
+        "type" : "integer",
+        "matchMode" : "exact",
+        "value" : "bind:Variables.loggedInUser.dataSet.roles[0]==\"admin\"?\"%\":(Variables.loggedInUser.dataSet.roles[0]==\"user\"?Variables.loggedInUser.dataSet.id:\"\")",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      } ]
+    },
     "package" : "com.crmweb.crm.Organizations"
   }
 }

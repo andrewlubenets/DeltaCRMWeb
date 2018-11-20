@@ -2,6 +2,42 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="getproductfromuserid">
+        <![CDATA[
+        select product from users where id=:iduser
+        ]]>
+    <query-param name="iduser" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="getproductfromuserid__count">
+        <![CDATA[
+        select count(*) from (select product from users where id=:iduser) wmTempTable
+        ]]>
+    <query-param name="iduser" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="userthathasOpenOpportunities">
+        <![CDATA[
+        select *
+from users
+where id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
+order by lastname asc,firstname asc
+        ]]>
+    <query-param name="date1" type="java.lang.String"/>
+    <query-param name="date2" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="userthathasOpenOpportunities__count">
+        <![CDATA[
+        select count(*) from (select *
+from users
+where id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
+order by lastname asc,firstname asc) wmTempTable
+        ]]>
+    <query-param name="date1" type="java.lang.String"/>
+    <query-param name="date2" type="java.lang.String"/>
+    </sql-query>
+
     <sql-query name="searchprojectopportunities">
         <![CDATA[
         select p.id,p.name,'(Project)' as typerelation
@@ -49,28 +85,6 @@ order by u.lastname asc,u.firstname asc
 from users u
 where u.id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
 order by u.lastname asc,u.firstname asc) wmTempTable
-        ]]>
-    <query-param name="date1" type="java.lang.String"/>
-    <query-param name="date2" type="java.lang.String"/>
-    </sql-query>
-
-    <sql-query name="userthathasOpenOpportunities">
-        <![CDATA[
-        select *
-from users
-where id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
-order by lastname asc,firstname asc
-        ]]>
-    <query-param name="date1" type="java.lang.String"/>
-    <query-param name="date2" type="java.lang.String"/>
-    </sql-query>
-
-    <sql-query name="userthathasOpenOpportunities__count">
-        <![CDATA[
-        select count(*) from (select *
-from users
-where id in (select userresponsableid from opportunities where opportunitystateid=5 and (forecastclosedate between :date1 and :date2))
-order by lastname asc,firstname asc) wmTempTable
         ]]>
     <query-param name="date1" type="java.lang.String"/>
     <query-param name="date2" type="java.lang.String"/>

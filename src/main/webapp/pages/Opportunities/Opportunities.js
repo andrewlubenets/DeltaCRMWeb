@@ -27,6 +27,17 @@ Application.$controller("OpportunitiesPageController", ["$scope", function($scop
         console.log(names);
         $data.pipesize = $scope.Variables.findPipelines.dataSet.content.length;
         $data.pipenames = names;
+
+        try {
+            if ($operation == "insert") {
+                $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+            if ($operation == "update") {
+                $data.modifyby = $scope.Variables.loggedInUser.getData().id;
+                $data.dateModification = moment().format("YYYY-MM-DD HH:mm:ss");
+            }
+        } catch (e) {}
     };
 
 
@@ -43,6 +54,21 @@ Application.$controller("OpportunitiesPageController", ["$scope", function($scop
 
     $scope.findPipelinesonSuccess = function(variable, data, options) {
         console.log("find pipelines: ", data);
+    };
+
+
+    $scope.productfromuseridonSuccess = function(variable, data, options) {
+        if (data.content[0].product !== null) {
+            $scope.Variables.productavailable.dataSet = [{
+                "dataValue": data.content[0].product
+            }];
+        } else {
+            $scope.Variables.productavailable.dataSet = [{
+                "dataValue": "DeltaApp"
+            }, {
+                "dataValue": "Hardware-Software"
+            }];
+        }
     };
 
 }]);
@@ -88,6 +114,14 @@ Application.$controller("dialog1Controller", ["$scope",
             $data.size = $scope.Widgets.fileupload1.fileTransfers[0].size;
             $data.opportunitiesid = $scope.Widgets.OpportunitiesTable1.selectedItems[0].id;
 
+            try {
+                if ($operation == "insert") {
+                    $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+
+            } catch (e) {}
+
         };
 
     }
@@ -121,6 +155,17 @@ Application.$controller("dialog2Controller", ["$scope",
             $data.relatedtoid = $scope.Widgets.OpportunitiesTable1.selectedItems[0].id;
             $data.relatedtotype = "(Opportunity)";
             $data.relatedto = $scope.Widgets.OpportunitiesTable1.selectedItems[0].name;
+
+            try {
+                if ($operation == "insert") {
+                    $data.createdby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateCreation = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+                if ($operation == "update") {
+                    $data.modifyby = $scope.Variables.loggedInUser.getData().id;
+                    $data.dateModification = moment().format("YYYY-MM-DD HH:mm:ss");
+                }
+            } catch (e) {}
         };
 
     }

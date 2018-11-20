@@ -20,14 +20,15 @@
                         <wm-composite name="composite1">
                             <wm-label class="col-md-3" name="label1" caption="Product Category"></wm-label>
                             <wm-container class="col-md-9" name="container1">
-                                <wm-select name="select1" dataset="DeltaApp,Hardware-Software" datafield="All Fields"></wm-select>
+                                <wm-select name="select1" dataset="bind:Variables.productavailable.dataSet" datafield="All Fields"></wm-select>
                             </wm-container>
                         </wm-composite>
                     </wm-gridcolumn>
                 </wm-gridrow>
             </wm-layoutgrid>
             <wm-livetable formlayout="dialog" name="OpportunitiesLiveTable1">
-                <wm-table gridfirstrowselect="true" editmode="dialog" name="OpportunitiesTable1" title="Opportunities List" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500">
+                <wm-table gridfirstrowselect="true" editmode="dialog" name="OpportunitiesTable1" title="Opportunities List" dataset="bind:Variables.CrmOpportunitiesData.dataSet" navigation="Basic" filtermode="search" exportformat="EXCEL,CSV" exportdatasize="500"
+                    spacing="condensed">
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueCurrency" caption="Currency" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                     <wm-table-column binding="valueBidamount" caption="Value" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
@@ -35,13 +36,13 @@
                         <wm-label caption="{{row.getProperty('forecastclosedate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
                     </wm-table-column>
                     <wm-table-column binding="categories.name" caption="Categorie" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
-                    <wm-table-column binding="customField" caption="Stage" widget-type="label" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
+                    <wm-table-column binding="customField" caption="Stage" widget-type="label" width="180px" textalignment="center" edit-widget-type="text" type="string" searchable="false" show="true" readonly="false">
                         <div class="row">
                             <div class="col-md-2 borderman {{ (row.getProperty('pipelines.nbr')==($index+1))?'bg-primary':'bg-info' }}" ng-repeat="n in [].constructor(row.getProperty('pipesize')) track by $index" title="{{ row.getProperty('pipenames').split(',')[$index] }}"><span>&nbsp;</span></div>
                         </div>
                     </wm-table-column>
                     <wm-table-column binding="rowOperations" caption="Actions" width="200px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
-                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
+                    <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button" position="header"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="customRow" display-name="Tasks" show="true" class="btn-transparent" iconclass="" title="Tasks" action="Widgets.dialog2.open();Variables.CrmTasksData.listRecords()" disabled="false"></wm-table-row-action>
@@ -170,20 +171,24 @@
         </wm-dialog>
     </wm-view>
     <wm-view class="dialog-view" name="view2">
-        <wm-dialog dialogtype="design-dialog" modal="true" title="bind:&quot;Tasks from &quot;+Widgets.OpportunitiesTable1.selecteditem.name" iconclass="wi wi-file-text" name="dialog2">
+        <wm-dialog dialogtype="design-dialog" modal="true" title="bind:&quot;Tasks from &quot;+Widgets.OpportunitiesTable1.selecteditem.name" iconclass="wi wi-file-text" name="dialog2" width="600">
             <wm-dialogactions name="dialogactions2" show="false">
                 <wm-button class="btn-primary" caption="Close" on-click="closeDialog()" name="button2"></wm-button>
             </wm-dialogactions>
             <wm-livetable formlayout="dialog" name="TasksLiveTable1">
                 <wm-table gridfirstrowselect="true" editmode="dialog" name="TasksTable1" title="Tasks List" dataset="bind:Variables.CrmTasksData.dataSet" navigation="Basic">
                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="duedate" caption="Duedate" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
-                    <wm-table-column binding="startdate" caption="Startdate" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false"></wm-table-column>
+                    <wm-table-column binding="duedate" caption="Duedate" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                        <wm-label caption="{{row.getProperty('duedate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
+                    <wm-table-column binding="startdate" caption="Startdate" widget-type="label" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                        <wm-label caption="{{row.getProperty('startdate')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                    </wm-table-column>
                     <wm-table-column binding="categories.name" caption="Categorie" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
                     <wm-table-column binding="users.firstname" caption="Responsible" widget-type="label" edit-widget-type="text" related-entity-name="Users" type="string" generator="assigned" readonly="true" show="true">
                         <wm-label caption="{{row.getProperty('users.firstname')+&quot; &quot;+row.getProperty('users.lastname')}}" class="" data-ng-class=""></wm-label>
                     </wm-table-column>
-                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
+                    <wm-table-column binding="rowOperations" caption="Actions" width="120px" edit-widget-type="text" type="custom" readonly="true" sortable="false" searchable="false" show="true"></wm-table-column>
                     <wm-table-action key="addNewRow" display-name="New" show="true" class="btn-primary" iconclass="wi wi-plus" title="New" action="addNewRow()" shortcutkey="" disabled="false" widget-type="button"></wm-table-action>
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
@@ -196,31 +201,33 @@
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn27_1">
                                 <wm-form-field name="duedate" displayname="Duedate" show="true" primary-key="false" generator="assigned" period="false" key="duedate" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time"
-                                    outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                                    outputformat="yyyy-MM-ddTHH:mm:ss" width="240"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow13">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn28_1">
                                 <wm-form-field name="startdate" displayname="Startdate" show="true" primary-key="false" generator="assigned" period="false" key="startdate" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time"
-                                    outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field>
+                                    outputformat="yyyy-MM-ddTHH:mm:ss" width="240"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn29_1">
                                 <wm-form-field name="progress" displayname="bind:&quot;Progress: &quot;+Widgets.TasksLiveForm1.formWidgets.progress.datavalue" show="true" primary-key="false" generator="assigned" period="false" key="progress" type="string"
-                                    readonly="false" widget="slider" inputtype="text" minvalue="1" maxvalue="100" step="1"></wm-form-field>
+                                    maxvalue="100" readonly="false" widget="slider" maxchars="255" minvalue="1" step="1" placeholder=""></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow14_1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn30">
-                                <wm-form-field name="priority" displayname="Priority" show="true" primary-key="false" generator="assigned" period="false" key="priority" type="string" readonly="false" widget="select" inputtype="text" dataset="High, Medium, Low"></wm-form-field>
+                                <wm-form-field name="priority" displayname="Priority" show="true" primary-key="false" generator="assigned" period="false" key="priority" type="string" readonly="false" widget="select" maxchars="255" dataset="High, Medium, Low"
+                                    placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn31">
-                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="status" type="string" readonly="false" widget="select" inputtype="text" dataset="Not Started, In Progress, Completed, Waiting Someone Else"></wm-form-field>
+                                <wm-form-field name="status" displayname="Status" show="true" primary-key="false" generator="assigned" period="false" key="status" type="string" readonly="false" widget="select" maxchars="255" dataset="Not Started, In Progress, Completed, Waiting Someone Else"
+                                    placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow17_1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn36_1">
                                 <wm-form-field name="categories" displayname="Categories" show="true" primary-key="false" generator="assigned" period="false" key="categories" type="list" is-related="true" readonly="false" required="false" widget="select"
-                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
+                                    placeholder="Select value" filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;type&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;Opportunities&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:14913&quot;,&quot;secondvalue&quot;:&quot;&quot;,&quot;isFirst&quot;:true}]}"
                                     displayexpression="name + ' ' + maincategory"></wm-form-field>
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn37_1">
@@ -231,7 +238,7 @@
                         </wm-gridrow>
                         <wm-gridrow name="gridrow15_1">
                             <wm-gridcolumn columnwidth="12" name="gridcolumn33">
-                                <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" widget="textarea" inputtype="text"></wm-form-field>
+                                <wm-form-field name="description" displayname="Description" show="true" primary-key="false" generator="assigned" period="false" key="description" type="string" readonly="false" widget="textarea" maxchars="255" placeholder="Enter value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

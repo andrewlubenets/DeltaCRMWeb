@@ -124,6 +124,18 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "FilesOpportunities",
       "fullyQualifiedName" : "com.crmweb.crm.FilesOpportunities",
@@ -144,6 +156,14 @@
         "type" : "integer",
         "matchMode" : "exact",
         "value" : "bind:Widgets.OpportunitiesTable1.selecteditem.id",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      }, {
+        "target" : "createdby",
+        "type" : "integer",
+        "matchMode" : "exact",
+        "value" : "bind:Variables.loggedInUser.dataSet.roles[0]==\"admin\"?\"%\":(Variables.loggedInUser.dataSet.roles[0]==\"user\"?Variables.loggedInUser.dataSet.id:\"\")",
         "required" : false,
         "secondvalue" : "",
         "isFirst" : true
@@ -350,6 +370,18 @@
           "isPrimaryKey" : false,
           "notNull" : false,
           "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "product",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "product",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 200,
           "precision" : 0,
           "generator" : "assigned",
           "isRelated" : false,
@@ -641,6 +673,18 @@
         "isRelated" : false,
         "scale" : 0
       }, {
+        "fieldName" : "valueBidamountIdr",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "value_bidamount_idr",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
         "fieldName" : "valueBidamount",
         "type" : "string",
         "fullyQualifiedType" : "string",
@@ -748,6 +792,42 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "dateModification",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_modification",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "modifyby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "modifyby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Opportunities",
       "fullyQualifiedName" : "com.crmweb.crm.Opportunities",
@@ -797,7 +877,7 @@
         "target" : "categories.maincategory",
         "type" : "string",
         "matchMode" : "anywhereignorecase",
-        "value" : "bind:Widgets.select1.datavalue",
+        "value" : "bind:Widgets.select1.displayValue",
         "required" : false,
         "secondvalue" : "",
         "isFirst" : true
@@ -814,6 +894,14 @@
         "type" : "integer",
         "matchMode" : "exact",
         "value" : "bind:Widgets.dealscbx.datavalue",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      }, {
+        "target" : "createdby",
+        "type" : "integer",
+        "matchMode" : "exact",
+        "value" : "bind:Variables.loggedInUser.dataSet.roles[0]==\"admin\"?\"%\":(Variables.loggedInUser.dataSet.roles[0]==\"user\"?Variables.loggedInUser.dataSet.id:\"\")",
         "required" : false,
         "secondvalue" : "",
         "isFirst" : true
@@ -1024,6 +1112,18 @@
           "generator" : "assigned",
           "isRelated" : false,
           "scale" : 0
+        }, {
+          "fieldName" : "product",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "product",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 200,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "id",
@@ -1157,6 +1257,54 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateCreation",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_creation",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateModification",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_modification",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "modifyby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "modifyby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Tasks",
       "fullyQualifiedName" : "com.crmweb.crm.Tasks",
@@ -1197,6 +1345,14 @@
         "type" : "string",
         "matchMode" : "exact",
         "value" : "bind:\"(Opportunity)\"",
+        "required" : false,
+        "secondvalue" : "",
+        "isFirst" : true
+      }, {
+        "target" : "createdby",
+        "type" : "integer",
+        "matchMode" : "exact",
+        "value" : "bind:Variables.loggedInUser.dataSet.roles[0]==\"admin\"?\"%\":(Variables.loggedInUser.dataSet.roles[0]==\"user\"?Variables.loggedInUser.dataSet.id:\"\")",
         "required" : false,
         "secondvalue" : "",
         "isFirst" : true
@@ -4346,5 +4502,45 @@
       "type" : "string"
     } ],
     "operation" : "toast"
+  },
+  "productavailable" : {
+    "_id" : "wm-productavailable-wm.Variable-1542679125857",
+    "name" : "productavailable",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "dataValue" : ""
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
+  "productfromuserid" : {
+    "_id" : "wm-productfromuserid-wm.ServiceVariable-1542679196912",
+    "name" : "productfromuserid",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "iduser",
+      "value" : "bind:Variables.loggedInUser.dataSet.id",
+      "type" : "string"
+    } ],
+    "type" : "com.crmweb.crm.models.query.GetproductfromuseridResponse",
+    "service" : "crm",
+    "operation" : "executeGetproductfromuserid",
+    "operationId" : "QueryExecutionController_executeGetproductfromuserid",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "onSuccess" : "productfromuseridonSuccess($event, $scope)",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "controller" : "QueryExecution"
   }
 }

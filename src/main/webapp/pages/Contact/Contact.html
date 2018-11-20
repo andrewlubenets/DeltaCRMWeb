@@ -28,7 +28,8 @@
                     <wm-table-row-action key="updaterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-pencil" title="Edit" action="editRow()" disabled="false"></wm-table-row-action>
                     <wm-table-row-action key="deleterow" display-name="" show="true" class="btn-transparent" iconclass="wi wi-trash" title="Delete" action="deleteRow()" disabled="false"></wm-table-row-action>
                 </wm-table>
-                <wm-liveform errormessage="" title="Contacts Info" formlayout="dialog" iconclass="wi wi-edit" name="ContactsLiveForm1" dataset="bind:Variables.CrmContactsData.dataSet" captionalign="left" captionposition="top">
+                <wm-liveform errormessage="" title="Contacts Info" formlayout="dialog" iconclass="wi wi-edit" name="ContactsLiveForm1" dataset="bind:Variables.CrmContactsData.dataSet" captionalign="left" captionposition="top" on-beforeservicecall="ContactsLiveForm1Beforeservicecall($event, $operation, $data, options)"
+                    createdby="bind:Variables.loggedInUser.dataSet.roles[0]==&quot;admin&quot;?&quot;%&quot;:(Variables.loggedInUser.dataSet.roles[0]==&quot;user&quot;?Variables.loggedInUser.dataSet.id:&quot;&quot;)">
                     <wm-layoutgrid columns="2" name="layoutgrid1">
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn1">
@@ -53,8 +54,8 @@
                             </wm-gridcolumn>
                             <wm-gridcolumn columnwidth="6" name="gridcolumn15">
                                 <wm-form-field name="organizations" displayname="Organizations" show="true" primary-key="false" generator="assigned" period="false" key="organizations" type="list" is-related="true" readonly="false" required="false" widget="select"
-                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;&quot;,&quot;type&quot;:&quot;string&quot;,&quot;matchMode&quot;:&quot;anywhereignorecase&quot;,&quot;value&quot;:&quot;&quot;,&quot;required&quot;:false}]}"
-                                    displayexpression="name + ' ' + shippingaddress + ' ' + shippingcity"></wm-form-field>
+                                    filterexpressions="{&quot;condition&quot;:&quot;AND&quot;,&quot;rules&quot;:[{&quot;target&quot;:&quot;createdby&quot;,&quot;type&quot;:&quot;integer&quot;,&quot;matchMode&quot;:&quot;exact&quot;,&quot;value&quot;:&quot;bind:Variables.loggedInUser.dataSet.roles[0]==\&quot;admin\&quot;?\&quot;%\&quot;:(Variables.loggedInUser.dataSet.roles[0]==\&quot;user\&quot;?Variables.loggedInUser.dataSet.id:\&quot;\&quot;)&quot;,&quot;required&quot;:false,&quot;$$hashKey&quot;:&quot;object:95222&quot;,&quot;secondvalue&quot;:&quot;&quot;,&quot;isFirst&quot;:true}]}"
+                                    displayexpression="name + ' ' + shippingaddress + ' ' + shippingcity" placeholder="Select value"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                         <wm-gridrow name="gridrow3">

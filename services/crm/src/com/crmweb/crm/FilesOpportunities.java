@@ -28,6 +28,7 @@ public class FilesOpportunities implements Serializable {
     private String size;
     private Integer opportunitiesid;
     private LocalDateTime dateCreation;
+    private Integer createdby;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,6 +75,15 @@ public class FilesOpportunities implements Serializable {
 
     public void setDateCreation(LocalDateTime dateCreation) {
         this.dateCreation = dateCreation;
+    }
+
+    @Column(name = "`createdby`", nullable = true, scale = 0, precision = 10)
+    public Integer getCreatedby() {
+        return this.createdby;
+    }
+
+    public void setCreatedby(Integer createdby) {
+        this.createdby = createdby;
     }
 
 
