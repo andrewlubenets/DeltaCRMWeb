@@ -75,6 +75,10 @@
   "type" : "PAGE",
   "params" : [ ]
 }, {
+  "name" : "OpportunityDashboard",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
   "name" : "OpportunitySummaryReportBySales",
   "type" : "PAGE",
   "params" : [ ]
@@ -88,6 +92,10 @@
   "params" : [ ]
 }, {
   "name" : "Posts",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ProjectTaskDashboard",
   "type" : "PAGE",
   "params" : [ ]
 }, {

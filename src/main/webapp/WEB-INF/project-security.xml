@@ -209,6 +209,11 @@
                         <property name="landingPage" value="Main"/>
                     </bean>
                 </entry>
+                <entry key="manager">
+                    <bean class="com.wavemaker.commons.model.security.RoleConfig">
+                        <property name="landingPage" value="Main"/>
+                    </bean>
+                </entry>
             </map>
         </property>
     </bean>

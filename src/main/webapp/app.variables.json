@@ -663,6 +663,17 @@
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },
+  "goToPage_OpportunityDashboard" : {
+    "_id" : "wm-goToPage_OpportunityDashboard-wm.NavigationVariable-1542934608306",
+    "name" : "goToPage_OpportunityDashboard",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "OpportunityDashboard",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_OpportunitySummaryReportBySales" : {
     "_id" : "wm-goToPage_OpportunitySummaryReportBySales-wm.NavigationVariable-1541900658771",
     "name" : "goToPage_OpportunitySummaryReportBySales",
@@ -715,6 +726,17 @@
     "dataBinding" : [ ],
     "operation" : "gotoPage",
     "pageName" : "Projects",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_ProjectTaskDashboard" : {
+    "_id" : "wm-goToPage_ProjectTaskDashboard-wm.NavigationVariable-1542934921013",
+    "name" : "goToPage_ProjectTaskDashboard",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "ProjectTaskDashboard",
     "dataSet" : [ ],
     "pageTransitions" : "none"
   },

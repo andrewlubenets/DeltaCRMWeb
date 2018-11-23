@@ -10,4 +10,10 @@
   "roleConfig" : {
     "landingPage" : "Main"
   }
+}, {
+  "name" : "manager",
+  "description" : null,
+  "roleConfig" : {
+    "landingPage" : "Main"
+  }
 } ]

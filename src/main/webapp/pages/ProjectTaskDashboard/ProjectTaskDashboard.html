@@ -1,0 +1,176 @@
+<wm-page data-ng-controller="ProjectTaskDashboardPageController" name="page1">
+    <wm-header content="header" name="header1"></wm-header>
+    <wm-content name="content1">
+        <wm-left-panel columnwidth="2" content="leftnav" name="left_panel1"></wm-left-panel>
+        <wm-page-content columnwidth="10" name="page_content1">
+            <wm-layoutgrid name="layoutgrid1">
+                <wm-gridrow name="gridrow22_1">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn44_2" horizontalalign="left" class="h3">
+                        <wm-label padding="unset 0.5em" name="label37" caption="PROJECT AND TASK DASHBOARD" textalign="left"></wm-label>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn45_2"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn46_1"></wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow21_1" padding=".5em">
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn41" padding=".5em .5em .5em 0em ">
+                        <wm-panel collapsible="false" showheader="true" name="panel4_1" title="Product Category" borderwidth="0em" margin="0em">
+                            <wm-chart type="Donut" title="" height="250px" iconclass="wi wi-donut-large" name="chart5_1" theme="Retro"></wm-chart>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn44_1" padding=".5em">
+                        <wm-panel class="payroll-panel" collapsible="false" showheader="true" name="panel5" title="Project Related to Opportunities" borderwidth="0em" margin="0em">
+                            <wm-chart type="Donut" title="" height="250px" iconclass="wi wi-donut-large" theme="Retro" name="chart6"></wm-chart>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="4" name="gridcolumn42" padding=".5em 0em .5em .5em ">
+                        <wm-panel collapsible="false" showheader="true" name="panel6" title="Headcount Trend" borderwidth="0em" margin="0em">
+                            <wm-chart type="Bar" name="chart4" showlegend="false" theme="Retro" xaxislabeldistance="1" xaxislabel="Headcount" yaxislabel="Available" padding="1px 0px"></wm-chart>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow10" padding="0em .5em">
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn21" padding="0em .5em 0em 0em ">
+                        <wm-panel collapsible="false" showheader="true" name="panel3" title="Employee Satisfaction Rate" height="35em" borderwidth="0em" padding="1em 1em 0em 1em">
+                            <wm-chart type="Column" name="chart5" xaxislabel="Month" yaxislabeldistance="1" yaxislabel="Satisfaction rate" showlegend="false" barspacing="0.7" theme="Orient" height="100%"></wm-chart>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="6" name="gridcolumn22" padding="0em 0em 0em .5em ">
+                        <wm-panel collapsible="false" showheader="true" name="panel4" title="Attrition Summary" height="35em" borderwidth="0em" margin="0em" padding="1em 0em 0em 0em">
+                            <wm-accordion name="accordion1">
+                                <wm-accordionpane name="accordionpane1" heading="May 2015" borderwidth="0em" borderstyle="none">
+                                    <wm-layoutgrid name="layoutgrid12_1">
+                                        <wm-gridrow name="gridrow29_1">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn59" padding="1em .5em">
+                                                <wm-label caption="Week 1" name="label50" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn60" padding="1em">
+                                                <wm-label caption="Attrition rate on week 1 was 40%" name="label51" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow30">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn61" padding="1em .5em">
+                                                <wm-label caption="Week 2" name="label52" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn62" padding="1em">
+                                                <wm-label caption="Attrition rate on week 2 was 40%" name="label53" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow31">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn63" padding="1em .5em">
+                                                <wm-label caption="Week 3" name="label54" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn64" padding="1em">
+                                                <wm-label caption="Attrition rate on week 3 was 40%" name="label55" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow32">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn65_1" padding="1em .5em">
+                                                <wm-label caption="Week 4" name="label56" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn66_1" padding="1em">
+                                                <wm-label caption="Attrition rate on week 4 was 40%" name="label57" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-accordionpane>
+                                <wm-accordionpane name="accordionpane2" heading="April 2015" borderwidth="0em">
+                                    <wm-layoutgrid name="layoutgrid11_1">
+                                        <wm-gridrow name="gridrow25">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn51" padding="1em .5em">
+                                                <wm-label caption="Week 1" name="label42_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn52" padding="1em">
+                                                <wm-label caption="Attrition rate on week 1 was 40%" name="label43_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow26">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn53" padding="1em .5em">
+                                                <wm-label caption="Week 2" name="label44_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn54" padding="1em">
+                                                <wm-label caption="Attrition rate on week 2 was 40%" name="label45_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow27_1">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn55" padding="1em .5em">
+                                                <wm-label caption="Week 3" name="label46_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn56_1" padding="1em">
+                                                <wm-label caption="Attrition rate on week 3 was 40%" name="label47_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow28_1">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn57_1" padding="1em .5em">
+                                                <wm-label caption="Week 4" name="label48" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn58" padding="1em">
+                                                <wm-label caption="Attrition rate on week 4 was 40%" name="label49" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-accordionpane>
+                                <wm-accordionpane name="accordionpane3" heading="March 2015" borderwidth="0em">
+                                    <wm-layoutgrid name="layoutgrid10">
+                                        <wm-gridrow name="gridrow21">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn43" padding="1em .5em">
+                                                <wm-label caption="Week 1" name="label34" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn44" padding="1em">
+                                                <wm-label caption="Attrition rate on week 1 was 40%" name="label35" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow22">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn45_1" padding="1em .5em">
+                                                <wm-label caption="Week 2" name="label36_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn46" padding="1em">
+                                                <wm-label caption="Attrition rate on week 2 was 40%" name="label37_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow23">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn47" padding="1em .5em">
+                                                <wm-label caption="Week 3" name="label38_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn48" padding="1em">
+                                                <wm-label caption="Attrition rate on week 3 was 40%" name="label39_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                        <wm-gridrow name="gridrow24_1">
+                                            <wm-gridcolumn columnwidth="3" name="gridcolumn49" padding="1em .5em">
+                                                <wm-label caption="Week 4" name="label40_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                            <wm-gridcolumn columnwidth="9" name="gridcolumn50" padding="1em">
+                                                <wm-label caption="Attrition rate on week 4 was 40%" name="label41_1" margin="0em"></wm-label>
+                                            </wm-gridcolumn>
+                                        </wm-gridrow>
+                                    </wm-layoutgrid>
+                                </wm-accordionpane>
+                            </wm-accordion>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+                <wm-gridrow name="gridrow18" padding="0em .5em">
+                    <wm-gridcolumn columnwidth="12" name="gridcolumn45" padding="0em">
+                        <wm-panel collapsible="false" showheader="true" name="panel2" title="HR Tickets" borderwidth="0em">
+                            <wm-layoutgrid name="layoutgrid7">
+                                <wm-gridrow name="gridrow14_1">
+                                    <wm-gridcolumn columnwidth="12" name="gridcolumn31" padding="1em 0em">
+                                        <wm-livetable name="livegrid3" service="hrdb@User">
+                                            <wm-table deleterow="true" updaterow="true" insertrow="false" gridfirstrowselect="false" readonlygrid="false" name="grid3" shownavigation="true" showrowindex="false" radioselect="false" multiselect="true" gridsearch="true">
+                                                <wm-table-column binding="employeename" caption="Employee Name" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column>
+                                                <wm-table-column binding="employeeid" caption="Employee Id" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column>
+                                                <wm-table-column binding="issuetype" caption="Issue Type" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column>
+                                                <wm-table-column binding="description" caption="Description" type="string" readonly="false" search-placeholder="Search" pcdisplay="true" mobiledisplay="true"></wm-table-column>
+                                            </wm-table>
+                                        </wm-livetable>
+                                    </wm-gridcolumn>
+                                </wm-gridrow>
+                            </wm-layoutgrid>
+                        </wm-panel>
+                    </wm-gridcolumn>
+                </wm-gridrow>
+            </wm-layoutgrid>
+        </wm-page-content>
+    </wm-content>
+    <wm-footer content="footer" name="footer1"></wm-footer>
+</wm-page>

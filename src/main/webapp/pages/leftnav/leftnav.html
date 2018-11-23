@@ -1,25 +1,25 @@
 <wm-partial data-ng-controller="leftnavPageController" name="leftnav" type="leftnav">
     <wm-nav name="leftnavigation" type="pills" layout="stacked">
-        <wm-nav-item name="nav_item8" accessroles="user,admin">
-            <wm-anchor name="anchor8" iconclass="" caption="Task" on-click="Actions.goToPage_Task.invoke()" iconurl="resources/images/imagelists/task1.png" iconwidth="32"></wm-anchor>
+        <wm-nav-item name="nav_item8" accessroles="user,admin,manager">
+            <wm-anchor name="anchor8" iconclass="" caption="Task" on-click="Actions.goToPage_Task.invoke()" iconurl="resources/images/imagelists/task1.png" iconwidth="32" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item11">
-            <wm-anchor name="anchor11" iconclass="" caption="Contacts" iconurl="resources/images/imagelists/contact1.png" iconwidth="32" on-click="Actions.goToPage_Contact.invoke()"></wm-anchor>
+            <wm-anchor name="anchor11" iconclass="" caption="Contacts" iconurl="resources/images/imagelists/contact1.png" iconwidth="32" on-click="Actions.goToPage_Contact.invoke()" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item14_1">
-            <wm-anchor name="anchor14_1" iconclass="" caption="Organizations" iconurl="resources/images/imagelists/org.png" iconwidth="32" on-click="Actions.goToPage_Organizations.invoke()"></wm-anchor>
+            <wm-anchor name="anchor14_1" iconclass="" caption="Organizations" iconurl="resources/images/imagelists/org.png" iconwidth="32" on-click="Actions.goToPage_Organizations.invoke()" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item10">
-            <wm-anchor name="anchor10" iconclass="" caption="Leads" iconurl="resources/images/imagelists/leads2.png" iconwidth="32" on-click="Actions.goToPage_Leads.invoke()"></wm-anchor>
+            <wm-anchor name="anchor10" iconclass="" caption="Leads" iconurl="resources/images/imagelists/leads2.png" iconwidth="32" on-click="Actions.goToPage_Leads.invoke()" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item9">
-            <wm-anchor name="anchor9" iconclass="" caption="Opportunities" iconurl="resources/images/imagelists/opo2.png" iconwidth="32" on-click="Actions.goToPage_Opportunities.invoke()"></wm-anchor>
+            <wm-anchor name="anchor9" iconclass="" caption="Opportunities" iconurl="resources/images/imagelists/opo2.png" iconwidth="32" on-click="Actions.goToPage_Opportunities.invoke()" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item12">
-            <wm-anchor name="anchor12" iconclass="" caption="Projects" iconurl="resources/images/imagelists/project1.png" iconwidth="32" on-click="Actions.goToPage_Projects.invoke()"></wm-anchor>
+            <wm-anchor name="anchor12" iconclass="" caption="Projects" iconurl="resources/images/imagelists/project1.png" iconwidth="32" on-click="Actions.goToPage_Projects.invoke()" accessroles="admin,manager,user"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item19">
-            <wm-popover popoverwidth="240" popoverheight="500" name="popover1" iconclass="" caption="Reports" iconurl="resources/images/imagelists/report1.png" iconwidth="32" content="ReportsMenu" interaction="default" popoverplacement="right"></wm-popover>
+            <wm-popover popoverwidth="240" popoverheight="500" name="popover1" iconclass="" caption="Reports" iconurl="resources/images/imagelists/report1.png" iconwidth="32" content="ReportsMenu" interaction="default" popoverplacement="right" accessroles="admin"></wm-popover>
         </wm-nav-item>
         <wm-nav-item name="nav_item19_1" show="false">
             <wm-menu caption="Reports" autoclose="outsideClick" name="menu1" iconurl="resources/images/imagelists/report1.png" iconwidth="32" type="anchor" dataset="Opportunity Summary Report by Sales,Commit and Upside Report,Opportunity by Value,Opportunity by bid type,Opportunity by Category,Opportunity by stage,Opportunity Won/Lost,Project Activity by Report,Task by Priority,Task Report Monthly and Quaterly"
@@ -59,7 +59,10 @@
             <wm-anchor name="anchor18" iconclass="" caption="Posts" on-click="Actions.goToPage_Posts.invoke()" accessroles="admin" iconurl="resources/images/imagelists/posts.png" iconwidth="32"></wm-anchor>
         </wm-nav-item>
         <wm-nav-item name="nav_item20">
-            <wm-anchor name="anchor18_1" iconclass="wi wi-file" on-click="Actions.logoutAction.invoke()" caption="Temporal Logout"></wm-anchor>
+            <wm-anchor name="anchor18_1" iconclass="wi wi-file" caption="Project and Task Dashboard"></wm-anchor>
+        </wm-nav-item>
+        <wm-nav-item name="nav_item21">
+            <wm-anchor name="anchor19" iconclass="wi wi-file" caption="Opportunity Dashboard" on-click="Actions.goToPage_OpportunityDashboard.invoke()"></wm-anchor>
         </wm-nav-item>
     </wm-nav>
 </wm-partial>

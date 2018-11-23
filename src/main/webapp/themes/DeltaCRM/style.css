@@ -17,14 +17,14 @@
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
-  font-weight: 700;
-  src: url('fonts/quicksand-v8-latin-700.eot'); /* IE9 Compat Modes */
+  font-weight: 500;
+  src: url('fonts/quicksand-v8-latin-500.eot'); /* IE9 Compat Modes */
   src: local('Quicksand Bold'), local('Quicksand-Bold'),
-       url('fonts/quicksand-v8-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('fonts/quicksand-v8-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-       url('fonts/quicksand-v8-latin-700.woff') format('woff'), /* Modern Browsers */
-       url('fonts/quicksand-v8-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('fonts/quicksand-v8-latin-700.svg#Quicksand') format('svg'); /* Legacy iOS */
+       url('fonts/quicksand-v8-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/quicksand-v8-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/quicksand-v8-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('fonts/quicksand-v8-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/quicksand-v8-latin-500.svg#Quicksand') format('svg'); /* Legacy iOS */
 }
 /* open-sans-regular - latin */
 @font-face {
@@ -10418,7 +10418,7 @@ button.wm-app .close {
 
 /* Header */
 .wm-app .app-header {
-  width: calc(100% - 250px);
+  width: calc(100% - 220px);
   background-color: #FFFFFF;
   color: #1E9FF2;
   display: inline-block;
@@ -10431,16 +10431,33 @@ button.wm-app .close {
   padding-top: 0 !important;
 }
 
-.wm-app .app-header-container .app-grid-column[name="headerright"] {
+.wm-app .app-header-container .app-grid-column[name="headerright"],
+.wm-app .app-header-container .app-grid-column[name="gridcolumn3"] {
   height: 50px;
 }
 
+.wm-app .app-header-container .app-grid-column[name="gridcolumn3"] {
+	width: 33.333333%;
+}
+
 .wm-app .app-header .app-picture { 
-  margin-left: -250px !important;
+  margin-left: -220px !important;
 }
 
 .wm-app .app-header a, .wm-app .app-mobile-header a {
   color: #5e5e5e;
+  height: 100%;
+  width: 100%;
+}
+
+.wm-app .app-header-container .app-grid-column[name="gridcolumn3"] span.anchor-caption {
+	display: block;
+	color: #5175f6;
+	font-size: 14px;
+	line-height: 50px;
+	text-align: right;
+	font-family: 'Quicksand', 'Arial', sans-serif;
+	padding-right: 20px;
 }
 
 /* Main */
@@ -10458,16 +10475,22 @@ button.wm-app .close {
 
 /* Left panel */
 .wm-app .app-left-panel {
-  width: 250px;
+  width: 220px;
   height: 100%;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   vertical-align: top;
-  overflow: auto;
+  overflow: hidden;
   border: 0;
   background-color: #2C303A;
   text-align: left;
   font-family: "Quicksand", "Arial", sans-serif;
+  user-select: auto;
+}
+
+
+.wm-app .app-left-panel:hover {
+	overflow: auto;
 }
 
 .wm-app .app-left-panel .nav li a img {
@@ -10501,7 +10524,7 @@ button.wm-app .close {
 
 /* Content */
 .wm-app .app-page-content:not(.login) {
-  width: calc(100% - 250px);
+  width: calc(100% - 220px);
   height: 100%;
   display: inline-block !important;
   font-size: 12px;
@@ -10523,10 +10546,68 @@ button.wm-app .close {
   font-weight: bold;
 }
 
+.app-grid .app-datagrid .table-container {
+	font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+.wm-app .app-page-content:not(.login) .panel-footer {
+	position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(100% - 220px);
+    z-index: 1;
+}
+
+.wm-app .app-page-content:not(.login) .panel-footer .app-datanavigator li[role="menuitem"] a {
+  font-family: "Quicksand", "Arial", sans-serif;
+  height: 20px;
+  font-size: 12px;
+}
+
+.wm-app .app-page-content:not(.login) .panel-footer button.app-button {
+	background-color: #5175f6 !important ;
+	padding: 3px 10px !important;
+	border-radius: 30px;
+	color: #ffffff !important;
+	text-transform: none;
+	font-family: 'Quicksand', 'Arial', sans-serif;
+	font-size: 12px;
+	box-shadow: 0px 1px 20px 1px rgba(81, 117, 246, 0.6) !important;
+}
+
+.wm-app .form-inline .form-control {
+	font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+.wm-app .form-inline .form-control input {
+    display: inline-block;
+    padding: 10px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin: 10px;
+}
+
+.wm-app .form-inline .form-control select {
+    display: inline-block;
+    padding: 0;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.wm-app .form-inline  .input-group-addon {
+	margin: 10px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
 /* Footer */
 .wm-app .app-footer {
   border: 0;
-  width: calc(100% - 250px);
+  width: calc(100% - 220px);
   height: 50px;
   display: inline-block;
   background-color: #FFFFFF;
@@ -10535,9 +10616,10 @@ button.wm-app .close {
 }
 
 .wm-app .app-footer .app-grid-column:first-child {
-  margin-left: -250px;
-  padding-left: 30px;
+  margin-left: -220px;
+  padding-left: 12px;
   padding-right: 220px;
+  line-height: 26px;
 }
 
 .wm-app .app-footer .app-label {
@@ -10546,7 +10628,7 @@ button.wm-app .close {
   font-size: 12px;
   margin: 0;
   padding-right: 2px;
-  line-height: 20px;
+  line-height: 26px;
   vertical-align: middle;
 }
 
@@ -10555,36 +10637,113 @@ button.wm-app .close {
   width: 20px;
 }
 
-.wm-app .btn.app-button.dropdown-toggle {
+.wm-app .btn {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+.wm-app .btn.app-button.dropdown-toggle,
+.wm-app .btn.btn-sm {
   background-color: #5175f6 !important ;
   padding: 10px !important;
   border-radius: 30px;
   color: #ffffff !important;
   text-transform: none;
   font-family: 'Quicksand', 'Arial', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   box-shadow: 0px 1px 20px 1px rgba(81, 117, 246, 0.6) !important;
+}
+
+.wm-app .btn.btn-sm {
+  padding: 8px 10px !important;
+
 }
 
 .wm-app .open > .dropdown-menu {
   border-radius: 5px;
   box-shadow: 0px 5px 75px 2px rgba(64, 70, 74, 0.2) !important;
   font-family: 'Quicksand', 'Arial', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+}
+
+.wm-app .borderman {
+	border-radius: 0;
+	border-width: 0;
+	width: 20px;
+	height: 20px;
+}
+
+.wm-app .borderman:first-child {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.wm-app .borderman:last-child {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.wm-app .borderman.bg-info {
+	background-color: #5175f6;
+	background: linear-gradient(to bottom, #5175f6 0%,#4869dd 50%,#3851ac 51%,#7390f7 100%);
+}
+
+.wm-app .borderman.bg-primary {
+	background-color: #75F651;
+	background: linear-gradient(to bottom, #75F651 0%,#469330 50%,#3a7b28 51%,#90f773 100%);
 }
 
 .app-spinner .spinner-message {
   position: fixed !important;
   top: calc(50% - 19px) !important;
-  left: calc(50% - 22px) !important;
+  left: calc(50% + 65px) !important;
+}
+
+/* Popover */
+.wm-app .popover {
+	font-family: 'Quicksand', 'Arial', sans-serif;
+	box-shadow: 0px 5px 75px 2px rgba(64, 70, 74, 0.2) !important;
 }
 
 /* Dialogs */
-.wm-app .app-liveform-dialog.modal-dialog.app-dialog > .modal-content {
+.wm-app .modal-content {
   border-radius: 5px;
   font-family: 'Quicksand', 'Arial', sans-serif;
 }
 
-.wm-app .app-liveform-dialog.modal-dialog.app-dialog > .modal-content input {
+.wm-app .modal-content input {
   font-family: 'Open Sans', 'Arial', sans-serif;
+}
+
+/* Tables */
+.wm-app .table-responsive {
+	margin: auto;
+	width: calc(100% - 30px) !important;
+}
+
+.wm-app .table > thead > tr th {
+	padding: 10px;
+	vertical-align: middle;
+	font-weight: bold;
+}
+
+.wm-app .table > tbody > tr td {
+	padding: 10px;
+	vertical-align: middle;
+}
+
+.wm-app .table > tbody > tr td .row {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.app-grid .table tbody tr td .row-action-button.btn-transparent {
+	border-radius: 5px;
+	font-size: 12px !important;
+    padding: 0 5px;
+    border: 1px solid #333 !important;
+    margin: 3px;
+    line-height: 22px;
 }

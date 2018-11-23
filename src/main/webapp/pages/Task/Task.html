@@ -67,7 +67,7 @@
                         <wm-gridrow name="gridrow15">
                             <wm-gridcolumn columnwidth="6" name="gridcolumn19">
                                 <wm-form-field name="relatedto" displayname="Related to:" show="true" primary-key="false" generator="assigned" period="false" key="relatedto" type="string" readonly="false" widget="text" maxchars="255" on-change="Variables.opoandproject.invoke();relatedtoChange($event, $scope, newVal, oldVal)"
-                                    updateon="default" width="50%" placeholder="Project Name" inputtype="text"></wm-form-field>
+                                    updateon="default" width="50%" placeholder="Project Name" inputtype="text" required="true"></wm-form-field>
                                 <wm-table title="" dataset="bind:Variables.opoandproject.dataSet" navigation="None" name="table2" editmode="form" showheader="false" enablesort="false" width="50%" subheading="Select here one item" show="false">
                                     <wm-table-column binding="typerelation" caption="Typerelation" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
                                     <wm-table-column binding="name" caption="Name" edit-widget-type="text" type="string" show="true" readonly="false"></wm-table-column>
