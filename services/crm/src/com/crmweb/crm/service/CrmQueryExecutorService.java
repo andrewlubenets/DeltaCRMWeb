@@ -16,6 +16,10 @@ import com.crmweb.crm.models.query.*;
 
 public interface CrmQueryExecutorService {
 
+    Page<TotalProductCategoriesResponse> executeTotal_product_categories(Pageable pageable);
+
+    void exportTotal_product_categories(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
     Page<GetproductfromuseridResponse> executeGetproductfromuserid(String iduser, Pageable pageable);
 
     void exportGetproductfromuserid(String iduser, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
@@ -23,6 +27,10 @@ public interface CrmQueryExecutorService {
     Page<UserthathasOpenOpportunitiesResponse> executeUserthathasOpenOpportunities(String date1, String date2, Pageable pageable);
 
     void exportUserthathasOpenOpportunities(String date1, String date2, ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
+
+    Page<ProjectcountusersandproductsResponse> executeProjectcountusersandproducts(Pageable pageable);
+
+    void exportProjectcountusersandproducts(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream);
 
     Page<SearchprojectopportunitiesResponse> executeSearchprojectopportunities(String words, Pageable pageable);
 

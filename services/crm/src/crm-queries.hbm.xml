@@ -2,6 +2,24 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
+    <sql-query name="total_product_categories">
+        <![CDATA[
+        select count(p.categoryid) as tot,c.name
+from projects p left join categories c on p.categoryid = c.id  
+group by p.categoryid
+order by tot desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="total_product_categories__count">
+        <![CDATA[
+        select count(*) from (select count(p.categoryid) as tot,c.name
+from projects p left join categories c on p.categoryid = c.id  
+group by p.categoryid
+order by tot desc) wmTempTable
+        ]]>
+    </sql-query>
+
     <sql-query name="getproductfromuserid">
         <![CDATA[
         select product from users where id=:iduser
@@ -36,6 +54,28 @@ order by lastname asc,firstname asc) wmTempTable
         ]]>
     <query-param name="date1" type="java.lang.String"/>
     <query-param name="date2" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="projectcountusersandproducts">
+        <![CDATA[
+        select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname
+from projects p
+left join users u on p.userresponsibleid=u.id
+left join categories c on p.categoryid = c.id
+group by p.userresponsibleid,p.categoryid
+order by totprojects desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="projectcountusersandproducts__count">
+        <![CDATA[
+        select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname
+from projects p
+left join users u on p.userresponsibleid=u.id
+left join categories c on p.categoryid = c.id
+group by p.userresponsibleid,p.categoryid
+order by totprojects desc) wmTempTable
+        ]]>
     </sql-query>
 
     <sql-query name="searchprojectopportunities">

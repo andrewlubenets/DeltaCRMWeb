@@ -35,6 +35,26 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
 
     @Transactional(value = "crmTransactionManager", readOnly = true)
     @Override
+    public Page<TotalProductCategoriesResponse> executeTotal_product_categories(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("total_product_categories", params, TotalProductCategoriesResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotal_product_categories(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("total_product_categories", params, TotalProductCategoriesResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
     public Page<GetproductfromuseridResponse> executeGetproductfromuserid(String iduser, Pageable pageable) {
         Map<String, Object> params = new HashMap<>(1);
 
@@ -75,6 +95,26 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
         params.put("date2", date2);
 
         QueryProcedureInput queryInput = new QueryProcedureInput("userthathasOpenOpportunities", params, UserthathasOpenOpportunitiesResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<ProjectcountusersandproductsResponse> executeProjectcountusersandproducts(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("projectcountusersandproducts", params, ProjectcountusersandproductsResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportProjectcountusersandproducts(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("projectcountusersandproducts", params, ProjectcountusersandproductsResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

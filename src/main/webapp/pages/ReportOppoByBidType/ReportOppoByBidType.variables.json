@@ -202,6 +202,18 @@
           "generator" : "assigned",
           "isRelated" : false,
           "scale" : 0
+        }, {
+          "fieldName" : "product",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "product",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 200,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "opportunityStates",
@@ -489,6 +501,18 @@
         "isRelated" : false,
         "scale" : 0
       }, {
+        "fieldName" : "valueBidamountIdr",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "value_bidamount_idr",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
         "fieldName" : "valueBidamount",
         "type" : "string",
         "fullyQualifiedType" : "string",
@@ -593,6 +617,42 @@
         "notNull" : false,
         "length" : 255,
         "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateModification",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_modification",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "modifyby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "modifyby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0

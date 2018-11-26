@@ -43,6 +43,34 @@ public class QueryExecutionController {
     @Autowired
 	private ExportedFileManager exportedFileManager;
 
+    @RequestMapping(value = "/queries/total_product_categories", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "total product categories")
+    public Page<TotalProductCategoriesResponse> executeTotal_product_categories(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: total_product_categories");
+        Page<TotalProductCategoriesResponse> _result = queryService.executeTotal_product_categories(pageable);
+        LOGGER.debug("got the result for named query: total_product_categories, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query total_product_categories")
+    @RequestMapping(value = "/queries/total_product_categories/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportTotal_product_categories(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: total_product_categories");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "total_product_categories";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportTotal_product_categories( exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
     @RequestMapping(value = "/queries/getproductfromuserid", method = RequestMethod.GET)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
     @ApiOperation(value = "get product from userid")
@@ -95,6 +123,34 @@ public class QueryExecutionController {
 
         String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
                         outputStream -> queryService.exportUserthathasOpenOpportunities(date1, date2,  exportOptions, pageable, outputStream));
+
+        return new StringWrapper(exportedUrl);
+    }
+
+    @RequestMapping(value = "/queries/projectcountusersandproducts", method = RequestMethod.GET)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @ApiOperation(value = "user total project by products")
+    public Page<ProjectcountusersandproductsResponse> executeProjectcountusersandproducts(Pageable pageable, HttpServletRequest _request) {
+        LOGGER.debug("Executing named query: projectcountusersandproducts");
+        Page<ProjectcountusersandproductsResponse> _result = queryService.executeProjectcountusersandproducts(pageable);
+        LOGGER.debug("got the result for named query: projectcountusersandproducts, result:{}", _result);
+        return _result;
+    }
+
+    @ApiOperation(value = "Returns downloadable file url for query projectcountusersandproducts")
+    @RequestMapping(value = "/queries/projectcountusersandproducts/export", method = RequestMethod.POST)
+    @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    public StringWrapper exportProjectcountusersandproducts(@RequestBody ExportOptions exportOptions, Pageable pageable) {
+        LOGGER.debug("Exporting named query: projectcountusersandproducts");
+
+        String exportedFileName = exportOptions.getFileName();
+        if(exportedFileName == null || exportedFileName.isEmpty()) {
+            exportedFileName = "projectcountusersandproducts";
+        }
+        exportedFileName += exportOptions.getExportType().getExtension();
+
+        String exportedUrl = exportedFileManager.registerAndGetURL(exportedFileName,
+                        outputStream -> queryService.exportProjectcountusersandproducts( exportOptions, pageable, outputStream));
 
         return new StringWrapper(exportedUrl);
     }

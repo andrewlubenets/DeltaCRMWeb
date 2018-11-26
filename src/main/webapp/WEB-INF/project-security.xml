@@ -93,6 +93,7 @@
         <security:intercept-url pattern="/j_spring_security_logout" access="permitAll"/>
         <security:intercept-url pattern="/pages/Login/**" access="permitAll"/>
         <security:intercept-url pattern="/services/application/i18n/**" access="permitAll"/>
+        <security:intercept-url pattern="/services/crm/Opportunities/export/*" access="permitAll" method="GET"/>
         <security:intercept-url pattern="/services/prefabs/**/servicedefs" access="permitAll"/>
         <security:intercept-url pattern="/services/security/**" access="permitAll"/>
         <security:intercept-url pattern="/services/servicedefs" access="permitAll"/>

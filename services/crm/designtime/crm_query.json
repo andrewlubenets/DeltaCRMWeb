@@ -39,6 +39,65 @@
       } ]
     }
   },
+  "projectcountusersandproducts" : {
+    "name" : "projectcountusersandproducts",
+    "description" : "user total project by products",
+    "version" : "V2",
+    "queryString" : "select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\nleft join categories c on p.categoryid = c.id\ngroup by p.userresponsibleid,p.categoryid\norder by totprojects desc",
+    "countQueryString" : "select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\nleft join categories c on p.categoryid = c.id\ngroup by p.userresponsibleid,p.categoryid\norder by totprojects desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.ProjectcountusersandproductsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totprojects",
+        "fieldName" : "totprojects",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "firstname",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "lastname",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "categoryname",
+        "fieldName" : "categoryname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "searchprojectopportunities" : {
     "name" : "searchprojectopportunities",
     "description" : "project and opportunities",
@@ -88,6 +147,47 @@
       }, {
         "name" : "typerelation",
         "fieldName" : "typerelation",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "total_product_categories" : {
+    "name" : "total_product_categories",
+    "description" : "total product categories",
+    "version" : "V2",
+    "queryString" : "select count(p.categoryid) as tot,c.name\nfrom projects p left join categories c on p.categoryid = c.id  \ngroup by p.categoryid\norder by tot desc",
+    "countQueryString" : "select count(*) from (select count(p.categoryid) as tot,c.name\nfrom projects p left join categories c on p.categoryid = c.id  \ngroup by p.categoryid\norder by tot desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotalProductCategoriesResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "tot",
+        "fieldName" : "tot",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",

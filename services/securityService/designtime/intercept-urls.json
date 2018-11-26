@@ -8,4 +8,9 @@
   "permission" : "Authenticated",
   "roles" : null,
   "httpMethod" : null
+}, {
+  "urlPattern" : "/services/crm/Opportunities/export/{exportType}",
+  "permission" : "PermitAll",
+  "roles" : [ ],
+  "httpMethod" : "GET"
 } ]
