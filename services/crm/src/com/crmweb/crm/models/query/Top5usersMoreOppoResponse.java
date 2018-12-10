@@ -11,11 +11,11 @@ import java.util.Objects;
 
 import com.wavemaker.runtime.data.annotations.ColumnAlias;
 
-public class ProjectcountusersandproductsResponse implements Serializable {
+public class Top5usersMoreOppoResponse implements Serializable {
 
 
-    @ColumnAlias("totprojects")
-    private Long totprojects;
+    @ColumnAlias("totoppo")
+    private Long totoppo;
 
     @ColumnAlias("firstname")
     private String firstname;
@@ -23,12 +23,12 @@ public class ProjectcountusersandproductsResponse implements Serializable {
     @ColumnAlias("lastname")
     private String lastname;
 
-    public Long getTotprojects() {
-        return this.totprojects;
+    public Long getTotoppo() {
+        return this.totoppo;
     }
 
-    public void setTotprojects(Long totprojects) {
-        this.totprojects = totprojects;
+    public void setTotoppo(Long totoppo) {
+        this.totoppo = totoppo;
     }
 
     public String getFirstname() {
@@ -50,16 +50,16 @@ public class ProjectcountusersandproductsResponse implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ProjectcountusersandproductsResponse)) return false;
-        final ProjectcountusersandproductsResponse projectcountusersandproductsResponse = (ProjectcountusersandproductsResponse) o;
-        return Objects.equals(getTotprojects(), projectcountusersandproductsResponse.getTotprojects()) &&
-                Objects.equals(getFirstname(), projectcountusersandproductsResponse.getFirstname()) &&
-                Objects.equals(getLastname(), projectcountusersandproductsResponse.getLastname());
+        if (!(o instanceof Top5usersMoreOppoResponse)) return false;
+        final Top5usersMoreOppoResponse top5usersMoreOppoResponse = (Top5usersMoreOppoResponse) o;
+        return Objects.equals(getTotoppo(), top5usersMoreOppoResponse.getTotoppo()) &&
+                Objects.equals(getFirstname(), top5usersMoreOppoResponse.getFirstname()) &&
+                Objects.equals(getLastname(), top5usersMoreOppoResponse.getLastname());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTotprojects(),
+        return Objects.hash(getTotoppo(),
                 getFirstname(),
                 getLastname());
     }

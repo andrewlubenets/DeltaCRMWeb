@@ -2,21 +2,59 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <sql-query name="total_product_categories">
+    <sql-query name="wonvstarget">
         <![CDATA[
-        select count(p.categoryid) as tot,c.name
-from projects p left join categories c on p.categoryid = c.id  
-group by p.categoryid
-order by tot desc
+        select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totwon,u.target,concat(u.firstname,' ',u.lastname) as username
+from opportunities o
+left join users u on o.userresponsableid=u.id
+where o.opportunitystateid=1 and u.target is not null
+group by o.userresponsableid
         ]]>
     </sql-query>
 
-    <sql-query name="total_product_categories__count">
+    <sql-query name="wonvstarget__count">
         <![CDATA[
-        select count(*) from (select count(p.categoryid) as tot,c.name
-from projects p left join categories c on p.categoryid = c.id  
-group by p.categoryid
-order by tot desc) wmTempTable
+        select count(*) from (select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totwon,u.target,concat(u.firstname,' ',u.lastname) as username
+from opportunities o
+left join users u on o.userresponsableid=u.id
+where o.opportunitystateid=1 and u.target is not null
+group by o.userresponsableid) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totdelta">
+        <![CDATA[
+        select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totdelta
+from opportunities o
+left join categories c on c.id=o.categoryid
+where o.opportunitystateid=5
+and c.maincategory='DeltaApp'
+        ]]>
+    </sql-query>
+
+    <sql-query name="totdelta__count">
+        <![CDATA[
+        select count(*) from (select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totdelta
+from opportunities o
+left join categories c on c.id=o.categoryid
+where o.opportunitystateid=5
+and c.maincategory='DeltaApp') wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totcommit">
+        <![CDATA[
+        select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totcommit
+from opportunities
+where forecast_commit_deals=1 and opportunitystateid=5
+        ]]>
+    </sql-query>
+
+    <sql-query name="totcommit__count">
+        <![CDATA[
+        select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totcommit
+from opportunities
+where forecast_commit_deals=1 and opportunitystateid=5) wmTempTable
         ]]>
     </sql-query>
 
@@ -32,6 +70,24 @@ order by tot desc) wmTempTable
         select count(*) from (select product from users where id=:iduser) wmTempTable
         ]]>
     <query-param name="iduser" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="top5valoppos">
+        <![CDATA[
+        select value_bidamount as totval,name
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5
+order by cast(replace(value_bidamount,',','') as UNSIGNED) desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="top5valoppos__count">
+        <![CDATA[
+        select count(*) from (select value_bidamount as totval,name
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5
+order by cast(replace(value_bidamount,',','') as UNSIGNED) desc) wmTempTable
+        ]]>
     </sql-query>
 
     <sql-query name="userthathasOpenOpportunities">
@@ -58,23 +114,221 @@ order by lastname asc,firstname asc) wmTempTable
 
     <sql-query name="projectcountusersandproducts">
         <![CDATA[
-        select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname
+        select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname
 from projects p
 left join users u on p.userresponsibleid=u.id
-left join categories c on p.categoryid = c.id
-group by p.userresponsibleid,p.categoryid
+group by p.userresponsibleid
 order by totprojects desc
         ]]>
     </sql-query>
 
     <sql-query name="projectcountusersandproducts__count">
         <![CDATA[
-        select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname
+        select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname
 from projects p
 left join users u on p.userresponsibleid=u.id
-left join categories c on p.categoryid = c.id
-group by p.userresponsibleid,p.categoryid
+group by p.userresponsibleid
 order by totprojects desc) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totsumUpside">
+        <![CDATA[
+        select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totupside
+from opportunities
+where forecast_upside=1 and opportunitystateid=5
+        ]]>
+    </sql-query>
+
+    <sql-query name="totsumUpside__count">
+        <![CDATA[
+        select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totupside
+from opportunities
+where forecast_upside=1 and opportunitystateid=5) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="users_sum_opportunity_total">
+        <![CDATA[
+        select concat(u.firstname,' ',u.lastname) as fullname,ifnull((select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totval
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'')
+and userresponsableid=u.id),0) as totvalue
+from users u
+order by totvalue desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="users_sum_opportunity_total__count">
+        <![CDATA[
+        select count(*) from (select concat(u.firstname,' ',u.lastname) as fullname,ifnull((select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totval
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'')
+and userresponsableid=u.id),0) as totvalue
+from users u
+order by totvalue desc) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totsumoppo">
+        <![CDATA[
+        select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totsum
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5
+        ]]>
+    </sql-query>
+
+    <sql-query name="totsumoppo__count">
+        <![CDATA[
+        select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totsum
+from opportunities
+where (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="top5usersMoreOppo">
+        <![CDATA[
+        select count(o.userresponsableid) as totoppo,u.firstname,u.lastname
+from opportunities o
+left join users u on u.id = o.userresponsableid
+group by o.userresponsableid
+order by totoppo desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="top5usersMoreOppo__count">
+        <![CDATA[
+        select count(*) from (select count(o.userresponsableid) as totoppo,u.firstname,u.lastname
+from opportunities o
+left join users u on u.id = o.userresponsableid
+group by o.userresponsableid
+order by totoppo desc) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="totalhwsw_vs_delta">
+        <![CDATA[
+        SELECT
+		sum(
+			cast(
+				REPLACE(value_bidamount, ',', '')AS UNSIGNED
+			)
+		)AS totsum,
+		'Delta App' AS NAME
+	FROM
+		opportunities
+	WHERE
+		(
+			value_bidamount IS NOT NULL
+			OR value_bidamount <> ''
+		)
+	AND opportunitystateid = 5
+	AND categoryid IN(
+		SELECT
+			id
+		FROM
+			categories
+		WHERE
+			maincategory = 'DeltaApp'
+	)
+
+UNION
+
+		SELECT
+			sum(
+				cast(
+					REPLACE(value_bidamount, ',', '')AS UNSIGNED
+				)
+			)AS totsum,
+			'Hardware-Software' AS NAME
+		FROM
+			opportunities
+		WHERE
+			(
+				value_bidamount IS NOT NULL
+				OR value_bidamount <> ''
+			)
+		AND opportunitystateid = 5
+		AND categoryid IN(
+			SELECT
+				id
+			FROM
+				categories
+			WHERE
+				maincategory = 'Hardware-Software'
+		)
+        ]]>
+    </sql-query>
+
+    <sql-query name="totalhwsw_vs_delta__count">
+        <![CDATA[
+        select count(*) from (SELECT
+		sum(
+			cast(
+				REPLACE(value_bidamount, ',', '')AS UNSIGNED
+			)
+		)AS totsum,
+		'Delta App' AS NAME
+	FROM
+		opportunities
+	WHERE
+		(
+			value_bidamount IS NOT NULL
+			OR value_bidamount <> ''
+		)
+	AND opportunitystateid = 5
+	AND categoryid IN(
+		SELECT
+			id
+		FROM
+			categories
+		WHERE
+			maincategory = 'DeltaApp'
+	)
+
+UNION
+
+		SELECT
+			sum(
+				cast(
+					REPLACE(value_bidamount, ',', '')AS UNSIGNED
+				)
+			)AS totsum,
+			'Hardware-Software' AS NAME
+		FROM
+			opportunities
+		WHERE
+			(
+				value_bidamount IS NOT NULL
+				OR value_bidamount <> ''
+			)
+		AND opportunitystateid = 5
+		AND categoryid IN(
+			SELECT
+				id
+			FROM
+				categories
+			WHERE
+				maincategory = 'Hardware-Software'
+		)) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="total_product_categories">
+        <![CDATA[
+        select count(p.categoryid) as tot,c.name
+from projects p left join categories c on p.categoryid = c.id  
+group by p.categoryid
+order by tot desc
+        ]]>
+    </sql-query>
+
+    <sql-query name="total_product_categories__count">
+        <![CDATA[
+        select count(*) from (select count(p.categoryid) as tot,c.name
+from projects p left join categories c on p.categoryid = c.id  
+group by p.categoryid
+order by tot desc) wmTempTable
         ]]>
     </sql-query>
 

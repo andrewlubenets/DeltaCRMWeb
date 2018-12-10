@@ -55,7 +55,12 @@
                         <wm-gridrow name="gridrow1">
                             <wm-gridcolumn name="gridcolumn1" columnwidth="12">
                                 <wm-form-field name="product" displayname="Product" show="bind:Widgets.UsersLiveForm1.formWidgets.role.datavalue==&quot;manager&quot;?true:false" primary-key="false" generator="assigned" period="false" key="product" type="string"
-                                    readonly="false" widget="radioset" dataset="DeltaApp,Hardware-Software"></wm-form-field>
+                                    readonly="false" widget="radioset" maxchars="200" dataset="DeltaApp,Hardware-Software" placeholder=""></wm-form-field>
+                            </wm-gridcolumn>
+                        </wm-gridrow>
+                        <wm-gridrow name="gridrow1">
+                            <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                                <wm-form-field name="target" displayname="Target" show="true" primary-key="false" generator="assigned" period="false" key="target" type="string" readonly="false" required="false" widget="text" maxchars="255"></wm-form-field>
                             </wm-gridcolumn>
                         </wm-gridrow>
                     </wm-layoutgrid>

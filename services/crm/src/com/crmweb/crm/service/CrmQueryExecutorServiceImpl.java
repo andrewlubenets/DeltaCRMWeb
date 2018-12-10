@@ -35,20 +35,60 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
 
     @Transactional(value = "crmTransactionManager", readOnly = true)
     @Override
-    public Page<TotalProductCategoriesResponse> executeTotal_product_categories(Pageable pageable) {
+    public Page<WonvstargetResponse> executeWonvstarget(Pageable pageable) {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        return queryExecutor.executeNamedQuery("total_product_categories", params, TotalProductCategoriesResponse.class, pageable);
+        return queryExecutor.executeNamedQuery("wonvstarget", params, WonvstargetResponse.class, pageable);
     }
 
     @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
     @Override
-    public void exportTotal_product_categories(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+    public void exportWonvstarget(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("total_product_categories", params, TotalProductCategoriesResponse.class);
+        QueryProcedureInput queryInput = new QueryProcedureInput("wonvstarget", params, WonvstargetResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotdeltaResponse> executeTotdelta(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("totdelta", params, TotdeltaResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotdelta(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("totdelta", params, TotdeltaResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotcommitResponse> executeTotcommit(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("totcommit", params, TotcommitResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotcommit(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("totcommit", params, TotcommitResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -71,6 +111,26 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
         params.put("iduser", iduser);
 
         QueryProcedureInput queryInput = new QueryProcedureInput("getproductfromuserid", params, GetproductfromuseridResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<Top5valopposResponse> executeTop5valoppos(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("top5valoppos", params, Top5valopposResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTop5valoppos(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("top5valoppos", params, Top5valopposResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -115,6 +175,126 @@ public class CrmQueryExecutorServiceImpl implements CrmQueryExecutorService {
 
 
         QueryProcedureInput queryInput = new QueryProcedureInput("projectcountusersandproducts", params, ProjectcountusersandproductsResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotsumUpsideResponse> executeTotsumUpside(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("totsumUpside", params, TotsumUpsideResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotsumUpside(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("totsumUpside", params, TotsumUpsideResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<UsersSumOpportunityTotalResponse> executeUsers_sum_opportunity_total(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("users_sum_opportunity_total", params, UsersSumOpportunityTotalResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportUsers_sum_opportunity_total(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("users_sum_opportunity_total", params, UsersSumOpportunityTotalResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotsumoppoResponse> executeTotsumoppo(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("totsumoppo", params, TotsumoppoResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotsumoppo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("totsumoppo", params, TotsumoppoResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<Top5usersMoreOppoResponse> executeTop5usersMoreOppo(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("top5usersMoreOppo", params, Top5usersMoreOppoResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTop5usersMoreOppo(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("top5usersMoreOppo", params, Top5usersMoreOppoResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotalhwswVsDeltaResponse> executeTotalhwsw_vs_delta(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("totalhwsw_vs_delta", params, TotalhwswVsDeltaResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotalhwsw_vs_delta(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("totalhwsw_vs_delta", params, TotalhwswVsDeltaResponse.class);
+
+        queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
+    }
+
+    @Transactional(value = "crmTransactionManager", readOnly = true)
+    @Override
+    public Page<TotalProductCategoriesResponse> executeTotal_product_categories(Pageable pageable) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        return queryExecutor.executeNamedQuery("total_product_categories", params, TotalProductCategoriesResponse.class, pageable);
+    }
+
+    @Transactional(value = "crmTransactionManager", timeout = 300, readOnly = true)
+    @Override
+    public void exportTotal_product_categories(ExportOptions exportOptions, Pageable pageable, OutputStream outputStream) {
+        Map<String, Object> params = new HashMap<>(0);
+
+
+        QueryProcedureInput queryInput = new QueryProcedureInput("total_product_categories", params, TotalProductCategoriesResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

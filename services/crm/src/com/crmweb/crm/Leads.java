@@ -54,10 +54,10 @@ public class Leads implements Serializable {
     private LocalDateTime dateModification;
     private Integer createdby;
     private Integer modifyby;
-    private LeadSources leadSources;
-    private Users users;
     private LeadStatuses leadStatuses;
     private Organizations organizations;
+    private LeadSources leadSources;
+    private Users users;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -278,36 +278,6 @@ public class Leads implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_3`"))
-    @Fetch(FetchMode.JOIN)
-    public LeadSources getLeadSources() {
-        return this.leadSources;
-    }
-
-    public void setLeadSources(LeadSources leadSources) {
-        if(leadSources != null) {
-            this.leadsourceid = leadSources.getId();
-        }
-
-        this.leadSources = leadSources;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`user_responsibleid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_2`"))
-    @Fetch(FetchMode.JOIN)
-    public Users getUsers() {
-        return this.users;
-    }
-
-    public void setUsers(Users users) {
-        if(users != null) {
-            this.userResponsibleid = users.getId();
-        }
-
-        this.users = users;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`leadstatusid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_1`"))
     @Fetch(FetchMode.JOIN)
     public LeadStatuses getLeadStatuses() {
@@ -335,6 +305,36 @@ public class Leads implements Serializable {
         }
 
         this.organizations = organizations;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_3`"))
+    @Fetch(FetchMode.JOIN)
+    public LeadSources getLeadSources() {
+        return this.leadSources;
+    }
+
+    public void setLeadSources(LeadSources leadSources) {
+        if(leadSources != null) {
+            this.leadsourceid = leadSources.getId();
+        }
+
+        this.leadSources = leadSources;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`user_responsibleid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`leads_ibfk_2`"))
+    @Fetch(FetchMode.JOIN)
+    public Users getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(Users users) {
+        if(users != null) {
+            this.userResponsibleid = users.getId();
+        }
+
+        this.users = users;
     }
 
     @Override

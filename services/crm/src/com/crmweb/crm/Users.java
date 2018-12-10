@@ -31,6 +31,7 @@ public class Users implements Serializable {
     private LocalDateTime dateCreation;
     private String role;
     private String product;
+    private String target;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -104,6 +105,15 @@ public class Users implements Serializable {
 
     public void setProduct(String product) {
         this.product = product;
+    }
+
+    @Column(name = "`target`", nullable = true, length = 255)
+    public String getTarget() {
+        return this.target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 
 

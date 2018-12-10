@@ -10916,6 +10916,7 @@ button.wm-app .close {
 .wm-app .table > tbody > tr td .row {
 	display: inline-block;
 	vertical-align: middle;
+	white-space: nowrap;
 }
 
 .wm-app .app-grid .table tbody tr td .row-action-button.btn-transparent {

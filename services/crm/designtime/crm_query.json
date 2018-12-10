@@ -43,8 +43,8 @@
     "name" : "projectcountusersandproducts",
     "description" : "user total project by products",
     "version" : "V2",
-    "queryString" : "select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\nleft join categories c on p.categoryid = c.id\ngroup by p.userresponsibleid,p.categoryid\norder by totprojects desc",
-    "countQueryString" : "select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname,c.name as categoryname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\nleft join categories c on p.categoryid = c.id\ngroup by p.userresponsibleid,p.categoryid\norder by totprojects desc) wmTempTable",
+    "queryString" : "select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\ngroup by p.userresponsibleid\norder by totprojects desc",
+    "countQueryString" : "select count(*) from (select count(p.userresponsibleid) as totprojects,u.firstname,u.lastname\nfrom projects p\nleft join users u on p.userresponsibleid=u.id\ngroup by p.userresponsibleid\norder by totprojects desc) wmTempTable",
     "nativeSql" : true,
     "fetchCount" : true,
     "type" : "SELECT",
@@ -80,15 +80,6 @@
       }, {
         "name" : "lastname",
         "fieldName" : "lastname",
-        "optional" : false,
-        "fieldType" : {
-          "type" : "PRIMITIVE",
-          "typeRef" : "java.lang.String",
-          "list" : false
-        }
-      }, {
-        "name" : "categoryname",
-        "fieldName" : "categoryname",
         "optional" : false,
         "fieldType" : {
           "type" : "PRIMITIVE",
@@ -156,6 +147,97 @@
       } ]
     }
   },
+  "top5usersMoreOppo" : {
+    "name" : "top5usersMoreOppo",
+    "description" : "top5 user with more oppo",
+    "version" : "V2",
+    "queryString" : "select count(o.userresponsableid) as totoppo,u.firstname,u.lastname\nfrom opportunities o\nleft join users u on u.id = o.userresponsableid\ngroup by o.userresponsableid\norder by totoppo desc",
+    "countQueryString" : "select count(*) from (select count(o.userresponsableid) as totoppo,u.firstname,u.lastname\nfrom opportunities o\nleft join users u on u.id = o.userresponsableid\ngroup by o.userresponsableid\norder by totoppo desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.Top5usersMoreOppoResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totoppo",
+        "fieldName" : "totoppo",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "firstname",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "lastname",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "top5valoppos" : {
+    "name" : "top5valoppos",
+    "description" : "top 5 oppos  by value",
+    "version" : "V2",
+    "queryString" : "select value_bidamount as totval,name\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5\norder by cast(replace(value_bidamount,',','') as UNSIGNED) desc",
+    "countQueryString" : "select count(*) from (select value_bidamount as totval,name\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5\norder by cast(replace(value_bidamount,',','') as UNSIGNED) desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.Top5valopposResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totval",
+        "fieldName" : "totval",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "name",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
   "total_product_categories" : {
     "name" : "total_product_categories",
     "description" : "total product categories",
@@ -192,6 +274,216 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totalhwsw_vs_delta" : {
+    "name" : "totalhwsw_vs_delta",
+    "description" : "total value hw/sw vs delta",
+    "version" : "V2",
+    "queryString" : "SELECT\r\n\t\tsum(\r\n\t\t\tcast(\r\n\t\t\t\tREPLACE(value_bidamount, ',', '')AS UNSIGNED\r\n\t\t\t)\r\n\t\t)AS totsum,\r\n\t\t'Delta App' AS NAME\r\n\tFROM\r\n\t\topportunities\r\n\tWHERE\r\n\t\t(\r\n\t\t\tvalue_bidamount IS NOT NULL\r\n\t\t\tOR value_bidamount <> ''\r\n\t\t)\r\n\tAND opportunitystateid = 5\r\n\tAND categoryid IN(\r\n\t\tSELECT\r\n\t\t\tid\r\n\t\tFROM\r\n\t\t\tcategories\r\n\t\tWHERE\r\n\t\t\tmaincategory = 'DeltaApp'\r\n\t)\r\n\r\nUNION\r\n\r\n\t\tSELECT\r\n\t\t\tsum(\r\n\t\t\t\tcast(\r\n\t\t\t\t\tREPLACE(value_bidamount, ',', '')AS UNSIGNED\r\n\t\t\t\t)\r\n\t\t\t)AS totsum,\r\n\t\t\t'Hardware-Software' AS NAME\r\n\t\tFROM\r\n\t\t\topportunities\r\n\t\tWHERE\r\n\t\t\t(\r\n\t\t\t\tvalue_bidamount IS NOT NULL\r\n\t\t\t\tOR value_bidamount <> ''\r\n\t\t\t)\r\n\t\tAND opportunitystateid = 5\r\n\t\tAND categoryid IN(\r\n\t\t\tSELECT\r\n\t\t\t\tid\r\n\t\t\tFROM\r\n\t\t\t\tcategories\r\n\t\t\tWHERE\r\n\t\t\t\tmaincategory = 'Hardware-Software'\r\n\t\t)",
+    "countQueryString" : "select count(*) from (SELECT\r\n\t\tsum(\r\n\t\t\tcast(\r\n\t\t\t\tREPLACE(value_bidamount, ',', '')AS UNSIGNED\r\n\t\t\t)\r\n\t\t)AS totsum,\r\n\t\t'Delta App' AS NAME\r\n\tFROM\r\n\t\topportunities\r\n\tWHERE\r\n\t\t(\r\n\t\t\tvalue_bidamount IS NOT NULL\r\n\t\t\tOR value_bidamount <> ''\r\n\t\t)\r\n\tAND opportunitystateid = 5\r\n\tAND categoryid IN(\r\n\t\tSELECT\r\n\t\t\tid\r\n\t\tFROM\r\n\t\t\tcategories\r\n\t\tWHERE\r\n\t\t\tmaincategory = 'DeltaApp'\r\n\t)\r\n\r\nUNION\r\n\r\n\t\tSELECT\r\n\t\t\tsum(\r\n\t\t\t\tcast(\r\n\t\t\t\t\tREPLACE(value_bidamount, ',', '')AS UNSIGNED\r\n\t\t\t\t)\r\n\t\t\t)AS totsum,\r\n\t\t\t'Hardware-Software' AS NAME\r\n\t\tFROM\r\n\t\t\topportunities\r\n\t\tWHERE\r\n\t\t\t(\r\n\t\t\t\tvalue_bidamount IS NOT NULL\r\n\t\t\t\tOR value_bidamount <> ''\r\n\t\t\t)\r\n\t\tAND opportunitystateid = 5\r\n\t\tAND categoryid IN(\r\n\t\t\tSELECT\r\n\t\t\t\tid\r\n\t\t\tFROM\r\n\t\t\t\tcategories\r\n\t\t\tWHERE\r\n\t\t\t\tmaincategory = 'Hardware-Software'\r\n\t\t)) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotalhwswVsDeltaResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totsum",
+        "fieldName" : "totsum",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "NAME",
+        "fieldName" : "name",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totcommit" : {
+    "name" : "totcommit",
+    "description" : "total commit oppo",
+    "version" : "V2",
+    "queryString" : "select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totcommit\nfrom opportunities\nwhere forecast_commit_deals=1 and opportunitystateid=5",
+    "countQueryString" : "select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totcommit\nfrom opportunities\nwhere forecast_commit_deals=1 and opportunitystateid=5) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotcommitResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totcommit",
+        "fieldName" : "totcommit",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totdelta" : {
+    "name" : "totdelta",
+    "description" : "total of delta",
+    "version" : "V2",
+    "queryString" : "select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totdelta\nfrom opportunities o\nleft join categories c on c.id=o.categoryid\nwhere o.opportunitystateid=5\nand c.maincategory='DeltaApp'",
+    "countQueryString" : "select count(*) from (select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totdelta\nfrom opportunities o\nleft join categories c on c.id=o.categoryid\nwhere o.opportunitystateid=5\nand c.maincategory='DeltaApp') wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotdeltaResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totdelta",
+        "fieldName" : "totdelta",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totsumUpside" : {
+    "name" : "totsumUpside",
+    "description" : "total sum upside oppo",
+    "version" : "V2",
+    "queryString" : "select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totupside\nfrom opportunities\nwhere forecast_upside=1 and opportunitystateid=5",
+    "countQueryString" : "select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totupside\nfrom opportunities\nwhere forecast_upside=1 and opportunitystateid=5) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotsumUpsideResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totupside",
+        "fieldName" : "totupside",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "totsumoppo" : {
+    "name" : "totsumoppo",
+    "description" : "total sum of oppo open",
+    "version" : "V2",
+    "queryString" : "select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totsum\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5",
+    "countQueryString" : "select count(*) from (select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totsum\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'') and opportunitystateid=5) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.TotsumoppoResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totsum",
+        "fieldName" : "totsum",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "users_sum_opportunity_total" : {
+    "name" : "users_sum_opportunity_total",
+    "description" : "user sum opportunity total",
+    "version" : "V2",
+    "queryString" : "select concat(u.firstname,' ',u.lastname) as fullname,ifnull((select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totval\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'')\nand userresponsableid=u.id),0) as totvalue\nfrom users u\norder by totvalue desc",
+    "countQueryString" : "select count(*) from (select concat(u.firstname,' ',u.lastname) as fullname,ifnull((select sum(cast(replace(value_bidamount,',','') as UNSIGNED)) as totval\nfrom opportunities\nwhere (value_bidamount is not null or value_bidamount <>'')\nand userresponsableid=u.id),0) as totvalue\nfrom users u\norder by totvalue desc) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.UsersSumOpportunityTotalResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "fullname",
+        "fieldName" : "fullname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "totvalue",
+        "fieldName" : "totvalue",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
           "list" : false
         }
       } ]
@@ -360,6 +652,56 @@
         "fieldType" : {
           "type" : "PRIMITIVE",
           "typeRef" : "java.math.BigDecimal",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "wonvstarget" : {
+    "name" : "wonvstarget",
+    "description" : "won vs target",
+    "version" : "V2",
+    "queryString" : "select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totwon,u.target,concat(u.firstname,' ',u.lastname) as username\nfrom opportunities o\nleft join users u on o.userresponsableid=u.id\nwhere o.opportunitystateid=1 and u.target is not null\ngroup by o.userresponsableid",
+    "countQueryString" : "select count(*) from (select sum(cast(replace(o.value_bidamount,',','') as UNSIGNED)) as totwon,u.target,concat(u.firstname,' ',u.lastname) as username\nfrom opportunities o\nleft join users u on o.userresponsableid=u.id\nwhere o.opportunitystateid=1 and u.target is not null\ngroup by o.userresponsableid) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.crmweb.crm.models.query.WonvstargetResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "totwon",
+        "fieldName" : "totwon",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "target",
+        "fieldName" : "target",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "username",
+        "fieldName" : "username",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
           "list" : false
         }
       } ]

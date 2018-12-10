@@ -54,11 +54,11 @@ public class Opportunities implements Serializable {
     private LocalDateTime dateModification;
     private Integer createdby;
     private Integer modifyby;
+    private Categories categories;
+    private LeadSources leadSources;
     private Pipelines pipelines;
     private Users users;
     private OpportunityStates opportunityStates;
-    private Categories categories;
-    private LeadSources leadSources;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -279,6 +279,36 @@ public class Opportunities implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_1`"))
+    @Fetch(FetchMode.JOIN)
+    public Categories getCategories() {
+        return this.categories;
+    }
+
+    public void setCategories(Categories categories) {
+        if(categories != null) {
+            this.categoryid = categories.getId();
+        }
+
+        this.categories = categories;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_5`"))
+    @Fetch(FetchMode.JOIN)
+    public LeadSources getLeadSources() {
+        return this.leadSources;
+    }
+
+    public void setLeadSources(LeadSources leadSources) {
+        if(leadSources != null) {
+            this.leadsourceid = leadSources.getId();
+        }
+
+        this.leadSources = leadSources;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`pipelineid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_3`"))
     @Fetch(FetchMode.JOIN)
     public Pipelines getPipelines() {
@@ -321,36 +351,6 @@ public class Opportunities implements Serializable {
         }
 
         this.opportunityStates = opportunityStates;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`categoryid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_1`"))
-    @Fetch(FetchMode.JOIN)
-    public Categories getCategories() {
-        return this.categories;
-    }
-
-    public void setCategories(Categories categories) {
-        if(categories != null) {
-            this.categoryid = categories.getId();
-        }
-
-        this.categories = categories;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`leadsourceid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`opportunities_ibfk_5`"))
-    @Fetch(FetchMode.JOIN)
-    public LeadSources getLeadSources() {
-        return this.leadSources;
-    }
-
-    public void setLeadSources(LeadSources leadSources) {
-        if(leadSources != null) {
-            this.leadsourceid = leadSources.getId();
-        }
-
-        this.leadSources = leadSources;
     }
 
     @Override

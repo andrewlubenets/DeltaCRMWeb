@@ -202,6 +202,30 @@
           "generator" : "assigned",
           "isRelated" : false,
           "scale" : 0
+        }, {
+          "fieldName" : "product",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "product",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 200,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
+        }, {
+          "fieldName" : "target",
+          "type" : "string",
+          "fullyQualifiedType" : "string",
+          "columnName" : "target",
+          "isPrimaryKey" : false,
+          "notNull" : false,
+          "length" : 255,
+          "precision" : 0,
+          "generator" : "assigned",
+          "isRelated" : false,
+          "scale" : 0
         } ]
       }, {
         "fieldName" : "id",
@@ -335,6 +359,54 @@
         "generator" : "assigned",
         "isRelated" : false,
         "scale" : 0
+      }, {
+        "fieldName" : "createdby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "createdby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateCreation",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_creation",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "dateModification",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "date_modification",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
+      }, {
+        "fieldName" : "modifyby",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "modifyby",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "scale" : 0
       } ],
       "entityName" : "Tasks",
       "fullyQualifiedName" : "com.crmweb.crm.Tasks",
@@ -370,6 +442,14 @@
         "required" : false,
         "secondvalue" : "",
         "isFirst" : true
+      }, {
+        "target" : "dateCreation",
+        "type" : "datetime",
+        "matchMode" : "between",
+        "value" : "bind:Widgets.select1.datavalue+\"-01-01\"",
+        "required" : false,
+        "secondvalue" : "bind:Widgets.select1.datavalue+\"-12-31\"",
+        "isFirst" : false
       } ]
     },
     "package" : "com.crmweb.crm.Tasks"

@@ -14,17 +14,20 @@
                 <wm-gridrow name="gridrow21_1" padding=".5em">
                     <wm-gridcolumn columnwidth="4" name="gridcolumn41" padding=".5em .5em .5em 0em ">
                         <wm-panel collapsible="false" showheader="true" name="panel4_1" title="Product Category" borderwidth="0em" margin="0em">
-                            <wm-chart type="Donut" title="" height="250px" iconclass="wi wi-donut-large" name="chart5_1" theme="Retro" dataset="bind:Variables.totalproductcategories.dataSet" xaxisdatakey="name" yaxisdatakey="tot" showlegend="top" donutratio="0.6"
+                            <wm-chart type="Donut" title="" height="250px" iconclass="wi wi-donut-large" name="chart5_1" theme="Retro" dataset="bind:Variables.totalproductcategories.dataSet" xaxisdatakey="name" yaxisdatakey="tot" showlegend="hide" donutratio="0.6"
                                 labeltype="percent"></wm-chart>
                         </wm-panel>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn44_1" padding=".5em">
                         <wm-panel class="payroll-panel" collapsible="false" showheader="true" name="panel5" title="Project Related to Opportunities" borderwidth="0em" margin="0em">
-                            <wm-chart type="Donut" title="" height="250px" iconclass="wi wi-donut-large" theme="Retro" name="chart6"></wm-chart>
+                            <wm-table name="ProjectsTable1" title="" dataset="bind:Variables.CrmProjectsData.dataSet" navigation="None" height="220">
+                                <wm-table-column binding="name" caption="Project" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
+                                <wm-table-column binding="opportunities.name" caption="Opportunity" edit-widget-type="text" related-entity-name="Opportunities" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                            </wm-table>
                         </wm-panel>
                     </wm-gridcolumn>
                     <wm-gridcolumn columnwidth="4" name="gridcolumn42" padding=".5em 0em .5em .5em ">
-                        <wm-panel collapsible="false" showheader="true" name="panel6" title="Project Qty by Product and Users" borderwidth="0em" margin="0em">
+                        <wm-panel collapsible="false" showheader="true" name="panel6" title="Project Qty by Users" borderwidth="0em" margin="0em">
                             <wm-layoutgrid name="layoutgrid6">
                                 <wm-gridrow name="gridrow18_1">
                                     <wm-gridcolumn columnwidth="4" name="gridcolumn36">
@@ -102,7 +105,9 @@
                         <wm-panel iconclass="" autoclose="outsideClick" title="Project Status" name="panel5_1">
                             <wm-table name="CategoriesTable1" title="" dataset="bind:Variables.projectstatus.dataSet" navigation="None">
                                 <wm-table-column binding="name" caption="Name" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
-                                <wm-table-column binding="categories.name" caption="Categories Name" primary-key="false" edit-widget-type="text" related-entity-name="Categories" type="string" generator="assigned" readonly="true" show="true"></wm-table-column>
+                                <wm-table-column binding="dateCreation" caption="Date Creation" widget-type="label" primary-key="false" edit-widget-type="datetime" type="datetime" generator="assigned" show="true" readonly="false">
+                                    <wm-label caption="{{row.getProperty('dateCreation')| date : format : shortDate}}" class="" data-ng-class=""></wm-label>
+                                </wm-table-column>
                                 <wm-table-column binding="stages" caption="Stages" primary-key="false" edit-widget-type="text" type="string" generator="assigned" show="true" readonly="false"></wm-table-column>
                             </wm-table>
                         </wm-panel>

@@ -5,10 +5,17 @@
         <wm-page-content columnwidth="10" name="page_content1">
             <wm-layoutgrid name="layoutgrid1">
                 <wm-gridrow name="gridrow1">
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn1">
+                    <wm-gridcolumn columnwidth="9" name="gridcolumn1">
                         <wm-label padding="unset 0.5em" caption="Project Activity Report" class="h3 bg-primary" textalign="left" name="label1"></wm-label>
                     </wm-gridcolumn>
-                    <wm-gridcolumn columnwidth="6" name="gridcolumn2"></wm-gridcolumn>
+                    <wm-gridcolumn columnwidth="3" name="gridcolumn2">
+                        <wm-composite name="composite1">
+                            <wm-label class="col-md-3 control-label" name="label2" caption="Year"></wm-label>
+                            <wm-container class="col-md-9" name="container1">
+                                <wm-select name="select1" dataset="2018,2019,2020,2021,2022"></wm-select>
+                            </wm-container>
+                        </wm-composite>
+                    </wm-gridcolumn>
                 </wm-gridrow>
                 <wm-gridrow name="gridrow2">
                     <wm-gridcolumn columnwidth="12" name="gridcolumn3">

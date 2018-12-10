@@ -42,10 +42,10 @@ public class Posts implements Serializable {
     private String typepost;
     private Integer weight;
     private String status;
-    private Departments departments;
-    private Locations locations;
     private Entities entities;
     private Users users;
+    private Departments departments;
+    private Locations locations;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -167,36 +167,6 @@ public class Posts implements Serializable {
     }
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`departmentid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_4`"))
-    @Fetch(FetchMode.JOIN)
-    public Departments getDepartments() {
-        return this.departments;
-    }
-
-    public void setDepartments(Departments departments) {
-        if(departments != null) {
-            this.departmentid = departments.getId();
-        }
-
-        this.departments = departments;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "`locationid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_3`"))
-    @Fetch(FetchMode.JOIN)
-    public Locations getLocations() {
-        return this.locations;
-    }
-
-    public void setLocations(Locations locations) {
-        if(locations != null) {
-            this.locationid = locations.getId();
-        }
-
-        this.locations = locations;
-    }
-
-    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "`entityid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_2`"))
     @Fetch(FetchMode.JOIN)
     public Entities getEntities() {
@@ -224,6 +194,36 @@ public class Posts implements Serializable {
         }
 
         this.users = users;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`departmentid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_4`"))
+    @Fetch(FetchMode.JOIN)
+    public Departments getDepartments() {
+        return this.departments;
+    }
+
+    public void setDepartments(Departments departments) {
+        if(departments != null) {
+            this.departmentid = departments.getId();
+        }
+
+        this.departments = departments;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "`locationid`", referencedColumnName = "`id`", insertable = false, updatable = false, foreignKey = @ForeignKey(name = "`posts_ibfk_3`"))
+    @Fetch(FetchMode.JOIN)
+    public Locations getLocations() {
+        return this.locations;
+    }
+
+    public void setLocations(Locations locations) {
+        if(locations != null) {
+            this.locationid = locations.getId();
+        }
+
+        this.locations = locations;
     }
 
     @Override
