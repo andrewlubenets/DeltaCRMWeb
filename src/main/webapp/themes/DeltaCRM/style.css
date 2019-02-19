@@ -10422,7 +10422,7 @@ button.wm-app .close {
   width: calc(100% - 220px);
   background-color: #FFFFFF;
   color: #1335bc;
-  display: inline-block;
+  display: inline-block !important;
   box-shadow: 0px 0px 1px 1px rgba(62, 57, 107, 0.07) inset;
   text-align: left;
 }
@@ -10526,6 +10526,12 @@ button.wm-app .close {
   left: 55px;
   height: 25px;
   line-height: 25px;
+}
+
+.wm-app .app-left-panel .anchor-caption:last-child,
+.wm-app .app-left-panel .anchor-caption:nth-last-child(2) {
+  line-height: 19px;
+  margin-top: -5px;
 }
 
 /* Content */
@@ -10660,7 +10666,7 @@ button.wm-app .close {
   border: 0;
   width: calc(100% - 220px);
   height: 50px;
-  display: inline-block;
+  display: inline-block !important;
   background-color: #FFFFFF;
   font-size: 12px;
   text-align: left;
@@ -10940,6 +10946,89 @@ button.wm-app .close {
 
 .wm-app .app-grid .table tbody tr td .row-action-button i {
 	vertical-align: unset;
+}
+
+.wm-app .panel {
+  border: 0;
+}
+
+.wm-app .panel-heading {
+  background-color: #1335bc;
+  color: #ffffff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.wm-app .app-tile label.h3.app-label {
+  color: #ffffff;
+}
+
+.wm-app .app-grid-column[name="gridcolumn45"] {
+  padding: 0 0.5em 0 0 !important;
+}
+
+.wm-app .app-grid-column[name="gridcolumn35"] {
+  padding: 0 0 0 0.5em !important;
+}
+
+g.nv-slice[fill="#0ca7a1"] {
+  fill: #1335bc;
+}
+
+g.nv-slice[fill="#ffa615"] {
+  fill: #faa619;
+}
+
+g.nv-slice[fill="#acc5c2"] {
+  fill: #a6ce39;
+}
+
+.wm-app .app-panel[name="panel6"] > .panel-heading {
+  background-color: #1335bc;
+  color: #ffffff !important;
+}
+
+.wm-app .app-panel[name="panel6_1"] > .panel-heading {
+  background-color: #a6ce39;
+  color: #ffffff !important;
+}
+
+.wm-app .app-panel[name="panel7"] > .panel-heading {
+  background-color: #5c7389;
+  color: #ffffff !important;
+}
+
+.wm-app .app-panel[name="panel8"] > .panel-heading {
+  background-color: #faa619;
+  color: #ffffff !important;
+}
+
+.wm-app .app-grid-column[name="gridcolumn18"] {
+  padding: 0.5em;
+}
+
+.wm-app .app-grid-column[name="gridcolumn19"] {
+  padding: 0.5em;
+}
+
+g.nv-slice[fill="#3182bd"] {
+  fill: #1335bc;
+}
+
+g.nv-slice[fill="#6baed6"] {
+  fill: #a6ce39;
+}
+
+g.nv-slice[fill="#e6550d"] {
+  fill: #faa619;
+}
+
+g.nv-slice[fill="9ecae1"] {
+  fill: #5971d0;
+}
+
+g.nv-slice[fill="#c6dbef"] {
+  fill: #a0aee4;
 }
 
 /* Mobile views */
