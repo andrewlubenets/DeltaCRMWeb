@@ -3,7 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3-jdk-7-slim
-      shellScript: mvn clean install -X
+      shellScript: mvn install
 - name: Publish
   steps:
   - publishImageConfig:
