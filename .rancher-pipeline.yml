@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: maven:3-jdk-7-slim
+      image: maven:latest
       shellScript: mvn install
 - name: Publish
   steps:
