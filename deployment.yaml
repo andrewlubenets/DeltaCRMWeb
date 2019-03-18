@@ -1,0 +1,36 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: deltadevops
+spec:
+  selector:
+    app: DeltaCRMWeb
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deltadevops
+  labels:
+    app: DeltaCRMWeb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: DeltaCRMWeb
+  template:
+    metadata:
+      labels:
+        app: DeltaCRMWeb
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: maven
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 8080
