@@ -4,7 +4,7 @@ metadata:
   name: deltadevops
 spec:
   selector:
-    app: DeltaCRMWeb
+    app: deltadevops
   type: NodePort
   ports:
     - protocol: TCP
@@ -16,16 +16,16 @@ kind: Deployment
 metadata:
   name: deltadevops
   labels:
-    app: DeltaCRMWeb
+    app: deltadevops
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: DeltaCRMWeb
+      app: deltadevops
   template:
     metadata:
       labels:
-        app: DeltaCRMWeb
+        app: deltadevops
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
