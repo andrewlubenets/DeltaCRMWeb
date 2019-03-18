@@ -2,8 +2,8 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: tomcat:8.0.20-jre8
-      shellScript: COPY DeltaCRMWeb-master/src/main/DeltaCRMWeb-master.war /usr/local/tomcat/webapps/myapp.war
+      image: maven:3-jdk-7
+      shellScript: mvn t7:run
 - name: Publish
   steps:
   - publishImageConfig:
