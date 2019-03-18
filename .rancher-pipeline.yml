@@ -2,7 +2,7 @@ stages:
 - name: Build
   steps:
   - runScriptConfig:
-      image: maven:latest
+      image: tomcat:8.0.20-jre8
       shellScript: mvn install
 - name: Publish
   steps:
