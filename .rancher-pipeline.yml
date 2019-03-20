@@ -4,6 +4,11 @@ stages:
   - runScriptConfig:
       image: maven:3-jdk-7
       shellScript: mvn clean install
+- name: Test
+  steps:
+  - runScriptConfig:
+      image: katalonstudio/katalon
+      shellScript: cat $KATALON_VERSION_FILE
 - name: Publish
   steps:
   - publishImageConfig:
