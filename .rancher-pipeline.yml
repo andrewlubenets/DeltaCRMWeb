@@ -8,7 +8,7 @@ stages:
   steps:
   - runScriptConfig:
       image: katalonstudio/katalon
-      shellScript: cat $KATALON_VERSION_FILE
+      shellScript: ./katalon/run_chrome.sh
 - name: Publish
   steps:
   - publishImageConfig:
