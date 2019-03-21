@@ -3,8 +3,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.springsource</groupId>
-	<artifactId>greenhouse</artifactId>
-	<name>greenhouse</name>
+	<artifactId>DeltaCRMWeb</artifactId>
+	<name>DeltaCRMWeb</name>
 	<description>The social destination for Spring developers</description>
 	<url>http://greenhouse.springsource.org</url>
 	<inceptionYear>2010</inceptionYear>
