@@ -8,7 +8,7 @@ stages:
   steps:
   - runScriptConfig:
       image: katalonstudio/katalon
-      shellScript: ./katalon/run_chrome.sh
+      shellScript: katalon -noSplash -email="your-email" -password="your-password" -runMode=console -consoleLog -projectPath="/directory-of-your-project/your-project.prj" -retry=0 -testSuitePath="Test Suites/your-test-suite" -browserType="Chrome"
 - name: Publish
   steps:
   - publishImageConfig:
