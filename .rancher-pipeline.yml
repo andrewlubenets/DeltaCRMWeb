@@ -8,8 +8,7 @@ stages:
   steps:
   - runScriptConfig:
       image: katalonstudio/katalon
-      # Run Test
-      script: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_RegressionTest"
+      shellScript: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_RegressionTest"
 - name: Publish
   steps:
   - publishImageConfig:
