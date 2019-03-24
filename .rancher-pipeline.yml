@@ -8,8 +8,8 @@ stages:
   steps:
   - runScriptConfig:
       image: katalonstudio/katalon
-      shellScript: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test
-        Suites/TS_RegressionTest"
+      shellScript: katalon-execute.sh -projectPath=/tmp/katalon_execute/project -browserType="Chrome"
+        -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_RegressionTest"
   when:
     branch:
       exclude:
