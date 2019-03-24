@@ -10,6 +10,10 @@ stages:
       image: katalonstudio/katalon
       shellScript: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15
         -projectPath="/tmp/katalon_execute/project" -testSuitePath="Test Suites/TS_RegressionTest"
+    when:
+      branch:
+        include:
+        - '!master'
   when:
     branch:
       exclude:
