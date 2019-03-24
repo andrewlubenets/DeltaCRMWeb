@@ -8,8 +8,13 @@ stages:
   steps:
   - runScriptConfig:
       image: katalonstudio/katalon
-      shellScript: mkdir -p /tmp/katalon_execute/ && touch /tmp/katalon_execute/project && katalon-execute.sh -browserType="Chrome"
-        -retry=0 -statusDelay=15 -testSuitePath="Test Suites/TS_RegressionTest"
+      shellScript: mkdir -p /tmp/katalon_execute/ && touch /tmp/katalon_execute/project
+        && katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15 -testSuitePath="Test
+        Suites/TS_RegressionTest"
+  when:
+    branch:
+      exclude:
+      - '!master'
 - name: Publish
   steps:
   - publishImageConfig:
