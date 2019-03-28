@@ -24,7 +24,20 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: example-greenhouse:${CICD_EXECUTION_SEQUENCE}
+      registry: 127.0.0.1:34366
+    when:
+      branch:
+        include:
+        - '!master'
+  when:
+    branch:
+      include:
+      - '!master'
 - name: Deploy
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
+    when:
+      branch:
+        include:
+        - '!master'
