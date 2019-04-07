@@ -23,8 +23,8 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: deltaapps:${CICD_EXECUTION_SEQUENCE}
-      registry: 127.0.0.1:34366
+      tag: test:${CICD_EXECUTION_SEQUENCE}
+      registry: deltaapps
     when:
       branch:
         include:
