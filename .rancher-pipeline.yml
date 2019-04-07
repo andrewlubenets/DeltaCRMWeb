@@ -11,14 +11,6 @@ stages:
       buildContext: .
       tag: test:${CICD_EXECUTION_SEQUENCE}
       registry: deltaapps
-    when:
-      branch:
-        include:
-        - '!master'
-  when:
-    branch:
-      include:
-      - '!master'
 - name: Deploy
   steps:
   - applyYamlConfig:
@@ -27,6 +19,8 @@ stages:
       branch:
         include:
         - '!master'
+- name: Testing
+  steps:
   - runScriptConfig:
       image: katalonstudio/katalon
       shellScript: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15
