@@ -4,20 +4,6 @@ stages:
   - runScriptConfig:
       image: maven:3-jdk-7
       shellScript: mvn clean install
-- name: Test
-  steps:
-  - runScriptConfig:
-      image: katalonstudio/katalon
-      shellScript: katalon-execute.sh -browserType="Chrome" -retry=0 -statusDelay=15
-        -projectPath="/tmp/katalon_execute/project" -testSuitePath="Test Suites/TS_RegressionTest"
-    when:
-      branch:
-        include:
-        - '!master'
-  when:
-    branch:
-      exclude:
-      - '!master'
 - name: Publish
   steps:
   - publishImageConfig:
